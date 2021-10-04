@@ -3,7 +3,7 @@ import "./styles.css";
 
 // Понадобиться, чтобы по апи в каких-то компонентах запросы совершать
 const UserContext = React.createContext({
-    userId: 0,
+    userId: "0",
     setUserId: () => {}
 });
 
