@@ -1,0 +1,25 @@
+.notion__sidebar{
+  flex-grow: 0;
+  flex-shrink: 0;
+  pointer-events: none;
+  position: relative;
+  z-index: 99;
+  background: rgb(247, 246, 243);
+  transition: width 300ms ease-in 0s;
+  width: 240px;
+
+  @media (max-width: 768px) {
+    width: 0;
+  }
+}
+
+.notion__main{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}

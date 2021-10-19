@@ -1,0 +1,279 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+html {
+  font-size: 15px; }
+
+html, body {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  color: black;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  width: 100%; }
+
+#notion-app {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent; }
+
+.notion-app--inner {
+  color: #37352f;
+  fill: currentcolor;
+  line-height: 1.5;
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+.notion-app--main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  background: white; }
+
+.notion__sidebar {
+  flex-grow: 0;
+  flex-shrink: 0;
+  pointer-events: none;
+  position: relative;
+  z-index: 99;
+  background: #f7f6f3;
+  transition: width 300ms ease-in 0s;
+  width: 240px; }
+  @media (max-width: 768px) {
+    .notion__sidebar {
+      width: 0; } }
+
+.notion__main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden; }
+  @media (max-width: 768px) {
+    .notion__main {
+      width: 100%; } }
+
+.notion__topbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  z-index: 100;
+  background: white;
+  user-select: none; }
+
+.notion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  padding-left: 12px;
+  padding-right: 10px;
+  height: 45px; }
+
+.burger {
+  display: none;
+  position: relative;
+  outline: 0;
+  background: none;
+  border: none;
+  cursor: pointer; }
+  .burger:focus {
+    outline: 0; }
+  @media (max-width: 768px) {
+    .burger {
+      display: block;
+      flex-shrink: 0;
+      padding: 12px; } }
+
+.burger__inner {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  will-change: opacity;
+  opacity: 1; }
+
+.burger__svg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px; }
+  .burger__svg svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    fill: rgba(55, 53, 47, 0.8);
+    flex-shrink: 0;
+    backface-visibility: hidden; }
+
+.notion__url {
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  font-size: 14px;
+  height: 100%;
+  flex-grow: 0;
+  margin-right: 8px; }
+
+.url__item {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 1;
+  white-space: nowrap;
+  height: 24px;
+  border-radius: 3px;
+  font-size: inherit;
+  line-height: 1.2;
+  padding-left: 6px;
+  padding-right: 6px;
+  color: #37352f;
+  text-decoration: none; }
+  .url__item:hover {
+    background: rgba(55, 53, 47, 0.08);
+    text-decoration: none; }
+
+.line__oblique {
+  margin-left: 2px;
+  margin-right: 2px;
+  color: rgba(55, 53, 47, 0.4); }
+
+.empty {
+  flex-grow: 1;
+  flex-shrink: 1; }
+
+.notion__action--buttons {
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 0px;
+  padding-left: 12px;
+  justify-content: space-between;
+  z-index: 101;
+  height: 45px;
+  opacity: 1;
+  transition: opacity 700ms ease 0s, color 700ms ease 0s; }
+
+.notion__button {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  height: 28px;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1.2;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: #37352f;
+  margin-right: 2px; }
+  .notion__button:focus {
+    outline: 0; }
+  .notion__button:hover {
+    background: rgba(55, 53, 47, 0.08); }
+  @media (max-width: 420px) {
+    .notion__button {
+      padding-right: 0;
+      padding-left: 0; } }
+
+@media (max-width: 768px) {
+  .notion__sidebar--active {
+    position: absolute;
+    width: 240px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 200; } }
+
+.deactivate__notion--sidebar {
+  width: 0; }
+
+.profile {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 45px;
+  width: 100%;
+  margin-bottom: 0px;
+  padding: 2px 14px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  z-index: 300; }
+  .profile:focus {
+    outline: 0; }
+  .profile:hover {
+    text-decoration: none;
+    background: rgba(55, 53, 47, 0.08); }
+
+.profile__icon {
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-radius: 3px;
+  color: rgba(55, 53, 47, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  cursor: pointer; }
+  .profile__icon--inner {
+    cursor: pointer;
+    user-select: none;
+    transition: background 20ms ease-in 0s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: #37352f; }
+
+.profile__block {
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+  border-radius: 5px;
+  padding: 5px;
+  background: #0c9eec;
+  color: white;
+  font-size: 14px; }
+
+.profile__name-block {
+  flex: 1 1 auto;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.profile__name {
+  display: flex;
+  cursor: pointer;
+  text-align: start;
+  flex-direction: column;
+  margin-right: 6px;
+  margin-top: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #37352f;
+  font-weight: 500; }

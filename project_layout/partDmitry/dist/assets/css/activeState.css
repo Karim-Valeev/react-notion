@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+  .notion__sidebar--active {
+    position: absolute;
+    width: 240px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 200; } }
+
+.deactivate__notion--sidebar {
+  width: 0; }

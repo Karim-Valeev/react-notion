@@ -1,0 +1,20 @@
+.notion__topbar{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+
+  z-index: 100;
+  background: white;
+  user-select: none;
+}
+
+.notion__container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  padding-left: 12px;
+  padding-right: 10px;
+  height: 45px;
+}

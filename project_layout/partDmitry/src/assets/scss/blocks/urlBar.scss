@@ -1,0 +1,44 @@
+.notion__url{
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  font-size: 14px;
+  height: 100%;
+  flex-grow: 0;
+  margin-right: 8px;
+}
+
+.url__item{
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 1;
+  white-space: nowrap;
+  height: 24px;
+  border-radius: 3px;
+  font-size: inherit;
+  line-height: 1.2;
+  padding-left: 6px;
+  padding-right: 6px;
+  color: rgb(55, 53, 47);
+
+  text-decoration: none;
+
+  &:hover{
+    background: rgba(55,53,47,0.08);
+    text-decoration: none;
+  }
+}
+
+.line__oblique{
+  margin-left: 2px;
+  margin-right: 2px;
+  color: rgba(55, 53, 47, 0.4);
+}
+
+.empty{
+  flex-grow: 1;
+  flex-shrink: 1;
+}

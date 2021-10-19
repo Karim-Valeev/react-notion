@@ -1,0 +1,86 @@
+.profile{
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 45px;
+  width: 100%;
+  margin-bottom: 0px;
+  padding: 2px 14px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  z-index: 300;
+
+
+  &:focus{
+    outline: 0;
+  }
+
+  &:hover{
+    text-decoration: none;
+    background: rgba(55,53,47,0.08);
+  }
+}
+
+.profile__icon{
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-radius: 3px;
+  color: rgba(55, 53, 47, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  cursor: pointer;
+
+  &--inner{
+    cursor: pointer;
+    user-select: none;
+    transition: background 20ms ease-in 0s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: rgb(55, 53, 47);
+  }
+}
+
+.profile__block{
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+  border-radius: 5px;
+  padding: 5px;
+  background: #0c9eec;
+  color: white;
+  font-size: 14px;
+}
+
+.profile__name-block{
+  flex: 1 1 auto;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile__name{
+  display: flex;
+  cursor: pointer;
+  text-align: start;
+  flex-direction: column;
+  margin-right: 6px;
+  margin-top: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgb(55, 53, 47);
+  font-weight: 500;
+}
