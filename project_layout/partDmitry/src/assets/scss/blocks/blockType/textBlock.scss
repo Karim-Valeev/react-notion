@@ -36,6 +36,8 @@
   flex-grow: 0;
   display: flex;
   background: transparent;
+  height: 30px;
+  position: relative;
 
   transition: opacity 0.2s linear;
 }

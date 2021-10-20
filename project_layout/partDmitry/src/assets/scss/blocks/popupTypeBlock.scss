@@ -1,0 +1,121 @@
+.popups{
+  position: absolute;
+  top: 100%;
+  z-index: 1000;
+}
+
+.popup__type{
+  display: none;
+  flex-direction: column;
+  width: 324px;
+  min-width: 180px;
+  max-width: calc(100vw - 24px);
+  height: 100%;
+  max-height: 40vh;
+  background: white;
+
+  border-radius: 3px;
+  position: relative;
+  box-shadow: rgba(15, 15,15, 0.5) 0px 0px 0px 1px, rgba(15, 15, 15, 0.10) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+  overflow: hidden;
+
+  z-index: 1000;
+
+  @media (max-width: 424px) {
+    width: 280px;
+  }
+}
+
+.popup__type-inner{
+  flex-grow: 1;
+  z-index: 1;
+  overflow: hidden auto;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+
+.popup__type-header{
+  display: flex;
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  color: rgba(55, 53, 47, 0.6);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 120%;
+  user-select: none;
+  text-transform: uppercase;
+
+  & h4{
+    align-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.type__blocks{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.type__item{
+  display: flex;
+  align-items: center;
+  line-height: 120%;
+  width: 100%;
+  user-select: none;
+  min-height: 45px;
+  font-size: 14px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: none;
+    background: rgba(55, 53, 47, 0.08);
+  }
+}
+
+.type__item-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 14px;
+  margin-top: 1px;
+  align-self: flex-start;
+}
+
+.type__img{
+  display: block;
+  object-fit: cover;
+  border-radius: 3px;
+  background: white;
+  width: 46px;
+  height: 46px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-shadow: rgba(15, 15, 15, 0.10) 0px 0px 0px 1px;
+}
+
+.type__item-name{
+  margin-left: 8px;
+  margin-right: 14px;
+  min-width: 0px;
+  flex: 1 1 auto;
+  font-size: 18px;
+  color: #4f5050;
+  font-weight: bold;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.popup__type--active{
+  display: flex;
+}
