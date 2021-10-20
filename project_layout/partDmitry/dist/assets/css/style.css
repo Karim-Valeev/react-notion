@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *:after, *:before {
   box-sizing: border-box;
   padding: 0;
@@ -38,7 +39,6 @@ html, body {
 .notion__sidebar {
   flex-grow: 0;
   flex-shrink: 0;
-  pointer-events: none;
   position: relative;
   z-index: 99;
   background: #f7f6f3;
@@ -203,6 +203,9 @@ html, body {
 .deactivate__notion--sidebar {
   width: 0; }
 
+.notion__list-item-active {
+  background: rgba(55, 53, 47, 0.08); }
+
 .profile {
   user-select: none;
   transition: background 20ms ease-in 0s;
@@ -277,3 +280,163 @@ html, body {
   text-overflow: ellipsis;
   color: #37352f;
   font-weight: 500; }
+
+.notion__list {
+  padding-top: 14px;
+  padding-bottom: 20px;
+  z-index: 1;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  height: 100%;
+  overflow: hidden auto;
+  /* ползунок скроллбара */
+  /* Стрелки */ }
+  .notion__list::-webkit-scrollbar {
+    width: 8px;
+    /* ширина для вертикального скролла */
+    background-color: #d0d0d0; }
+  .notion__list::-webkit-scrollbar-thumb {
+    background-color: #9d9d9d; }
+  .notion__list::-webkit-scrollbar-button:vertical:start:decrement {
+    display: none; }
+  .notion__list::-webkit-scrollbar-button:vertical:end:increment {
+    display: none; }
+
+.notion__page--block {
+  display: block; }
+
+.notion__item {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  width: 100%; }
+
+.notion__item--inner {
+  display: flex;
+  align-items: center;
+  min-height: 27px;
+  font-size: 14px;
+  width: 100%;
+  color: #37352f;
+  font-weight: 600; }
+  .notion__item--inner:hover {
+    background: rgba(55, 53, 47, 0.08); }
+
+.notion__selectable--arrow {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px; }
+
+.notion__list-item-file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 22px;
+  height: 18px;
+  margin-right: 4px;
+  position: relative; }
+
+.list__file {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 3px;
+  flex-shrink: 0; }
+
+.notion__list-item-name {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  min-width: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center; }
+
+.notion__list--action-btn {
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.notion__list--action-delete {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: 0; }
+  .notion__list--action-delete:hover {
+    background: #a3a3a369; }
+  .notion__list--action-delete:focus {
+    outline: 0; }
+
+.notion__list-outliner__private-empty {
+  display: flex;
+  align-items: center;
+  min-height: 27px;
+  font-size: 14px;
+  padding: 2px 14px 2px 28px;
+  width: 100%;
+  flex: 1 1 auto; }
+  .notion__list-outliner__private-empty p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(55, 53, 47, 0.4);
+    padding-left: 12px; }
+
+.add_notion-page {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-height: 27px;
+  font-size: 14px;
+  padding: 2px 14px;
+  width: 100%;
+  color: rgba(55, 53, 47, 0.6);
+  outline: 0;
+  border: 0; }
+  .add_notion-page:focus {
+    outline: 0; }
+  .add_notion-page:hover {
+    background: rgba(55, 53, 47, 0.08); }
+
+.plus_add_notion {
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-radius: 3px;
+  color: rgba(55, 53, 47, 0.6);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px; }
+
+.add_page__text {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  min-width: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: start; }

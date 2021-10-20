@@ -9,3 +9,6 @@
 
 .deactivate__notion--sidebar {
   width: 0; }
+
+.notion__list-item-active {
+  background: rgba(55, 53, 47, 0.08); }
