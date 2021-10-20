@@ -1,0 +1,51 @@
+.notion__block--video{
+  width: 100%;
+  max-width: 819px;
+  align-self: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+
+  @media (max-width: 768px) {
+    max-width: 568px;
+  }
+
+  @media (max-width: 568px) {
+    max-width: 368px;
+  }
+
+  @media (max-width: 500px) {
+    max-width: 268px;
+  }
+}
+
+.notion__block--video-inner{
+  display: flex;
+  width: 100%;
+  background-color: rgb(242, 241, 238);
+  flex-grow: 1;
+
+  min-height: 100px;
+  height: 0px;
+  position: relative;
+  padding-bottom: 56.2061%;
+}
+
+.videoBlock{
+  position: absolute;
+  max-width: 819px;
+  width: 100%;
+  height: 100%;
+  border-radius: 1px;
+
+  @media (max-width: 768px) {
+    max-width: 568px;
+  }
+
+  @media (max-width: 568px) {
+    max-width: 368px;
+  }
+
+  @media (max-width: 500px) {
+    max-width: 268px;
+  }
+}

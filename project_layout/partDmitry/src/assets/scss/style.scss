@@ -50,3 +50,9 @@ html, body {
 @import "activeState";
 @import "blocks/profile";
 @import "blocks/notionList";
+@import "blocks/notionFrame";
+@import "blocks/blockType/textBlock";
+@import "blocks/blockType/emptyBlocks";
+@import "blocks/blockType/imageBlock";
+@import "blocks/blockType/notionBlockPage";
+@import "blocks/blockType/videoBlock";

@@ -1,0 +1,81 @@
+.notion__block{
+  margin-top: 2px;
+  margin-right: 3px;
+  width: 100%;
+  margin-bottom: 1px;
+  display: flex;
+
+  position: relative;
+
+  &:hover{
+    .block__action--btns{
+      opacity: 1;
+    }
+  }
+}
+
+.text__block{
+  max-width: 100%;
+  width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  caret-color: rgb(55, 53, 47);
+  padding: 3px 2px;
+  resize: none;
+  border: 0;
+  outline: 0;
+
+  &:focus{
+    outline: 0;
+  }
+}
+
+.block__action--btns{
+  flex-shrink: 0;
+  opacity: 0;
+  flex-grow: 0;
+  display: flex;
+  background: transparent;
+
+  transition: opacity 0.2s linear;
+}
+
+.add_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+
+  &:focus{
+    outline: 0;
+  }
+
+  &:hover{
+    background: rgba(55, 53, 47, 0.08);
+  }
+}
+
+.dots_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+
+  &:focus{
+    outline: 0;
+  }
+
+  &:hover{
+    background: rgba(55, 53, 47, 0.08);
+  }
+}

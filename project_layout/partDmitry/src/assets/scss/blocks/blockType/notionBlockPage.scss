@@ -1,0 +1,44 @@
+.notion__block--page{
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  color: #37352f;
+  max-width: 819px;
+
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: none;
+    background: rgba(55, 53, 47, 0.08);
+  }
+}
+
+.notion__block--page-inner{
+  flex: 1 1 0;
+  min-width: 1px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 2px;
+
+  display: flex;
+  align-items: center;
+}
+
+.svg__icon-file{
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.block__page-name{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  line-height: 1.3;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.16);
+}
