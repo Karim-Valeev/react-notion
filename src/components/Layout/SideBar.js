@@ -1,7 +1,10 @@
+import Profile from "../SideBar/Profile";
+import NoteList from "../SideBar/NoteList";
 
 function SideBar () {
     return <div className="notion__sidebar">
-        sdf
+       <Profile/>
+       <NoteList/>
     </div>
 }
 
