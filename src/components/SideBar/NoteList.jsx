@@ -1,8 +1,8 @@
 import AddPageBtn from "./AddPageBtn";
-import NotionListItem from "./NotionListItem";
+import NotionListContainer from "../../containers/Sidebar/NotionListContainer";
 function NoteList () {
     return (<aside className="notion__list">
-        <NotionListItem/>
+       <NotionListContainer/>
         <AddPageBtn/>
     </aside>)
 }
