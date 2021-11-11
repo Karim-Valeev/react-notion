@@ -1,9 +1,9 @@
-import Profile from "../SideBar/Profile";
 import NoteList from "../SideBar/NoteList";
+import ProfileContainer from "../../containers/Sidebar/ProfileContainer";
 
 function SideBar () {
     return <div className="notion__sidebar">
-       <Profile/>
+       <ProfileContainer/>
        <NoteList/>
     </div>
 }
