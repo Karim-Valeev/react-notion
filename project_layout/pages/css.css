@@ -1,0 +1,31 @@
+.popUp:hover{
+    background: rgba(55,53, 47, 0.2);
+}
+#popUp{
+    display: block;
+}
+li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+.ul{
+    color: black;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+.example-2{padding: 10px 15px;}
+.example-2 .btn-tertiary{color: white ;padding:0;line-height:30px;width:350px;margin:auto;display:block; background-color: dodgerblue}
+.example-2 .input-file{width:.1px;height:.1px;opacity:0;overflow:hidden;position:absolute;z-index:-1}
+.example-2 .input-file + .js-labelFile{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 10px;cursor:pointer}
+/*
+.example-2 .input-file + .js-labelFile .icon:before{content:"\f093"}
+*/
+/*
+.example-2 .input-file + .js-labelFile.has-file .icon:before{content:"\f00c";color:#5AAC7B}*/
