@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 // todo Этот код не стирать, только обновлять
 const provider = new GoogleAuthProvider();
 
+// по сути и регистрация и авторизация
+
 function GRegistration() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
