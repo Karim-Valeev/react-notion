@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const history = useHistory();
 
     const handleSubmit = (event) => {
         signInWithEmailAndPassword(auth, email, password)
@@ -17,7 +18,8 @@ function Login() {
                 const user = userCredential.user;
                 console.log(user)
                 localStorage.setItem('userAccessToken', user.accessToken);
-                // history.push("/")
+
+                history.push("/")
             })
             .catch((error) => {
                 const errorCode = error.code;

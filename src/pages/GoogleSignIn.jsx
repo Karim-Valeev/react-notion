@@ -8,7 +8,7 @@ const provider = new GoogleAuthProvider();
 
 // по сути и регистрация и авторизация
 
-function GRegistration() {
+function GoogleSignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     let history = useHistory();
@@ -22,6 +22,7 @@ function GRegistration() {
                 // The signed-in user info.
                 localStorage.setItem('userAccessToken', token);
                 const user = result.user;
+                localStorage.setItem('uid', user.uid);
                 history.push("/")
                 // ...
             }).catch((error) => {
@@ -46,4 +47,4 @@ function GRegistration() {
     )
 }
 
-export default GRegistration
+export default GoogleSignIn
