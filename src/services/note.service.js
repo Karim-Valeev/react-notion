@@ -18,6 +18,10 @@ const db = getDatabase(firebaseApp);
 //   }
 // }
 
+class UserDataService{
+
+}
+
 class NoteDataService {
     //todo get id counters https://firebase.google.com/docs/firestore/solutions/counters#web
     constructor() {
@@ -29,6 +33,7 @@ class NoteDataService {
     }
 
     create(note) {
+        this.noteIdCount++;
         set(ref(db, 'notes/' + this.noteIdCount), {
             title: note.title,
             author: note.author,
@@ -36,7 +41,6 @@ class NoteDataService {
             url: 'http://localhost:8080',
             parentId: null
         }).then(r => console.log("SUCCESS"));
-        this.noteIdCount++;
     }
 
     update(key, value) {

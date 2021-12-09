@@ -2,9 +2,20 @@ import React, {useState} from 'react';
 import { useHistory } from "react-router-dom";
 import NoteDataService from '../services/note.service'
 
+const initialState = {
+  title: "",
+  text: "",
+};
+
+function useForceUpdate(){
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update the state to force render
+}
+
 function TestFirebaseDBWithNotes() {
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
+    const forceUpdate = useForceUpdate(); // Пытался заставить компонент перерндерится чтобы поля пустыми стали
 
     const saveNote = (event) => {
         event.preventDefault();
