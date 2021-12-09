@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-
+import {auth} from "../firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useHistory } from "react-router-dom";
 
 // todo Этот код не стирать, только обновлять
 
@@ -8,7 +10,19 @@ function Login() {
     const [password, setPassword] = useState("");
 
     const handleSubmit = (event) => {
-        console.log(`email: ${email} \npassword: ${password}`)
+        signInWithEmailAndPassword(auth, email, password)
+            //todo добавить в TS проверку на тип: UserImpl
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                console.log(user)
+                localStorage.setItem('userAccessToken', user.accessToken);
+                // history.push("/")
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
         event.preventDefault()
     }
 

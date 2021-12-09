@@ -11,12 +11,12 @@ function Registration() {
     let history = useHistory();
 
     const handleSubmit = (event) => {
-        const auth = getAuth(app);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
                 console.log(user)
+                localStorage.setItem('userAccessToken', user.accessToken);
                 history.push("/")
             })
             .catch((error) => {
