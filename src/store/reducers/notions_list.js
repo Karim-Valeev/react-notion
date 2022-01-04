@@ -1,4 +1,4 @@
-import {GET_NOTION_LIST} from "../actions/NotionListActions";
+import {ACTIVE_NOTION_LIST, GET_NOTION_LIST} from "../actions/NotionListActions";
 
 
 const initialState = [
@@ -63,6 +63,8 @@ export function notionListReducer(state=initialState,action) {
     switch (action.type) {
         case GET_NOTION_LIST:
             return {...state}
+        case ACTIVE_NOTION_LIST:
+            return state
         default: return state
     }
 }

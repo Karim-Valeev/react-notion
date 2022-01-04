@@ -2,6 +2,7 @@ import {ReactComponent as ArrowSvg} from '../../static/svg/arrow.svg'
 import {ReactComponent as FileSvg} from '../../static/svg/file.svg'
 import {ReactComponent as DeleteSvg} from '../../static/svg/delete.svg'
 import {ReactComponent as PlusSvg} from '../../static/svg/plus.svg'
+import PropTypes from "prop-types";
 
 const styleArrow = {
     width: '0.6875em',
@@ -55,12 +56,11 @@ const stylePlusSvg = {
     flex_shrink: 0,
     backface_visibility: 'hidden'
 }
-function NotionListItemRecursion ({data}) {
-    const {name, level, items, active} = data
-
+function NotionListItemRecursion ({data, handleClick}) {
+    const {id,parentId,name, level, items, active} = data
     return (
         <>
-        <a href="/#" className="notion__item">
+        <a href="/#" className="notion__item" onClick={(e) => handleClick(e,id,parentId)}>
                             <span className="notion__item--inner" style={{padding: `2px 14px 2px ${level*14}px`}}>
                                 <span className="notion__selectable--arrow">
                                    <ArrowSvg style={active ? styleArrow : styleArrowDown}/>
@@ -83,12 +83,20 @@ function NotionListItemRecursion ({data}) {
         </a>
             {(items && active) ?
                 <div className="notion__list-outliner__private">
-                    {items.map((i,n) => <NotionListItemRecursion data={i} key={n}/>)}
+                    {items.map((i,index) => <NotionListItemRecursion data={i} key={`${i.id}${index}`} handleClick={handleClick}/>)}
                 </div> :
                 (active) ? (<div className="notion__list-outliner__private-empty"  style={{padding_left: `${level*14}px`}}><p>No pages inside</p></div>) : ''
             }
-        </>
-    )
+        </>)
+}
+
+
+NotionListItemRecursion.propTypes = {
+    data: PropTypes.object
+}
+
+NotionListItemRecursion.default = {
+    data: () => { return {} }
 }
 
 export default NotionListItemRecursion

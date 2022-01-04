@@ -1,16 +1,22 @@
 import NotionListItemRecursion from "./NotionListItemRecursion";
-
-function NotionListItem({notionList}) {
-    function handleData (obj) {
-        return [...obj.map((i,n) =>
-            <div className="notion__page--block">
-                <NotionListItemRecursion data={i} key={n}/>
-            </div>)]
-    }
-    let showHtmlData = handleData(notionList)
+import PropTypes from 'prop-types'
+function NotionListItem({notionList, handleClick}) {
     return <>
-        {showHtmlData}
+        {notionList.map((item,index) =>
+            <div className="notion__page--block">
+            <NotionListItemRecursion data={item} key={`${item.id}${index}`} handleClick={handleClick}/>
+            </div>
+        )}
     </>
 }
+
+NotionListItem.propTypes = {
+    notionList: PropTypes.array
+}
+
+NotionListItem.default = {
+    notionList: () => { return [] }
+}
+
 
 export default NotionListItem
