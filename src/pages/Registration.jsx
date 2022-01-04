@@ -1,29 +1,28 @@
 import React, {useState} from 'react';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../firebase/auth";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 
 // todo Этот код не стирать, только обновлять
 
-function Login() {
+function Registration() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();
+    let history = useHistory();
 
     const handleSubmit = (event) => {
-        signInWithEmailAndPassword(auth, email, password)
-            //todo добавить в TS проверку на тип: UserImpl
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
                 console.log(user)
                 localStorage.setItem('userAccessToken', user.accessToken);
-
                 history.push("/")
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(errorCode,errorMessage)
             });
         event.preventDefault()
     }
@@ -33,7 +32,7 @@ function Login() {
             <div className="container mt-4 mb-4">
                 <div className="row justify-content-md-center">
                     <div className="col-md-12 col-lg-5">
-                        <h1 className="h2 mb-4 center top-margin-50px">Login</h1>
+                        <h1 className="h2 mb-4 center top-margin-50px">Register:</h1>
                         <label>Email:</label>
                         <div>
                             <input type="text" name="email" required className="form-control mb-2"
@@ -47,11 +46,8 @@ function Login() {
                         </div>
                         <div className="center">
                             <button type="submit" className="btn btn-primary">
-                                Login
+                                Create an account
                             </button>
-                        </div>
-                        <div className="center2 top-margin-10px">
-                            New to this forum? <a href="/">Create an account.</a>
                         </div>
                     </div>
                 </div>
@@ -60,14 +56,4 @@ function Login() {
     )
 }
 
-export default Login
-
-// For logout
-// import { getAuth, signOut } from "firebase/auth";
-//
-// const auth = getAuth();
-// signOut(auth).then(() => {
-//   // Sign-out successful.
-// }).catch((error) => {
-//   // An error happened.
-// });
+export default Registration
