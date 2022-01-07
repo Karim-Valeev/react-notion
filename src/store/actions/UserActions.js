@@ -1,11 +1,16 @@
-export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export const FETCH_USER = 'FETCH_USER'
 
-export function handleLogin () {
-    return function (dispatch) {
-        dispatch({
-            type: LOGIN_REQUEST
-        })
-    }
-
-    // Какие действия с авторизацией
+export function fetchUser (user) {
+        return async function (dispatch){
+            console.log(user.uid)
+            dispatch({
+                type: FETCH_USER,
+                payload: {
+                    first_name: 'Дмитриz',
+                    last_name: 'Герасимоz',
+                    id: 0
+                }
+            })
+        }
 }
+

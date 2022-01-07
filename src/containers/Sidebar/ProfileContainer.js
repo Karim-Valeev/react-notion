@@ -9,7 +9,9 @@ const mapStateProps = store => {
 
 function ProfileContainer (props) {
     const [user]= useState(props.user)
-
+    if (user === false) {
+        return <></>
+    }
     return <Profile user={user}/>
 }
 

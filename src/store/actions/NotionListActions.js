@@ -8,13 +8,8 @@ export function handleNotionList () {
     }
 }
 
-export function handleActiveNotionList (id, parentId) {
-    console.log('click')
-    console.log(id)
-    console.log(parentId)
+export function handleActiveNotionList (id, parentId, level) {
     return function (dispatch) {
-        dispatch({
-            type: ACTIVE_NOTION_LIST
-        })
+        dispatch({ type: ACTIVE_NOTION_LIST, payload: {id, parentId, level} })
     }
 }

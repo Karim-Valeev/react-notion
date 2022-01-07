@@ -1,5 +1,5 @@
 import  {
-    LOGIN_REQUEST
+    FETCH_USER
 } from "../actions/UserActions";
 
 const initialState = {
@@ -8,10 +8,10 @@ const initialState = {
     id: 0
 }
 
-export function userReducer(state=initialState,action) {
+export function userReducer(state=false,action) {
     switch (action.type) {
-        case LOGIN_REQUEST:
-            return {...state}
+        case FETCH_USER:
+            return action.payload || null
         default:
             return state
     }

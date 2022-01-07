@@ -9,9 +9,9 @@ const mapStateProps = store => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        activeNotionList: (id,parentId) => dispatch(handleActiveNotionList(id,parentId))
+        activeNotionList: (id,parentId, level) => dispatch(handleActiveNotionList(id,parentId, level))
     }
 }
 
@@ -19,12 +19,12 @@ function NotionListContainer (props) {
     const [notionList] = useState(props.notionList)
     const activeNotionList = props.activeNotionList
 
-    function handleClick (e, id, parentId) {
+    function handleClick (e, id, parentId, level) {
         e.preventDefault()
-        activeNotionList(id,parentId)
+        activeNotionList(id,parentId, level)
     }
 
-    return <NotionListItem notionList={notionList} handleClick={handleClick}/>
+    return <NotionListItem notionList={notionList}/>
 }
 
 export default connect(

@@ -1,8 +1,9 @@
 import NoteLayout from "../components/Layout/NoteLayout";
 import SideBar from "../components/Layout/SideBar";
 import {auth} from "../firebase/auth";
-function Notion () {
 
+
+function Notion () {
     // на будущее
     const logout = () => {
         auth.signOut();

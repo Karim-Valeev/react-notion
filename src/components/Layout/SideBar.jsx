@@ -1,4 +1,4 @@
-import NoteList from "../SideBar/NoteList";
+import NoteList from "../../components/SideBar/NoteList";
 import ProfileContainer from "../../containers/Sidebar/ProfileContainer";
 
 function SideBar () {

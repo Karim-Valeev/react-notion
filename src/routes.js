@@ -1,21 +1,32 @@
-import {Switch, Route, BrowserRouter} from 'react-router-dom'
-import Notion from './pages/Notion'
-import Login from './pages/Login'
-import Registration from './pages/Registration'
-import GoogleSignIn from './pages/GoogleSignIn'
+import Registration from "./pages/Registration";
+import GoogleSignIn from "./pages/GoogleSignIn";
+import Login from "./pages/Login";
 import TestFirebaseDBWithNotes from "./pages/TestFirebaseDBWithNotes";
+import Notion from "./pages/Notion";
+import {G_REGISTRATION, LOGIN_ROUTE, NOTION, REGISTRATION, TEST} from "./constants/route";
 
-function Routes() {
-    return <div>
-        <BrowserRouter>
-            <Switch>
-                <Route exact path='/' component={Notion}/>
-                <Route path='/registration' component={Registration}/>
-                <Route path='/g-registration' component={GoogleSignIn}/>
-                <Route path='/login' component={Login}/>
-                <Route path='/test' component={TestFirebaseDBWithNotes}/>
-            </Switch>
-        </BrowserRouter>
-    </div>
-}
-export default Routes
+export const publicRoutes = [
+    {
+        path: REGISTRATION,
+        component: Registration
+    },
+    {
+        path: G_REGISTRATION,
+        component: GoogleSignIn
+    },
+    {
+        path: LOGIN_ROUTE,
+        component: Login
+    },
+    {
+        path: TEST,
+        component: TestFirebaseDBWithNotes
+    }
+]
+
+export const privateRoutes = [
+    {
+        path: NOTION,
+        component: Notion
+    }
+]

@@ -1,10 +1,10 @@
-import NotionListItemRecursion from "./NotionListItemRecursion";
+import NotionListItemRecursion from "../../components/SideBar/NotionListItemRecursion";
 import PropTypes from 'prop-types'
-function NotionListItem({notionList, handleClick}) {
+function NotionListItem({notionList}) {
     return <>
         {notionList.map((item,index) =>
             <div className="notion__page--block">
-            <NotionListItemRecursion data={item} key={`${item.id}${index}`} handleClick={handleClick}/>
+            <NotionListItemRecursion data={item} key={`${item.id}${index}`}/>
             </div>
         )}
     </>

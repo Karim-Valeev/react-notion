@@ -814,3 +814,46 @@ html, body {
 
 .popup__type--active {
   display: flex; }
+
+.loader-container {
+  position: relative;
+  display: contents;
+  width: 250px;
+  height: 250px; }
+
+.loader-container .loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; }
+
+.wave .loader {
+  width: 100px;
+  height: 100px; }
+.wave .loader > div {
+  float: left;
+  margin: 40% 2% 0 0;
+  width: 4%;
+  height: 16%;
+  background-color: #0c9eec;
+  animation: wave 1s cubic-bezier(0.2, 0.68, 0.18, 1.08) infinite; }
+.wave .loader .line-1 {
+  margin-left: 30%; }
+.wave .loader .line-1 {
+  animation-delay: 0.1s; }
+.wave .loader .line-2 {
+  animation-delay: 0.2s; }
+.wave .loader .line-3 {
+  animation-delay: 0.3s; }
+.wave .loader .line-4 {
+  animation-delay: 0.4s; }
+.wave .loader .line-5 {
+  animation-delay: 0.5s; }
+
+@keyframes wave {
+  0%,100% {
+    transform: scaleY(1); }
+  50% {
+    transform: scaleY(2); } }

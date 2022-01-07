@@ -1,6 +1,5 @@
 import {firebaseApp} from "../firebase/firebaseApp";
 import { getDatabase, ref, set } from "firebase/database";
-import login from "../pages/Login";
 
 const db = getDatabase(firebaseApp);
 
@@ -18,9 +17,6 @@ const db = getDatabase(firebaseApp);
 //   }
 // }
 
-class UserDataService{
-
-}
 
 class NoteDataService {
     //todo get id counters https://firebase.google.com/docs/firestore/solutions/counters#web

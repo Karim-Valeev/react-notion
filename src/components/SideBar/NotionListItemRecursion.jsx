@@ -2,7 +2,9 @@ import {ReactComponent as ArrowSvg} from '../../static/svg/arrow.svg'
 import {ReactComponent as FileSvg} from '../../static/svg/file.svg'
 import {ReactComponent as DeleteSvg} from '../../static/svg/delete.svg'
 import {ReactComponent as PlusSvg} from '../../static/svg/plus.svg'
+import { MAX_LEVEL } from '../../constants/notionListConstants'
 import PropTypes from "prop-types";
+import {useState} from "react";
 
 const styleArrow = {
     width: '0.6875em',
@@ -56,14 +58,15 @@ const stylePlusSvg = {
     flex_shrink: 0,
     backface_visibility: 'hidden'
 }
-function NotionListItemRecursion ({data, handleClick}) {
-    const {id,parentId,name, level, items, active} = data
+function NotionListItemRecursion ({data}) {
+    const {name, level, items} = data
+    const [open, setOpen] = useState(false)
     return (
         <>
-        <a href="/#" className="notion__item" onClick={(e) => handleClick(e,id,parentId)}>
+        <a href="/#" className="notion__item" onClick={() => setOpen(!open)}>
                             <span className="notion__item--inner" style={{padding: `2px 14px 2px ${level*14}px`}}>
                                 <span className="notion__selectable--arrow">
-                                   <ArrowSvg style={active ? styleArrow : styleArrowDown}/>
+                                   <ArrowSvg style={open ? styleArrow : styleArrowDown}/>
                                 </span>
                                 <span className="notion__list-item-file">
                                     <span className="list__file">
@@ -72,20 +75,32 @@ function NotionListItemRecursion ({data, handleClick}) {
                                 </span>
                                 <span className="notion__list-item-name">{name}</span>
                                 <span className="notion__list--action-btn">
-                                    <button type="button" className="notion__list--action-delete">
+                                    <button type="button" className="notion__list--action-delete"
+                                            onClick={(e) => {
+                                        e.preventDefault()
+                                        e.stopPropagation()
+                                        console.log('delete')
+                                    }}>
                                         <DeleteSvg style={styleDelete}/>
                                     </button>
-                                    <button type="button" className="notion__list--action-delete">
-                                       <PlusSvg style={stylePlusSvg}/>
-                                    </button>
+                                    { (level !== MAX_LEVEL) ?
+                                        <button type="button" className="notion__list--action-delete"
+                                                onClick={(e) => {
+                                                    e.stopPropagation()
+                                                    e.preventDefault()
+                                                    console.log('add')
+                                                }}>
+                                            <PlusSvg style={stylePlusSvg}/>
+                                        </button> : ''
+                                    }
                                 </span>
                             </span>
         </a>
-            {(items && active) ?
+            {(items && open) ?
                 <div className="notion__list-outliner__private">
-                    {items.map((i,index) => <NotionListItemRecursion data={i} key={`${i.id}${index}`} handleClick={handleClick}/>)}
+                    {items.map((i,index) => <NotionListItemRecursion data={i} key={`${i.id}${index}`}/>)}
                 </div> :
-                (active) ? (<div className="notion__list-outliner__private-empty"  style={{padding_left: `${level*14}px`}}><p>No pages inside</p></div>) : ''
+                (open) ? (<div className="notion__list-outliner__private-empty"  style={{padding_left: `${level*14}px`}}><p>No pages inside</p></div>) : ''
             }
         </>)
 }
