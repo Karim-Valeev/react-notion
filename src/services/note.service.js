@@ -1,5 +1,5 @@
 import {firebaseApp} from "../firebase/firebaseApp";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
 const db = getDatabase(firebaseApp);
 
@@ -22,11 +22,20 @@ class NoteDataService {
     //todo get id counters https://firebase.google.com/docs/firestore/solutions/counters#web
     constructor() {
         this.noteIdCount=1
+        this.noteList = []
     }
 
     getAll() {
-        return db;
+        const notesRef = ref(db, '/notes/')
+        onValue(notesRef, (snapshot) => {
+            const data = snapshot.val()
+            this.noteList = Object.entries(data).map(([key, value]) => {return {...value, id: key}})
+            console.log(this.noteList)
+        })
+        console.log(this.noteList)
+        return this.noteList
     }
+
 
     create(note) {
         this.noteIdCount++;

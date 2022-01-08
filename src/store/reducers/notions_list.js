@@ -62,7 +62,7 @@ const initialState = [
 export function notionListReducer(state=initialState,action) {
     switch (action.type) {
         case GET_NOTION_LIST:
-            return {...state}
+            return state
         case ACTIVE_NOTION_LIST:
             return state
         default: return state

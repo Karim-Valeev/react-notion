@@ -1,7 +1,17 @@
 import { connect } from "react-redux";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import NotionListItem from "../../components/SideBar/NotionListItem";
-import {handleActiveNotionList} from "../../store/actions/NotionListActions";
+import {handleNotionList} from "../../store/actions/NotionListActions";
+
+
+function NotionListContainer (props) {
+    const [notionList] = useState(props.notionList)
+    const handleNotionList = props.handleNotionList
+
+    handleNotionList()
+
+    return <NotionListItem notionList={notionList}/>
+}
 
 const mapStateProps = store => {
     return {
@@ -11,20 +21,8 @@ const mapStateProps = store => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        activeNotionList: (id,parentId, level) => dispatch(handleActiveNotionList(id,parentId, level))
+        handleNotionList: () => dispatch(handleNotionList())
     }
-}
-
-function NotionListContainer (props) {
-    const [notionList] = useState(props.notionList)
-    const activeNotionList = props.activeNotionList
-
-    function handleClick (e, id, parentId, level) {
-        e.preventDefault()
-        activeNotionList(id,parentId, level)
-    }
-
-    return <NotionListItem notionList={notionList}/>
 }
 
 export default connect(

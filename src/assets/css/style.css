@@ -333,6 +333,10 @@ html, body {
   height: 20px;
   border-radius: 3px; }
 
+.notion__selectable--arrow:hover{
+  background: #a3a3a369;
+}
+
 .notion__list-item-file {
   display: flex;
   align-items: center;

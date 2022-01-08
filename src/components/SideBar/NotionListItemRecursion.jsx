@@ -63,9 +63,12 @@ function NotionListItemRecursion ({data}) {
     const [open, setOpen] = useState(false)
     return (
         <>
-        <a href="/#" className="notion__item" onClick={() => setOpen(!open)}>
+        <a href="/#" className="notion__item">
                             <span className="notion__item--inner" style={{padding: `2px 14px 2px ${level*14}px`}}>
-                                <span className="notion__selectable--arrow">
+                                <span className="notion__selectable--arrow" onClick={(e) => {
+                                    e.preventDefault()
+                                    e.stopPropagation()
+                                    setOpen(!open)}}>
                                    <ArrowSvg style={open ? styleArrow : styleArrowDown}/>
                                 </span>
                                 <span className="notion__list-item-file">
