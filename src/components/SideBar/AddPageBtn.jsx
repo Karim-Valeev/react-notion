@@ -9,8 +9,8 @@ const container = {
 
 }
 
-function AddPageBtn() {
-    return  <button type="button" className="add_notion-page">
+function AddPageBtn({handleClick}) {
+    return  <button type="button" className="add_notion-page" onClick={handleClick}>
                         <span className="plus_add_notion">
                             <PlusSvg style={container}/>
                         </span>

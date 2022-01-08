@@ -1,5 +1,5 @@
 import {firebaseApp} from "../firebase/firebaseApp";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, onValue, child,get, orderByChild, equalTo, query, runTransaction} from "firebase/database";
 
 const db = getDatabase(firebaseApp);
 
@@ -25,14 +25,18 @@ class NoteDataService {
         this.noteList = []
     }
 
-    getAll() {
-        const notesRef = ref(db, '/notes/')
-        onValue(notesRef, (snapshot) => {
-            const data = snapshot.val()
-            this.noteList = Object.entries(data).map(([key, value]) => {return {...value, id: key}})
-            console.log(this.noteList)
-        })
-        console.log(this.noteList)
+    async getAll() {
+        const notesRef = query(ref(db, '/notes/'))
+        const value = await get(notesRef)
+        this.noteList = Object.entries(value.val()).map(([key, value]) => {return {...value, id: key}})
+        return this.noteList
+    }
+
+    async getNote(uid) {
+        const notesRef = query(ref(db, `notes`), ...[orderByChild('author'), equalTo(uid)])
+        const value = await get(notesRef)
+
+        this.noteList = Object.entries(value.val()).map(([key, value]) => {return {...value, id: key}})
         return this.noteList
     }
 
