@@ -1,5 +1,5 @@
 import {firebaseApp} from "../firebase/firebaseApp";
-import { getDatabase, ref, set, onValue, child,get, orderByChild, equalTo, query, runTransaction} from "firebase/database";
+import { getDatabase, ref, set,get, orderByChild, equalTo, query, push, child} from "firebase/database";
 
 const db = getDatabase(firebaseApp);
 
@@ -21,7 +21,6 @@ const db = getDatabase(firebaseApp);
 class NoteDataService {
     //todo get id counters https://firebase.google.com/docs/firestore/solutions/counters#web
     constructor() {
-        this.noteIdCount=1
         this.noteList = []
     }
 
@@ -36,19 +35,22 @@ class NoteDataService {
         const notesRef = query(ref(db, `notes`), ...[orderByChild('author'), equalTo(uid)])
         const value = await get(notesRef)
 
-        this.noteList = Object.entries(value.val()).map(([key, value]) => {return {...value, id: key}})
+        this.noteList = Object.entries(value.val()).map(([key, value]) => {
+            const dataItem = {
+                ...value,
+                id: key
+            }
+            dataItem.parentId = value.parentId === undefined ? null : value.parentId
+            return dataItem
+        })
         return this.noteList
     }
 
 
     create(note) {
-        this.noteIdCount++;
-        set(ref(db, 'notes/' + this.noteIdCount), {
-            title: note.title,
-            author: note.author,
-            text: note.text,
-            url: 'http://localhost:8080',
-            parentId: null
+        const newNoteKey = push(child(ref(db), 'notes')).key
+        set(ref(db, 'notes/' + newNoteKey), {
+            ...note
         }).then(r => console.log("SUCCESS"));
     }
 

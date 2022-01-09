@@ -58,8 +58,8 @@ const stylePlusSvg = {
     flex_shrink: 0,
     backface_visibility: 'hidden'
 }
-function NotionListItemRecursion ({data}) {
-    const {name, level, items} = data
+function NotionListItemRecursion ({data, handleAddNote}) {
+    const {title, level, items, parentId, id} = data
     const [open, setOpen] = useState(false)
     return (
         <>
@@ -76,7 +76,7 @@ function NotionListItemRecursion ({data}) {
                                         <FileSvg style={styleFileSvg}/>
                                     </span>
                                 </span>
-                                <span className="notion__list-item-name">{name}</span>
+                                <span className="notion__list-item-name">{title}</span>
                                 <span className="notion__list--action-btn">
                                     <button type="button" className="notion__list--action-delete"
                                             onClick={(e) => {
@@ -88,11 +88,7 @@ function NotionListItemRecursion ({data}) {
                                     </button>
                                     { (level !== MAX_LEVEL) ?
                                         <button type="button" className="notion__list--action-delete"
-                                                onClick={(e) => {
-                                                    e.stopPropagation()
-                                                    e.preventDefault()
-                                                    console.log('add')
-                                                }}>
+                                                onClick={() => handleAddNote({parentId, level, id})}>
                                             <PlusSvg style={stylePlusSvg}/>
                                         </button> : ''
                                     }
