@@ -58,7 +58,7 @@ const stylePlusSvg = {
     flex_shrink: 0,
     backface_visibility: 'hidden'
 }
-function NotionListItemRecursion ({data, handleAddNote}) {
+function NotionListItemRecursion ({data, handleAddNote, handleDelete}) {
     const {title, level, items, parentId, id} = data
     const [open, setOpen] = useState(false)
     return (
@@ -79,11 +79,7 @@ function NotionListItemRecursion ({data, handleAddNote}) {
                                 <span className="notion__list-item-name">{title}</span>
                                 <span className="notion__list--action-btn">
                                     <button type="button" className="notion__list--action-delete"
-                                            onClick={(e) => {
-                                        e.preventDefault()
-                                        e.stopPropagation()
-                                        console.log('delete')
-                                    }}>
+                                            onClick={() => handleDelete({parentId, id, level, items})}>
                                         <DeleteSvg style={styleDelete}/>
                                     </button>
                                     { (level !== MAX_LEVEL) ?
@@ -97,7 +93,7 @@ function NotionListItemRecursion ({data, handleAddNote}) {
         </a>
             {(items && open) ?
                 <div className="notion__list-outliner__private">
-                    {items.map((i,ind) => <NotionListItemRecursion data={i} handleAddNote={handleAddNote} key={`${i.id}${ind}`}/>)}
+                    {items.map((i,ind) => <NotionListItemRecursion data={i} handleAddNote={handleAddNote} handleDelete={handleDelete} key={`${i.id}${ind}`}/>)}
                 </div> :
                 (open) ? (<div className="notion__list-outliner__private-empty"  style={{padding_left: `${level*14}px`}}><p>No pages inside</p></div>) : ''
             }

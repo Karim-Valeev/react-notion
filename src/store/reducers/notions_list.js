@@ -1,4 +1,4 @@
-import {ADD_NOTE, GET_NOTION_LIST} from "../actions/NotionListActions";
+import {ADD_NOTE, DELETE_NOTE, GET_NOTION_LIST} from "../actions/NotionListActions";
 
 
 const initialState = []
@@ -8,6 +8,8 @@ export function notionListReducer(state=initialState,action) {
         case GET_NOTION_LIST:
             return action.payload
         case ADD_NOTE:
+            return action.payload
+        case DELETE_NOTE:
             return action.payload
         default: return state
     }

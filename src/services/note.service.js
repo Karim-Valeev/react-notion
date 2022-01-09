@@ -1,6 +1,6 @@
 import {firebaseApp} from "../firebase/firebaseApp";
-import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, set} from "firebase/database";
-import {nest} from "../utils/changeState";
+import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, set, remove} from "firebase/database";
+import { flattenNote, nest} from "../utils/changeState";
 
 const db = getDatabase(firebaseApp);
 
@@ -53,7 +53,7 @@ class NoteDataService {
 
     async create(note) {
         const newNoteKey = push(child(ref(db), 'notes')).key
-        const r = await set(ref(db, 'notes/' + newNoteKey), {
+        await set(ref(db, 'notes/' + newNoteKey), {
             ...note
         })
         return this.getNote(note.author)
@@ -63,8 +63,12 @@ class NoteDataService {
         return db.child(key).update(value);
     }
 
-    delete(key) {
-        return db.child(key).remove();
+    async delete(note) {
+        const deleteNotes = flattenNote(note)
+        for (let item of deleteNotes) {
+            await remove(ref(db, `/notes/${item.id}`))
+        }
+        return this.getNote(deleteNotes[0].author)
     }
 
     deleteAll() {
