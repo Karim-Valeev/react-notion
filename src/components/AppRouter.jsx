@@ -3,7 +3,7 @@ import {Route, Switch, Redirect} from "react-router-dom";
 import {auth} from "../firebase/auth";
 import {privateRoutes, publicRoutes} from "../routes";
 import {G_REGISTRATION, NOTION} from "../constants/route";
-import Loader from "./Loader";
+import Loader from "../components/Loaders/Loader";
 import {setUser} from "../store/actions/UserActions";
 import {useDispatch} from "react-redux";
 function AppRouter () {

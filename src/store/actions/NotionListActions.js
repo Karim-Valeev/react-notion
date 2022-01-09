@@ -7,7 +7,7 @@ export function handleNotionList (user) {
        const noteList = await NoteDataService.getNote(user.uid)
         dispatch({
             type: GET_NOTION_LIST,
-            payload: noteList
+            payload: {noteList, load: false}
         })
     }
 }
@@ -17,7 +17,7 @@ export function handleAddNote (note) {
         const noteList = await NoteDataService.create(note)
         dispatch({
             type: ADD_NOTE,
-            payload: noteList
+            payload:  {noteList, load: false}
         })
     }
 }
@@ -27,7 +27,7 @@ export function handleDeleteNote (note) {
         const noteList = await NoteDataService.delete(note)
         dispatch({
             type: DELETE_NOTE,
-            payload: noteList
+            payload:  {noteList, load: false}
         })
     }
 }

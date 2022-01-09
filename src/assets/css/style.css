@@ -92,8 +92,8 @@ html, body {
 
 .burger__inner {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   will-change: opacity;
   opacity: 1; }
 
@@ -156,7 +156,7 @@ html, body {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  padding-right: 0px;
+  padding-right: 0;
   padding-left: 12px;
   justify-content: space-between;
   z-index: 101;
@@ -214,7 +214,7 @@ html, body {
   align-items: center;
   height: 45px;
   width: 100%;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   padding: 2px 14px;
   background: transparent;
   border: 0;
@@ -285,8 +285,8 @@ html, body {
   padding-top: 14px;
   padding-bottom: 20px;
   z-index: 1;
-  margin-right: 0px;
-  margin-bottom: 0px;
+  margin-right: 0;
+  margin-bottom: 0;
   height: 100%;
   overflow: hidden auto;
   /* ползунок скроллбара */
@@ -861,3 +861,47 @@ html, body {
     transform: scaleY(1); }
   50% {
     transform: scaleY(2); } }
+
+.arc-rotate-double .loader {
+  width: 80px;
+  height: 80px; }
+.arc-rotate-double .loader > div {
+  position: absolute;
+  border: 2px solid;
+  border-color: transparent #7e878d;
+  border-radius: 50%;
+  animation: load 1s infinite ease-in-out; }
+.arc-rotate-double .loader .arc-1 {
+  margin: 32% 0 0 32%;
+  width: 36%;
+  height: 36%; }
+.arc-rotate-double .loader .arc-2 {
+  margin: 40% 0 0 40%;
+  width: 20%;
+  height: 20%;
+  animation-direction: reverse;
+  animation-delay: -0.5s; }
+
+@keyframes load {
+  0% {
+    transform: rotate(0) scale(1); }
+  50% {
+    transform: rotate(180deg) scale(0.6); }
+  100% {
+    transform: rotate(360deg) scale(1); } }
+
+.loader__container-note{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.loader__container-note .loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; }

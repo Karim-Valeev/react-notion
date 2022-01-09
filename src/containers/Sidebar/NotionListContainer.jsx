@@ -8,10 +8,12 @@ import {
 } from "../../store/actions/NotionListActions";
 import * as notionListSelectors from "../../store/selectors/notion_list_selectors"
 import * as userSelectors from "../../store/selectors/user_selectors"
+import LoaderNotionList from "../../components/Loaders/LoaderNotionList";
 
 
 function NotionListContainer () {
-    const notionList = useSelector(notionListSelectors.all)
+    const notionList = useSelector(notionListSelectors.notionList)
+    const load = useSelector(notionListSelectors.load)
     const user = useSelector(userSelectors.user)
     const dispatch = useDispatch();
 
@@ -34,7 +36,7 @@ function NotionListContainer () {
         dispatch(handleDeleteNote([{...data, author: user.uid}]))
     }
 
-    return <NotionListItem notionList={notionList} handleAddNote={handleAddNote} handleDelete={handleDelete}/>
+    return (load) ?  <LoaderNotionList/> : <NotionListItem notionList={notionList} handleAddNote={handleAddNote} handleDelete={handleDelete}/>
 }
 
 export default  NotionListContainer

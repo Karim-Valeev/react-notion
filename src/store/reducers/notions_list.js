@@ -1,7 +1,10 @@
 import {ADD_NOTE, DELETE_NOTE, GET_NOTION_LIST} from "../actions/NotionListActions";
 
 
-const initialState = []
+const initialState = {
+    notes: [],
+    load: true
+}
 
 export function notionListReducer(state=initialState,action) {
     switch (action.type) {
