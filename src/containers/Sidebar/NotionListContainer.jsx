@@ -1,18 +1,19 @@
-import {connect} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import NotionListItem from "../../components/SideBar/NotionListItem";
-import {handleAddNote, handleNotionList} from "../../store/actions/NotionListActions";
+import {handleAddNote as handleAddNoteDispatch, handleNotionList} from "../../store/actions/NotionListActions";
+import * as notionListSelectors from "../../store/selectors/notion_list_selectors"
+import * as userSelectors from "../../store/selectors/user_selectors"
 
 
-function NotionListContainer (props) {
-    const notionList = props.notionList
-    const user = props.user
-    const handleNotionList = props.handleNotionList
-    const handleAddNoteDispatch = props.handleAddNote
+function NotionListContainer () {
+    const notionList = useSelector(notionListSelectors.all)
+    const user = useSelector(userSelectors.user)
+    const dispatch = useDispatch();
 
-    useEffect(async () => {
-        await handleNotionList(user)
-    }, [])
+    useEffect( () => {
+         dispatch(handleNotionList(user))
+    }, [user, dispatch])
 
     const handleAddNote = (data) => {
         const resData = {
@@ -22,27 +23,10 @@ function NotionListContainer (props) {
             text: '',
             level: data.level + 1
         }
-        handleAddNoteDispatch(resData)
+        dispatch(handleAddNoteDispatch(resData))
     }
 
     return <NotionListItem notionList={notionList} handleAddNote={handleAddNote}/>
 }
 
-const mapStateProps = state => {
-    return {
-        notionList: state.notionList,
-        user: state.user
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        handleNotionList: (user) => dispatch(handleNotionList(user)),
-        handleAddNote: (note) => dispatch(handleAddNote(note))
-    }
-}
-
-export default connect(
-    mapStateProps,
-    mapDispatchToProps
-) (NotionListContainer)
+export default  NotionListContainer

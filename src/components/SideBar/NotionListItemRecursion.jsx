@@ -97,7 +97,7 @@ function NotionListItemRecursion ({data, handleAddNote}) {
         </a>
             {(items && open) ?
                 <div className="notion__list-outliner__private">
-                    {items.map((i,index) => <NotionListItemRecursion data={i} key={`${i.id}${index}`}/>)}
+                    {items.map((i,ind) => <NotionListItemRecursion data={i} handleAddNote={handleAddNote} key={`${i.id}${ind}`}/>)}
                 </div> :
                 (open) ? (<div className="notion__list-outliner__private-empty"  style={{padding_left: `${level*14}px`}}><p>No pages inside</p></div>) : ''
             }

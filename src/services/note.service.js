@@ -1,5 +1,6 @@
 import {firebaseApp} from "../firebase/firebaseApp";
-import { getDatabase, ref, set,get, orderByChild, equalTo, query, push, child} from "firebase/database";
+import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, set} from "firebase/database";
+import {nest} from "../utils/changeState";
 
 const db = getDatabase(firebaseApp);
 
@@ -35,23 +36,27 @@ class NoteDataService {
         const notesRef = query(ref(db, `notes`), ...[orderByChild('author'), equalTo(uid)])
         const value = await get(notesRef)
 
-        this.noteList = Object.entries(value.val()).map(([key, value]) => {
-            const dataItem = {
-                ...value,
-                id: key
-            }
-            dataItem.parentId = value.parentId === undefined ? null : value.parentId
-            return dataItem
-        })
-        return this.noteList
+        if (value.val()) {
+            this.noteList = Object.entries(value.val()).map(([key, value]) => {
+                const dataItem = {
+                    ...value,
+                    id: key
+                }
+                dataItem.parentId = value.parentId === undefined ? null : value.parentId
+                return dataItem
+            })
+            return nest(this.noteList)
+        }
+        return []
     }
 
 
-    create(note) {
+    async create(note) {
         const newNoteKey = push(child(ref(db), 'notes')).key
-        set(ref(db, 'notes/' + newNoteKey), {
+        const r = await set(ref(db, 'notes/' + newNoteKey), {
             ...note
-        }).then(r => console.log("SUCCESS"));
+        })
+        return this.getNote(note.author)
     }
 
     update(key, value) {

@@ -1,6 +1,5 @@
 import NoteDataService from '../../services/note.service'
 export const GET_NOTION_LIST = 'GET_NOTION_LIST'
-export const ACTIVE_NOTION_LIST = 'ACTIVE_NOTION_LIST'
 export const ADD_NOTE = 'ADD_NOTE'
 export function handleNotionList (user) {
     return async function (dispatch) {
@@ -13,11 +12,11 @@ export function handleNotionList (user) {
 }
 
 export function handleAddNote (note) {
-    console.log(note)
-    NoteDataService.create(note)
-    return function (dispatch) {
+    return async function (dispatch) {
+        const noteList = await NoteDataService.create(note)
         dispatch({
-            type: ADD_NOTE
+            type: ADD_NOTE,
+            payload: noteList
         })
     }
 }

@@ -1,19 +1,19 @@
 import {useAuthState} from "react-firebase-hooks/auth";
-import { connect } from "react-redux";
 import {Route, Switch, Redirect} from "react-router-dom";
 import {auth} from "../firebase/auth";
 import {privateRoutes, publicRoutes} from "../routes";
 import {G_REGISTRATION, NOTION} from "../constants/route";
 import Loader from "./Loader";
 import {setUser} from "../store/actions/UserActions";
-function AppRouter (props) {
+import {useDispatch} from "react-redux";
+function AppRouter () {
     const [user, loading] = useAuthState(auth);
-    const setUser = props.setUser
+    const dispatch = useDispatch();
     if (loading) {
         return <Loader/>
     }
 
-    if (user) setUser(user)
+    if (user) dispatch(setUser(user))
 
     return user ? (<Switch>
         {privateRoutes.map(({path, component}) =>
@@ -28,11 +28,4 @@ function AppRouter (props) {
         </Switch>)
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return { setUser:  (user) => dispatch(setUser(user))}
-}
-
-export default connect(
-    null,
-    mapDispatchToProps
-) (AppRouter)
+export default AppRouter

@@ -1,11 +1,12 @@
 import AddPageBtn from "../../components/SideBar/AddPageBtn";
 import {handleAddNote} from "../../store/actions/NotionListActions";
-import {connect} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import * as userSelectors from "../../store/selectors/user_selectors"
 
 
-function AddPageBtnContainer(props) {
-    const user = props.user
-    const handleAddNote = props.handleAddNote
+function AddPageBtnContainer() {
+    const user = useSelector(userSelectors.user)
+    const dispatch = useDispatch();
     const handleClick = () => {
         const data = {
             author: user.uid,
@@ -14,23 +15,10 @@ function AddPageBtnContainer(props) {
             text: '',
             level: 1
         }
-        handleAddNote(data)
+        dispatch(handleAddNote(data))
     }
 
     return <AddPageBtn handleClick={handleClick}/>
 }
-const mapStateProps = store => {
-    return {
-        user: store.user
-    }
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-      handleAddNote: (data) => dispatch(handleAddNote(data))
-  }
-}
-export default connect(
-    mapStateProps,
-    mapDispatchToProps
-) (AddPageBtnContainer)
+export default AddPageBtnContainer
