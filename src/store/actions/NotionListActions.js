@@ -4,7 +4,7 @@ export const ADD_NOTE = 'ADD_NOTE'
 export const DELETE_NOTE = 'DELETE_NOTE'
 export function handleNotionList (user) {
     return async function (dispatch) {
-       const noteList = await NoteDataService.getNote(user.uid)
+       const noteList = await NoteDataService.getNotes(user.uid)
         dispatch({
             type: GET_NOTION_LIST,
             payload: {noteList, load: false}

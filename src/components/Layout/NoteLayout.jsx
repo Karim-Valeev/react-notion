@@ -1,8 +1,7 @@
-import NoteTopBar from "../Note/NoteTopBar";
 
-function NoteLayout () {
+function NoteLayout (props) {
     return <div className="notion__main">
-       <NoteTopBar/>
+        {props.render()}
     </div>
 }
 

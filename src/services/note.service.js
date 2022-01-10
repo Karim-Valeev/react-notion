@@ -32,7 +32,7 @@ class NoteDataService {
         return this.noteList
     }
 
-    async getNote(uid) {
+    async getNotes(uid) {
         const notesRef = query(ref(db, `notes`), ...[orderByChild('author'), equalTo(uid)])
         const value = await get(notesRef)
 
@@ -50,13 +50,24 @@ class NoteDataService {
         return []
     }
 
+    async getNote(id) {
+        const noteRef = ref(db, `/notes/${id}`)
+        const value = await get(noteRef)
+        console.log(value.val())
+        if (value.val()) {
+            console.log(value.val())
+            return value.val()
+        }
+        return null
+    }
+
 
     async create(note) {
         const newNoteKey = push(child(ref(db), 'notes')).key
         await set(ref(db, 'notes/' + newNoteKey), {
             ...note
         })
-        return this.getNote(note.author)
+        return this.getNotes(note.author)
     }
 
     update(key, value) {
@@ -68,7 +79,7 @@ class NoteDataService {
         for (let item of deleteNotes) {
             await remove(ref(db, `/notes/${item.id}`))
         }
-        return this.getNote(deleteNotes[0].author)
+        return this.getNotes(deleteNotes[0].author)
     }
 
     deleteAll() {

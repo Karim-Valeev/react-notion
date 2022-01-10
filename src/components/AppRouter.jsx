@@ -16,14 +16,14 @@ function AppRouter () {
     if (user) dispatch(setUser(user))
 
     return user ? (<Switch>
-        {privateRoutes.map(({path, component}) =>
-                <Route key={path} path={path} component={component} exact={true}/>
+        {privateRoutes.map(({path, component, exact}) =>
+                <Route key={path} path={path} component={component} exact={exact}/>
                 )}
                 <Redirect to={NOTION} />
     </Switch>) :
         (<Switch>
-            {publicRoutes.map(({path, component}) =>
-                <Route key={path} path={path} component={component} exact={true}/>)}
+            {publicRoutes.map(({path, component, exact}) =>
+                <Route key={path} path={path} component={component} exact={exact}/>)}
             <Redirect to={G_REGISTRATION}/>
         </Switch>)
 }

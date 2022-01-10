@@ -5,6 +5,7 @@ import {ReactComponent as PlusSvg} from '../../static/svg/plus.svg'
 import { MAX_LEVEL } from '../../constants/notionListConstants'
 import PropTypes from "prop-types";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 const styleArrow = {
     width: '0.6875em',
@@ -63,7 +64,7 @@ function NotionListItemRecursion ({data, handleAddNote, handleDelete}) {
     const [open, setOpen] = useState(false)
     return (
         <>
-        <a href="/#" className="notion__item">
+        <Link to={`/note/${id}`} className="notion__item">
                             <span className="notion__item--inner" style={{padding: `2px 14px 2px ${level*14}px`}}>
                                 <span className="notion__selectable--arrow" onClick={(e) => {
                                     e.preventDefault()
@@ -90,7 +91,7 @@ function NotionListItemRecursion ({data, handleAddNote, handleDelete}) {
                                     }
                                 </span>
                             </span>
-        </a>
+        </Link>
             {(items && open) ?
                 <div className="notion__list-outliner__private">
                     {items.map((i,ind) => <NotionListItemRecursion data={i} handleAddNote={handleAddNote} handleDelete={handleDelete} key={`${i.id}${ind}`}/>)}
