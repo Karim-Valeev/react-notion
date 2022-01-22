@@ -53,9 +53,7 @@ class NoteDataService {
     async getNote(id) {
         const noteRef = ref(db, `/notes/${id}`)
         const value = await get(noteRef)
-        console.log(value.val())
         if (value.val()) {
-            console.log(value.val())
             return value.val()
         }
         return null

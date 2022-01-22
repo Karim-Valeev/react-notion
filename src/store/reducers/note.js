@@ -2,6 +2,7 @@ import {GET_NOTE} from "../actions/NoteActions";
 
 const initialState = {
     note: {},
+    noteUrl: [],
     load: true
 }
 

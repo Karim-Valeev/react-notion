@@ -1,8 +1,9 @@
 import NoteUrl from "../../components/Note/NoteUrl";
-
-
+import {useSelector} from "react-redux";
+import * as noteSelectors from "../../store/selectors/note_selectors"
 function NoteUrlContainer () {
-    return <NoteUrl/>
+    const noteUrl = useSelector(noteSelectors.noteUrl)
+    return <NoteUrl noteUrl={noteUrl}/>
 }
 
 export default NoteUrlContainer
