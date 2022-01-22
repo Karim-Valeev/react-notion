@@ -59,12 +59,14 @@ const stylePlusSvg = {
     flex_shrink: 0,
     backface_visibility: 'hidden'
 }
-function NotionListItemRecursion ({data, handleAddNote, handleDelete}) {
+function NotionListItemRecursion ({data, note, handleAddNote, handleDelete}) {
     const {title, level, items, parentId, id} = data
     const [open, setOpen] = useState(false)
+
+    const classNotionItem = note?.id === id ? 'notion__item notion__list-item-active' : 'notion__item'
     return (
         <>
-        <Link to={`/note/${id}`} className="notion__item">
+        <Link to={`/note/${id}`} className={classNotionItem}>
                             <span className="notion__item--inner" style={{padding: `2px 14px 2px ${level*14}px`}}>
                                 <span className="notion__selectable--arrow" onClick={(e) => {
                                     e.preventDefault()
@@ -80,12 +82,19 @@ function NotionListItemRecursion ({data, handleAddNote, handleDelete}) {
                                 <span className="notion__list-item-name">{title}</span>
                                 <span className="notion__list--action-btn">
                                     <button type="button" className="notion__list--action-delete"
-                                            onClick={() => handleDelete({parentId, id, level, items})}>
+                                            onClick={(e) => {
+                                                e.preventDefault()
+                                                e.stopPropagation()
+                                                handleDelete({parentId, id, level, items})}}>
                                         <DeleteSvg style={styleDelete}/>
                                     </button>
                                     { (level !== MAX_LEVEL) ?
                                         <button type="button" className="notion__list--action-delete"
-                                                onClick={() => handleAddNote({parentId, level, id})}>
+                                                onClick={(e) => {
+                                                    e.preventDefault()
+                                                    e.stopPropagation()
+                                                    handleAddNote({parentId, level, id})
+                                                }}>
                                             <PlusSvg style={stylePlusSvg}/>
                                         </button> : ''
                                     }
@@ -94,7 +103,7 @@ function NotionListItemRecursion ({data, handleAddNote, handleDelete}) {
         </Link>
             {(items && open) ?
                 <div className="notion__list-outliner__private">
-                    {items.map((i,ind) => <NotionListItemRecursion data={i} handleAddNote={handleAddNote} handleDelete={handleDelete} key={`${i.id}${ind}`}/>)}
+                    {items.map((i,ind) => <NotionListItemRecursion data={i} note={note} handleAddNote={handleAddNote} handleDelete={handleDelete} key={`${i.id}${ind}`}/>)}
                 </div> :
                 (open) ? (<div className="notion__list-outliner__private-empty"  style={{padding_left: `${level*14}px`}}><p>No pages inside</p></div>) : ''
             }

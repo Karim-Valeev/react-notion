@@ -491,7 +491,7 @@ html, body {
   resize: none;
   color: #37352f;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 48px;
   font-size: 40px;
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   cursor: text;
@@ -501,6 +501,10 @@ html, body {
   outline: 0;
   height: auto;
   width: 100%;
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: hidden;
   min-height: 40px; }
   .notion__title:focus {
     outline: 0; }
