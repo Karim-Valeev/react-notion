@@ -9,11 +9,11 @@ const styleDelete = {
     backface_visibility: 'hidden'
 }
 
-function NoteActionTopBar () {
+function NoteActionTopBar ({handleDelete}) {
     return  <div className="notion__action--buttons">
         <button className="notion__button" type="button">Редактировать</button>
         <button className="notion__button" type="button">Просмотр</button>
-        <button className="notion__button" type="button">
+        <button className="notion__button" type="button" onClick={() => {handleDelete()}}>
            <DeleteSvg style={styleDelete}/>
         </button>
     </div>
