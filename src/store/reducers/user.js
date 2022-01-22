@@ -1,6 +1,4 @@
-import {
-    SET_USER
-} from "../actions/UserActions";
+import {SET_USER} from "../types/userTypes";
 
 export function userReducer(state=false,action) {
     switch (action.type) {

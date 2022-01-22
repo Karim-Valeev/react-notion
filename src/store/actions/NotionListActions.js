@@ -1,7 +1,6 @@
 import NoteDataService from '../../services/note.service'
-export const GET_NOTION_LIST = 'GET_NOTION_LIST'
-export const ADD_NOTE = 'ADD_NOTE'
-export const DELETE_NOTE = 'DELETE_NOTE'
+import {ADD_NOTE, DELETE_NOTE, GET_NOTION_LIST} from "../types/notionListTypes";
+
 export function handleNotionList (user) {
     return async function (dispatch) {
        const noteList = await NoteDataService.getNotes(user.uid)

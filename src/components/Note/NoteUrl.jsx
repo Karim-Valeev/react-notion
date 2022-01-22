@@ -1,10 +1,14 @@
+import {Link} from "react-router-dom";
+function NoteUrl ({noteUrl}) {
 
-function NoteUrl () {
+ const listItems =   noteUrl.map((item, index) =>
+     <div key={index}>
+      <Link to={`/note/${item.id}`} className="url__item">{item.title}</Link>
+      {(index !== noteUrl.length - 1) ?  <span className="line__oblique">/</span> : ''}
+     </div>)
  return  <nav className="notion__url">
-     <a href="#" className="url__item">Untitled</a>
-     <span className="line__oblique">/</span>
-     <a href="#" className="url__item">Untitled2</a>
-    </nav>
+  { listItems }
+ </nav>
 }
 
 export default NoteUrl

@@ -1,0 +1,1 @@
+export const ACTION_BURGER = 'ACTION_BURGER'

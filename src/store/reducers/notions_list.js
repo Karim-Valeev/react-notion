@@ -1,5 +1,4 @@
-import {ADD_NOTE, DELETE_NOTE, GET_NOTION_LIST} from "../actions/NotionListActions";
-
+import {ADD_NOTE, DELETE_NOTE, GET_NOTION_LIST} from "../types/notionListTypes";
 
 const initialState = {
     notes: [],

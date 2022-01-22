@@ -8,6 +8,7 @@ import {handleNote} from "../store/actions/NoteActions";
 import NoteTopBar from "../components/Note/NoteTopBar";
 import NoteEmptyTopBar from "../components/Note/NoteEmptyTopBar";
 import Loader from "../components/Loaders/Loader";
+import NoteFrame from "../components/Note/noteBody/NoteFrame";
 
 function Notion (props) {
     const note = useSelector(noteSelectors.note)
@@ -34,7 +35,10 @@ function Notion (props) {
                 } else if (load) {
                     return <Loader/>
                 } else if (note !== null) {
-                    return <NoteTopBar/>
+                    return <>
+                        <NoteTopBar/>
+                        <NoteFrame/>
+                    </>
                 }
             }}/>
         </div>

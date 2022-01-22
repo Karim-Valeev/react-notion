@@ -15,7 +15,32 @@ export const flattenNote = (node, result=[], depth = 0) => {
     })
    return result
 }
+
+export const arrUrl = (notes,node) => {
+    const res_ar = [node]
+    let cur_node = node
+    while (cur_node.parentId !== null) {
+        cur_node = findById(notes, cur_node.parentId, "items")
+        if (cur_node !== null) {
+            res_ar.push(cur_node)
+        } else {
+            break
+        }
+    }
+
+    return res_ar.reverse()
+}
+
+export function findById(arr, id, nestingKey) {
+
+    if(arr.length === 0) return
+
+    return arr.find(d => d.id === id)
+        || findById(arr.flatMap(d => d[nestingKey] || []), id)
+        || null
+}
 export default {
     nest,
-    flattenNote
+    flattenNote,
+    findById
 }

@@ -15,7 +15,6 @@ function Registration() {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                console.log(user)
                 localStorage.setItem('userAccessToken', user.accessToken);
                 history.push("/")
             })

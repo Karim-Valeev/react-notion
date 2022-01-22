@@ -1,4 +1,4 @@
-export const SET_USER = 'SET_USER'
+import {SET_USER} from "../types/userTypes";
 
 export function setUser (user) {
         return async function (dispatch){

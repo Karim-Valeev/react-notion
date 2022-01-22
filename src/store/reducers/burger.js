@@ -1,4 +1,4 @@
-import {ACTION_BURGER} from "../actions/BurgerActions";
+import {ACTION_BURGER} from "../types/burgerTypes";
 
 const initialState = {
     active: false

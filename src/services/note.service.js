@@ -1,9 +1,8 @@
 import {firebaseApp} from "../firebase/firebaseApp";
-import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, set, remove} from "firebase/database";
-import { flattenNote, nest} from "../utils/changeState";
+import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, remove, set, update} from "firebase/database";
+import {flattenNote, nest} from "../utils/changeState";
 
 const db = getDatabase(firebaseApp);
-
 // Strcit Db rule:
 // These rules grant access to a node matching the authenticated
 // user's ID from the Firebase auth token
@@ -53,10 +52,8 @@ class NoteDataService {
     async getNote(id) {
         const noteRef = ref(db, `/notes/${id}`)
         const value = await get(noteRef)
-        console.log(value.val())
         if (value.val()) {
-            console.log(value.val())
-            return value.val()
+            return {...value.val(),id}
         }
         return null
     }
@@ -70,8 +67,11 @@ class NoteDataService {
         return this.getNotes(note.author)
     }
 
-    update(key, value) {
-        return db.child(key).update(value);
+    async updateTitle(data, id) {
+        const updates = {}
+        updates[`/notes/${id}/title`] = data.title
+        await update(ref(db), updates)
+        return this.getNote(id)
     }
 
     async delete(note) {
