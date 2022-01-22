@@ -28,7 +28,7 @@ export const arrUrl = (notes,node) => {
         }
     }
 
-    return res_ar
+    return res_ar.reverse()
 }
 
 export function findById(arr, id, nestingKey) {

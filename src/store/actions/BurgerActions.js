@@ -1,4 +1,4 @@
-export const ACTION_BURGER ="ACTION_BURGER"
+import {ACTION_BURGER} from "../types/burgerTypes";
 
 export function handleBurger (status) {
     return async function (dispatch) {
