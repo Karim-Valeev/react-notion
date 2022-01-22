@@ -1,0 +1,37 @@
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true,
+    "codeFrame": false
+  },
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "max-len": [
+      "warn",
+      {
+        "code": 120
+      }
+    ],
+    "prefer-promise-reject-errors": [
+      "off"
+    ],
+    "react/jsx-filename-extension": [
+      "off"
+    ],
+    "react/prop-types": [
+      "warn"
+    ],
+    "no-return-assign": [
+      "off"
+    ]
+  }
+}
