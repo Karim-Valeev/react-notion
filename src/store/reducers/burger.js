@@ -11,5 +11,4 @@ export function burgerReducer (state=initialState, action) {
         default:
             return state
     }
-
 }

@@ -1,5 +1,5 @@
 export const LOGIN_ROUTE = '/login'
-export const G_REGISTRATION = '/g-registration'
+export const GOOGLE_REGISTRATION = '/g-registration'
 export const REGISTRATION = '/registration'
 export const NOTION = '/'
 export const TEST = '/test'

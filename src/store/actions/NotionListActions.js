@@ -1,6 +1,7 @@
 import NoteDataService from '../../services/note.service'
 import {ADD_NOTE, DELETE_NOTE, GET_NOTION_LIST} from "../types/notionListTypes";
 
+// Левая чатсь страницы
 export function handleNotionList (user) {
     return async function (dispatch) {
        const noteList = await NoteDataService.getNotes(user.uid)
@@ -30,4 +31,3 @@ export function handleDeleteNote (note) {
         })
     }
 }
-

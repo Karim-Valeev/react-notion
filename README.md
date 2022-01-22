@@ -11,6 +11,7 @@ yarn --version
 yarn add <package> [--dev]
 # установка всех зависимостей
 yarn
+# or
 yarn install
 ```
 Ссылка для документации yarn: https://yarnpkg.com/getting-started/usage

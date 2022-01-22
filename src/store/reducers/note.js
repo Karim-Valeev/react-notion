@@ -16,4 +16,4 @@ export function noteReducer(state=initialState, action) {
     }
 }
 
-export default noteReducer
+export default noteReducer  // todo почитать и возможно удалить

@@ -1,5 +1,7 @@
 import {firebaseApp} from "../firebase/firebaseApp";
-import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, remove, set, update} from "firebase/database";
+import {
+    child, equalTo, get, getDatabase, orderByChild, push, query, ref, remove, set, update
+} from "firebase/database";
 import {flattenNote, nest} from "../utils/changeState";
 
 const db = getDatabase(firebaseApp);

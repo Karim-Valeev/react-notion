@@ -1,4 +1,4 @@
-import NoteTitle from "../../../components/Note/noteBody/NoteTitle";
+import NoteTitle from "../../../components/Note/NoteBody/NoteTitle";
 import {useDispatch, useSelector} from "react-redux";
 import * as noteSelectors from "../../../store/selectors/note_selectors"
 import {handleUpdateTitle} from "../../../store/actions/NoteActions";

@@ -8,7 +8,7 @@ import {handleNote} from "../store/actions/NoteActions";
 import NoteTopBar from "../components/Note/NoteTopBar";
 import NoteEmptyTopBar from "../components/Note/NoteEmptyTopBar";
 import Loader from "../components/Loaders/Loader";
-import NoteFrame from "../components/Note/noteBody/NoteFrame";
+import NoteFrame from "../components/Note/NoteBody/NoteFrame";
 
 function Notion (props) {
     const note = useSelector(noteSelectors.note)
