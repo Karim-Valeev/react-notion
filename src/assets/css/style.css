@@ -605,6 +605,7 @@ body {
     line-height: 1.5;
     width: 100%;
     padding: 0 56px;
+    margin-top: 40px;
 }
 @media (max-width: 568px) {
     .notion-page--content {
@@ -631,6 +632,7 @@ body {
     word-break: break-word;
     caret-color: #37352f;
     padding: 3px 2px;
+    cursor: pointer;
     resize: none;
     border: 0;
     outline: 0;
@@ -644,6 +646,7 @@ body {
     opacity: 0;
     flex-grow: 0;
     display: flex;
+    align-items: center;
     background: transparent;
     height: 30px;
     position: relative;
@@ -852,10 +855,22 @@ body {
     }
 }
 
-.popups {
+
+.popups__inner{
     position: absolute;
-    top: 100%;
+    top: 0;
+    left: 0;
+    background: #dfdfdf7a;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: none;
+    height: 100%;
     z-index: 1000;
+}
+
+.popups_active {
+    display: flex !important;
 }
 
 .popup__type {
@@ -1077,4 +1092,54 @@ body {
     right: 0;
     bottom: 0;
     margin: auto;
+}
+
+
+.notion__text--block--inner{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.input_link--style {
+    border-radius: 2px;
+    padding: 6px 5px;
+    background: rgba(55,53, 47, 0.15);
+    border: darkgrey 1px solid;
+    width: 100%;
+    outline: none;
+}
+
+.input_link--style:focus{
+    outline: none;
+}
+
+.btn_link{
+    outline: none !important;
+    background: none !important;
+}
+
+.btn_link:focus{
+    outline: none !important;
+}
+
+.modal_background {
+    background: #dfdfdf7a;
+}
+
+.btn-link{
+    padding: 6px 15px;
+    background: #52aeff;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-link:focus{
+    outline: none;
 }

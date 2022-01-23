@@ -14,8 +14,7 @@ function SideBar() {
         <OutsideClickHandler
             onOutsideClick={() => {
                 dispatch(handleBurger(false));
-            }}
-        >
+            }}>
             <div className={activeClass}>
                 <ProfileContainer />
                 <NoteList />
