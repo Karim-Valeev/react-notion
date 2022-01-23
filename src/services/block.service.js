@@ -1,4 +1,4 @@
-import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, set} from "firebase/database";
+import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, set, update} from "firebase/database";
 import {firebaseApp} from "../firebase/firebaseApp";
 import {types} from "../constants/typeBlocks";
 
@@ -39,6 +39,16 @@ class BlockDataService {
             ...block,
         });
         return newNoteKey
+    }
+
+    async updateLinkBlock (payload) {
+        const blocksRef = query(ref(db, 'blocks'), ...[orderByChild('linkId'), equalTo(payload.linkId)])
+        const value = await get(blocksRef);
+        if (value.val() !== null) {
+            const updates = {};
+            updates[`/blocks/${Object.keys(value.val())[0]}/value`] = payload.value;
+            await update(ref(db), updates);
+        }
     }
 }
 

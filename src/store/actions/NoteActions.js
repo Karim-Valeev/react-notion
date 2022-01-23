@@ -1,4 +1,5 @@
 import NoteDataService from '../../services/note.service';
+import BlockDataService from "../../services/block.service";
 import { arrUrl } from '../../utils/changeState';
 import { GET_NOTE, UPDATE_TITLE } from '../types/noteTypes';
 import { GET_NOTION_LIST } from '../types/notionListTypes';
@@ -33,5 +34,7 @@ export function handleUpdateTitle(data) {
             type: GET_NOTION_LIST,
             payload: { noteList: updateNotes, load: false },
         });
+
+        await BlockDataService.updateLinkBlock({linkId: note.id, value: updateNote.title})
     };
 }
