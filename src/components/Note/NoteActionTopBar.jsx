@@ -19,7 +19,7 @@ function NoteActionTopBar() {
                 Просмотр
             </button>
             <button className="notion__button" type="button">
-                <DeleteSvg style={styleDelete} />
+                <DeleteSvg style={styleDelete}/>
             </button>
         </div>
     );
