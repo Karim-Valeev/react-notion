@@ -1,9 +1,9 @@
 import { firebaseApp } from '../firebase/firebaseApp';
+import { db } from '../firebase/db';
 import {
     child,
     equalTo,
     get,
-    getDatabase,
     orderByChild,
     push,
     query,
@@ -13,21 +13,6 @@ import {
     update,
 } from 'firebase/database';
 import { flattenNote, nest } from '../utils/changeState';
-
-const db = getDatabase(firebaseApp);
-// Strcit Db rule:
-// These rules grant access to a node matching the authenticated
-// user's ID from the Firebase auth token
-// {
-//   "rules": {
-//     "users": {
-//       "$uid": {
-//         ".read": "$uid === auth.uid",
-//         ".write": "$uid === auth.uid"
-//       }
-//     }
-//   }
-// }
 
 class NoteDataService {
     //todo get id counters https://firebase.google.com/docs/firestore/solutions/counters#web
@@ -44,7 +29,7 @@ class NoteDataService {
         return this.noteList;
     }
 
-    async getNotes(uid) {
+    async getUserNotes(uid) {
         const notesRef = query(ref(db, `notes`), ...[orderByChild('author'), equalTo(uid)]);
         const value = await get(notesRef);
 
@@ -76,7 +61,7 @@ class NoteDataService {
         await set(ref(db, 'notes/' + newNoteKey), {
             ...note,
         });
-        return this.getNotes(note.author);
+        return this.getUserNotes(note.author);
     }
 
     async updateTitle(data, id) {
@@ -91,11 +76,7 @@ class NoteDataService {
         for (let item of deleteNotes) {
             await remove(ref(db, `/notes/${item.id}`));
         }
-        return this.getNotes(deleteNotes[0].author);
-    }
-
-    deleteAll() {
-        return db.remove();
+        return this.getUserNotes(deleteNotes[0].author);
     }
 }
 

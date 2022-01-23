@@ -4,7 +4,7 @@ import { ADD_NOTE, DELETE_NOTE, GET_NOTION_LIST } from '../types/notionListTypes
 // Левая чатсь страницы
 export function handleNotionList(user) {
     return async function (dispatch) {
-        const noteList = await NoteDataService.getNotes(user.uid);
+        const noteList = await NoteDataService.getUserNotes(user.uid);
         dispatch({
             type: GET_NOTION_LIST,
             payload: { noteList, load: false },
