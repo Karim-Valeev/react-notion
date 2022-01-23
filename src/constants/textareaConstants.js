@@ -1,1 +1,1 @@
-export const LINE_HEIGHT = 48
+export const LINE_HEIGHT = 48;
