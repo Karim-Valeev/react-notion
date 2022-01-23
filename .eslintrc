@@ -5,6 +5,12 @@
     "node": true,
     "browser": true
   },
+  "plugins": ["react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 2020,

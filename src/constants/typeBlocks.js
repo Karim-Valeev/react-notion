@@ -2,7 +2,7 @@ export const types = {
     LINK: 'link',
     TEXT: 'text',
     IMAGE: 'image',
-    VIDEO: 'video'
-}
+    VIDEO: 'video',
+};
 
-export const DEFAULT_NAME_LINK = 'Untitled'
+export const DEFAULT_NAME_LINK = 'Untitled';
