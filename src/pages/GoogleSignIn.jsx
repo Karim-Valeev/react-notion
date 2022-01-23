@@ -3,7 +3,6 @@ import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../firebase/auth';
 import { useHistory } from 'react-router-dom';
 
-
 const provider = new GoogleAuthProvider();
 
 // По сути это и авторизация, и аутентификация
@@ -16,7 +15,7 @@ function GoogleSignIn() {
                 history.push('/');
             })
             .catch((error) => {
-                console.error(error)
+                console.error(error);
             });
         event.preventDefault();
     };

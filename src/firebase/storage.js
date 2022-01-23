@@ -3,6 +3,8 @@ import { firebaseApp } from './firebaseApp';
 
 export const storage = getStorage(firebaseApp);
 
+// Или готовые хуки: https://github.com/csfrequency/react-firebase-hooks/tree/70cf3fc12cdc1bc7842526868eea09b329e13c77/storage
+
 // UPLOAD EXAMPLE:
 // import {useState} from 'react';
 // import { storage } from '../firebase/storage';
