@@ -1,21 +1,22 @@
-import {ReactComponent as PlusSvg} from '../../static/svg/plus.svg'
+import { ReactComponent as PlusSvg } from '../../static/svg/plus.svg';
 const container = {
     width: 16,
     height: 16,
     display: 'block',
     fill: 'rgba(55, 53, 47, 0.4)',
     flex_shrink: 0,
-    backface_visibility: 'hidden'
+    backface_visibility: 'hidden',
+};
 
+function AddPageBtn({ handleClick }) {
+    return (
+        <button type="button" className="add_notion-page" onClick={handleClick}>
+            <span className="plus_add_notion">
+                <PlusSvg style={container} />
+            </span>
+            <span className="add_page__text">Add page</span>
+        </button>
+    );
 }
 
-function AddPageBtn({handleClick}) {
-    return  <button type="button" className="add_notion-page" onClick={handleClick}>
-                        <span className="plus_add_notion">
-                            <PlusSvg style={container}/>
-                        </span>
-        <span className="add_page__text">Add page</span>
-    </button>
-}
-
-export default AddPageBtn
+export default AddPageBtn;

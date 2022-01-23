@@ -1,14 +1,18 @@
 @media (max-width: 768px) {
-  .notion__sidebar--active {
-    position: absolute;
-    width: 240px;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 200; } }
+    .notion__sidebar--active {
+        position: absolute;
+        width: 240px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 200;
+    }
+}
 
 .deactivate__notion--sidebar {
-  width: 0; }
+    width: 0;
+}
 
 .notion__list-item-active {
-  background: rgba(55, 53, 47, 0.08); }
+    background: rgba(55, 53, 47, 0.08);
+}

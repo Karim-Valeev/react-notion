@@ -1,13 +1,14 @@
-import NoteTitleContainer from "../../../containers/Note/NoteBody/NoteTitleContainer";
+import NoteTitleContainer from '../../../containers/Note/NoteBody/NoteTitleContainer';
 
-function NoteFrame () {
-    return <main className="notion__frame">
-        <div className="notion__scroll">
-            <NoteTitleContainer/>
-            <div className="notion-page--content">
+function NoteFrame() {
+    return (
+        <main className="notion__frame">
+            <div className="notion__scroll">
+                <NoteTitleContainer />
+                <div className="notion-page--content"></div>
             </div>
-        </div>
-    </main>
+        </main>
+    );
 }
 
-export default NoteFrame
+export default NoteFrame;

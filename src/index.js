@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import App from "./App";
-import { Provider } from 'react-redux'
-import {store} from "./store/store";
-ReactDOM.render( //noqa
+import App from './App';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <App />
     </Provider>,
-  document.getElementById('root')
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

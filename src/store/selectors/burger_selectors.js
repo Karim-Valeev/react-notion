@@ -1,1 +1,1 @@
-export const activeBurger = state => state.burger
+export const activeBurger = (state) => state.burger;

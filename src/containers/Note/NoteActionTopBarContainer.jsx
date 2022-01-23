@@ -1,7 +1,7 @@
-import NoteActionTopBar from "../../components/Note/NoteActionTopBar";
+import NoteActionTopBar from '../../components/Note/NoteActionTopBar';
 
-function NoteActionTopBarContainer () {
-    return <NoteActionTopBar/>
+function NoteActionTopBarContainer() {
+    return <NoteActionTopBar />;
 }
 
-export default NoteActionTopBarContainer
+export default NoteActionTopBarContainer;
