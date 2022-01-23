@@ -6,7 +6,7 @@ import OutsideClickHandler from 'react-outside-click-handler'
 import {MAX_LEVEL} from "../../../constants/notionListConstants";
 
 
-function TypeBlockModal ({active, note, handleClick, handleActiveTypeLink}) {
+function TypeBlockModal ({active, note, handleClick, handleActiveTypeLink, handleActiveImage}) {
     const classNameActive = active ? "popup__type popup__type--active" : "popup__type"
     const classNameActivePopup = active ? 'popups__inner popups_active' : "popups__inner"
     return <div className={classNameActivePopup}>
@@ -28,7 +28,12 @@ function TypeBlockModal ({active, note, handleClick, handleActiveTypeLink}) {
                             <span className="type__item-name">Page</span>
                         </a> : <></>}
 
-                        <a href="#" className="type__item">
+                        <a href="#" className="type__item" onClick={(e) => {
+                            e.preventDefault()
+                            handleActiveImage({
+                                active: true,
+                                activeUpload: true,
+                                activeLink: false})}}>
                             <span className="type__item-icon"><img src={imageBlock} alt="icon" className="type__img"/></span>
                             <span className="type__item-name">Image</span>
                         </a>

@@ -1,7 +1,20 @@
-import { getStorage } from 'firebase/storage';
+import { getStorage, ref, uploadBytesResumable} from 'firebase/storage';
 import { firebaseApp } from './firebaseApp';
 
 export const storage = getStorage(firebaseApp);
+
+class DataStorageImages {
+    upload (payload) {
+        const storageRef = ref(storage, `/images/${payload.key}`)
+        const uploadTask = uploadBytesResumable(storageRef, payload.value);
+        uploadTask.on('state_changed',
+            (snapshot) => {
+            console.log(snapshot.state)
+        })
+    }
+}
+
+export default new DataStorageImages()
 
 // UPLOAD EXAMPLE:
 // import {useState} from 'react';

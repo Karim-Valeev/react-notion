@@ -41,6 +41,22 @@ class BlockDataService {
         return newNoteKey
     }
 
+    async createImage (data) {
+        const block = {
+            noteId: data.noteId,
+            author: data.author,
+            type: data.type === 'file' ? types.IMAGE_FILE : types.IMAGE_LINK,
+            value: data.type !== 'file' ? data.value : "",
+            created_at: new Date().toISOString()
+        }
+
+        const newNoteKey = push(child(ref(db), 'blocks')).key;
+        await set(ref(db, 'blocks/' + newNoteKey), {
+            ...block,
+        });
+        return newNoteKey
+    }
+
     async updateLinkBlock (payload) {
         const blocksRef = query(ref(db, 'blocks'), ...[orderByChild('linkId'), equalTo(payload.linkId)])
         const value = await get(blocksRef);

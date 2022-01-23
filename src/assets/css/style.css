@@ -1117,8 +1117,14 @@ body {
 }
 
 .btn_link{
+    cursor: pointer;
     outline: none !important;
     background: none !important;
+    border: none;
+}
+
+.btn-link--active {
+    border-bottom: 1px solid #6c757d;
 }
 
 .btn_link:focus{
@@ -1142,4 +1148,76 @@ body {
 
 .btn-link:focus{
     outline: none;
+}
+
+.example-2{padding: 10px 15px;}
+.example-2 .btn-tertiary{color: white ;padding:0;line-height:30px;width:60%;text-align:center;margin:auto;display:block; background-color: dodgerblue}
+.example-2 .input-file{width:.1px;height:.1px;opacity:0;overflow:hidden;position:absolute;z-index:-1}
+.example-2 .input-file + .js-labelFile{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 10px;cursor:pointer}
+
+.modal_start{
+    justify-content: flex-start;
+}
+
+.m_10{
+    margin-right: 8px;
+}
+
+.modal_centered{
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_width {
+    width: 40%;
+}
+
+@media (max-width: 1200px) {
+    .modal_width {
+        width: 60%;
+    }
+}
+
+@media (max-width: 968px) {
+    .modal_width {
+        width: 60%;
+    }
+}
+
+@media (max-width: 624px) {
+    .modal_width {
+        width: 80%;
+    }
+
+    .example-2 .btn-tertiary{
+        width: 80%;
+    }
+}
+
+.uploadPhoto{
+    width: 50%;
+    height: auto;
+}
+
+@media (max-width: 568px) {
+    .uploadPhoto{
+        width: 70%;
+    }
+}
+
+.upload__img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.modal__body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.w_100{
+    width: 100%;
 }
