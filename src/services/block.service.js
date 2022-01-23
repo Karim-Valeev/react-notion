@@ -1,5 +1,6 @@
 import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, set} from "firebase/database";
 import {firebaseApp} from "../firebase/firebaseApp";
+import {types} from "../constants/typeBlocks";
 
 const db = getDatabase(firebaseApp);
 
@@ -26,10 +27,10 @@ class BlockDataService {
 
     async createLink (data) {
         const block = {
-            noteId: data.note.id,
-            author: data.uid,
+            noteId: data.noteId,
+            author: data.author,
             linkId: data.linkId,
-            type: 'link',
+            type: types.LINK,
             value: data.link,
             created_at: new Date().toISOString()
         }

@@ -3,9 +3,10 @@ import pageBlock from '../../../static/images/pageBlock.png'
 import imageBlock from '../../../static/images/imageBlock.png'
 import videoBlock from '../../../static/images/videoBlock.png'
 import OutsideClickHandler from 'react-outside-click-handler'
+import {MAX_LEVEL} from "../../../constants/notionListConstants";
 
 
-function TypeBlockModal ({active, handleClick, handleActiveTypeLink}) {
+function TypeBlockModal ({active, note, handleClick, handleActiveTypeLink}) {
     const classNameActive = active ? "popup__type popup__type--active" : "popup__type"
     const classNameActivePopup = active ? 'popups__inner popups_active' : "popups__inner"
     return <div className={classNameActivePopup}>
@@ -21,11 +22,11 @@ function TypeBlockModal ({active, handleClick, handleActiveTypeLink}) {
                             <span className="type__item-name">Text</span>
                         </a>
 
-                        <a href="#" className="type__item" onClick={(e) => {e.preventDefault()
+                        {(note.level !== MAX_LEVEL) ? <a href="#" className="type__item" onClick={(e) => {e.preventDefault()
                             handleActiveTypeLink(true)}}>
                             <span className="type__item-icon"><img src={pageBlock} alt="icon" className="type__img"/></span>
                             <span className="type__item-name">Page</span>
-                        </a>
+                        </a> : <></>}
 
                         <a href="#" className="type__item">
                             <span className="type__item-icon"><img src={imageBlock} alt="icon" className="type__img"/></span>

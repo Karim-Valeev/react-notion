@@ -1,6 +1,8 @@
 import {GET_BLOCKS} from "../types/noteBlocksTypes";
 import BlockDataService from "../../services/block.service";
 import NoteDataService from "../../services/note.service";
+import {handleActiveModalLink} from "./TypeBlockActions";
+import {handleNotionList} from "./NotionListActions";
 
 
 export function handleGetBlocks () {
@@ -24,12 +26,15 @@ export function handleAddLinkBlock (payload) {
             parentId: note.id,
             level: note.level + 1,
         })
-        await BlockDataService.createLink({note, uid, link: payload.name, linkId: keyNote})
+        await BlockDataService.createLink({noteId: note.id, author: uid, link: payload.name, linkId: keyNote})
         const blocks = await BlockDataService.getBlocks(note.id)
 
         dispatch({
             type: GET_BLOCKS,
             payload: {blocks}
         })
+
+        dispatch(handleActiveModalLink(false))
+        dispatch(handleNotionList({uid}))
     }
 }
