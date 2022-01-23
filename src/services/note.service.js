@@ -1,17 +1,6 @@
 import { firebaseApp } from '../firebase/firebaseApp';
 import { db } from '../firebase/db';
-import {
-    child,
-    equalTo,
-    get,
-    orderByChild,
-    push,
-    query,
-    ref,
-    remove,
-    set,
-    update,
-} from 'firebase/database';
+import { child, equalTo, get, orderByChild, push, query, ref, remove, set, update } from 'firebase/database';
 import { flattenNote, nest } from '../utils/changeState';
 
 class NoteDataService {
