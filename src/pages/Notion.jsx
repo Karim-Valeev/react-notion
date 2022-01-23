@@ -9,6 +9,7 @@ import NoteTopBar from '../components/Note/NoteTopBar';
 import NoteEmptyTopBar from '../components/Note/NoteEmptyTopBar';
 import Loader from '../components/Loaders/Loader';
 import NoteFrame from '../components/Note/NoteBody/NoteFrame';
+import NoteModal from "../containers/Note/NoteModal/NoteModal";
 
 function Notion(props) {
     const note = useSelector(noteSelectors.note);
@@ -46,6 +47,7 @@ function Notion(props) {
                         }
                     }}
                 />
+                <NoteModal/>
             </div>
         </main>
     );

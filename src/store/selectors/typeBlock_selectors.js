@@ -1,0 +1,1 @@
+export const active = (state) => state.typeBlock.active
