@@ -10,9 +10,22 @@
 }
 
 .deactivate__notion--sidebar {
-    width: 0;
+    width: 0 !important;
 }
 
 .notion__list-item-active {
-    background: rgba(55, 53, 47, 0.08);
+    background: rgba(55, 53, 47, 0.08) !important;
+}
+
+
+.popup__type--active {
+    display: flex !important;
+}
+
+.popups_active {
+    display: flex !important;
+}
+
+.show {
+    display: block !important;
 }
