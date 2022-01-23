@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out latest code from develop branch
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Install dependencies
-      - run: yarn install
+        run: yarn install
 
       - name: Create production build of app
-      - run: yarn build
+        run: yarn build
 
       - name: Deploy production build of app
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACT_NOTION_D4F02 }}'
