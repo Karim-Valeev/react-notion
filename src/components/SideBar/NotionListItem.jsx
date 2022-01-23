@@ -11,12 +11,13 @@ function NotionListItem({notionList, note, handleAddNote, handleDelete}) {
 }
 
 NotionListItem.propTypes = {
-    notionList: PropTypes.array
-}
+    notionList: PropTypes.array,
+};
 
 NotionListItem.default = {
-    notionList: () => { return [] }
-}
+    notionList: () => {
+        return [];
+    },
+};
 
-
-export default NotionListItem
+export default NotionListItem;

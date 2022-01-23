@@ -3,8 +3,8 @@ import {useEffect, useState} from "react";
 import {LINE_HEIGHT} from "../../../constants/textareaConstants";
 
 const defaultValues = {
-    title: ''
-}
+    title: '',
+};
 
 function NoteTitle ({title, handleTitle}) {
     const {register, handleSubmit, setValue} = useForm({defaultValues})
@@ -34,4 +34,4 @@ function NoteTitle ({title, handleTitle}) {
     </div>
 }
 
-export default NoteTitle
+export default NoteTitle;

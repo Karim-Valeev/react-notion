@@ -17,4 +17,4 @@ function NoteActionTopBarContainer () {
     return <NoteActionTopBar handleDelete={handleDelete}/>
 }
 
-export default NoteActionTopBarContainer
+export default NoteActionTopBarContainer;

@@ -15,4 +15,4 @@ function NoteUrl ({noteUrl}) {
  </nav>
 }
 
-export default NoteUrl
+export default NoteUrl;

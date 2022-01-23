@@ -1,8 +1,18 @@
-import {firebaseApp} from "../firebase/firebaseApp";
+import { firebaseApp } from '../firebase/firebaseApp';
 import {
-    child, equalTo, get, getDatabase, orderByChild, push, query, ref, remove, set, update
-} from "firebase/database";
-import {flattenNote, nest} from "../utils/changeState";
+    child,
+    equalTo,
+    get,
+    getDatabase,
+    orderByChild,
+    push,
+    query,
+    ref,
+    remove,
+    set,
+    update,
+} from 'firebase/database';
+import { flattenNote, nest } from '../utils/changeState';
 
 const db = getDatabase(firebaseApp);
 // Strcit Db rule:
@@ -19,69 +29,69 @@ const db = getDatabase(firebaseApp);
 //   }
 // }
 
-
 class NoteDataService {
     //todo get id counters https://firebase.google.com/docs/firestore/solutions/counters#web
     constructor() {
-        this.noteList = []
+        this.noteList = [];
     }
 
     async getAll() {
-        const notesRef = query(ref(db, '/notes/'))
-        const value = await get(notesRef)
-        this.noteList = Object.entries(value.val()).map(([key, value]) => {return {...value, id: key}})
-        return this.noteList
+        const notesRef = query(ref(db, '/notes/'));
+        const value = await get(notesRef);
+        this.noteList = Object.entries(value.val()).map(([key, value]) => {
+            return { ...value, id: key };
+        });
+        return this.noteList;
     }
 
     async getNotes(uid) {
-        const notesRef = query(ref(db, `notes`), ...[orderByChild('author'), equalTo(uid)])
-        const value = await get(notesRef)
+        const notesRef = query(ref(db, `notes`), ...[orderByChild('author'), equalTo(uid)]);
+        const value = await get(notesRef);
 
         if (value.val()) {
             this.noteList = Object.entries(value.val()).map(([key, value]) => {
                 const dataItem = {
                     ...value,
-                    id: key
-                }
-                dataItem.parentId = value.parentId === undefined ? null : value.parentId
-                return dataItem
-            })
-            return nest(this.noteList)
+                    id: key,
+                };
+                dataItem.parentId = value.parentId === undefined ? null : value.parentId;
+                return dataItem;
+            });
+            return nest(this.noteList);
         }
-        return []
+        return [];
     }
 
     async getNote(id) {
-        const noteRef = ref(db, `/notes/${id}`)
-        const value = await get(noteRef)
+        const noteRef = ref(db, `/notes/${id}`);
+        const value = await get(noteRef);
         if (value.val()) {
-            return {...value.val(),id}
+            return { ...value.val(), id };
         }
-        return null
+        return null;
     }
 
-
     async create(note) {
-        const newNoteKey = push(child(ref(db), 'notes')).key
+        const newNoteKey = push(child(ref(db), 'notes')).key;
         await set(ref(db, 'notes/' + newNoteKey), {
-            ...note
-        })
-        return this.getNotes(note.author)
+            ...note,
+        });
+        return this.getNotes(note.author);
     }
 
     async updateTitle(data, id) {
-        const updates = {}
-        updates[`/notes/${id}/title`] = data.title
-        await update(ref(db), updates)
-        return this.getNote(id)
+        const updates = {};
+        updates[`/notes/${id}/title`] = data.title;
+        await update(ref(db), updates);
+        return this.getNote(id);
     }
 
     async delete(note) {
-        const deleteNotes = flattenNote(note)
+        const deleteNotes = flattenNote(note);
         for (let item of deleteNotes) {
-            await remove(ref(db, `/notes/${item.id}`))
+            await remove(ref(db, `/notes/${item.id}`));
         }
-        return this.getNotes(deleteNotes[0].author)
+        return this.getNotes(deleteNotes[0].author);
     }
 
     deleteAll() {

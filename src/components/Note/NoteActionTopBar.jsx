@@ -1,4 +1,4 @@
-import {ReactComponent as DeleteSvg} from '../../static/svg/delete.svg'
+import { ReactComponent as DeleteSvg } from '../../static/svg/delete.svg';
 
 const styleDelete = {
     width: 15,
@@ -6,17 +6,23 @@ const styleDelete = {
     display: 'block',
     fill: 'inherit',
     flex_shrink: 0,
-    backface_visibility: 'hidden'
+    backface_visibility: 'hidden',
+};
+
+function NoteActionTopBar() {
+    return (
+        <div className="notion__action--buttons">
+            <button className="notion__button" type="button">
+                Редактировать
+            </button>
+            <button className="notion__button" type="button">
+                Просмотр
+            </button>
+            <button className="notion__button" type="button">
+                <DeleteSvg style={styleDelete}/>
+            </button>
+        </div>
+    );
 }
 
-function NoteActionTopBar ({handleDelete}) {
-    return  <div className="notion__action--buttons">
-        <button className="notion__button" type="button">Редактировать</button>
-        <button className="notion__button" type="button">Просмотр</button>
-        <button className="notion__button" type="button" onClick={() => {handleDelete()}}>
-           <DeleteSvg style={styleDelete}/>
-        </button>
-    </div>
-}
-
-export default NoteActionTopBar
+export default NoteActionTopBar;

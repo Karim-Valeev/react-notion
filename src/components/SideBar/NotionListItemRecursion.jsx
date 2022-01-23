@@ -1,11 +1,11 @@
-import {ReactComponent as ArrowSvg} from '../../static/svg/arrow.svg'
-import {ReactComponent as FileSvg} from '../../static/svg/file.svg'
-import {ReactComponent as DeleteSvg} from '../../static/svg/delete.svg'
-import {ReactComponent as PlusSvg} from '../../static/svg/plus.svg'
-import { MAX_LEVEL } from '../../constants/notionListConstants'
-import PropTypes from "prop-types";
-import {useState} from "react";
-import {Link} from "react-router-dom";
+import { ReactComponent as ArrowSvg } from '../../static/svg/arrow.svg';
+import { ReactComponent as FileSvg } from '../../static/svg/file.svg';
+import { ReactComponent as DeleteSvg } from '../../static/svg/delete.svg';
+import { ReactComponent as PlusSvg } from '../../static/svg/plus.svg';
+import { MAX_LEVEL } from '../../constants/notionListConstants';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const styleArrow = {
     width: '0.6875em',
@@ -16,9 +16,8 @@ const styleArrow = {
     backface_visibility: 'hidden',
     transition: 'transform 200ms ease-out 0s',
     transform: 'rotateZ(180deg)',
-    opacity: 1
-
-}
+    opacity: 1,
+};
 
 const styleArrowDown = {
     width: '0.6875em',
@@ -29,9 +28,8 @@ const styleArrowDown = {
     backface_visibility: 'hidden',
     transition: 'transform 200ms ease-out 0s',
     transform: 'rotateZ(90deg)',
-    opacity: 1
-
-}
+    opacity: 1,
+};
 
 const styleFileSvg = {
     width: 18,
@@ -39,8 +37,8 @@ const styleFileSvg = {
     display: 'block',
     fill: 'rgba(55, 53, 47, 0.4',
     flex_shrink: 0,
-    backface_visibility: 'hidden'
-}
+    backface_visibility: 'hidden',
+};
 
 const styleDelete = {
     width: 15,
@@ -48,8 +46,8 @@ const styleDelete = {
     display: 'block',
     fill: 'inherit',
     flex_shrink: 0,
-    backface_visibility: 'hidden'
-}
+    backface_visibility: 'hidden',
+};
 
 const stylePlusSvg = {
     width: 15,
@@ -110,13 +108,14 @@ function NotionListItemRecursion ({data, note, handleAddNote, handleDelete}) {
         </>)
 }
 
-
 NotionListItemRecursion.propTypes = {
-    data: PropTypes.object
-}
+    data: PropTypes.object,
+};
 
 NotionListItemRecursion.default = {
-    data: () => { return {} }
-}
+    data: () => {
+        return {};
+    },
+};
 
-export default NotionListItemRecursion
+export default NotionListItemRecursion;

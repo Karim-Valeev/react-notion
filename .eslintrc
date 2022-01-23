@@ -1,0 +1,25 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "requireConfigFile": false,
+    "allowImportExportEverywhere": true,
+    "babelOptions": {
+       "presets": ["@babel/preset-react"]
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "no-console": "error",
+    "react/react-in-jsx-scope": "off"
+  }
+}
