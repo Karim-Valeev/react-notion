@@ -1,17 +1,17 @@
-import {CHOOSE_LINK, CLICK_PLUS} from "../types/typeBlockTypes";
+import { CHOOSE_LINK, CLICK_PLUS } from '../types/typeBlockTypes';
 
 const initialState = {
     active: false,
-    activeLinkModal: false
-}
+    activeLinkModal: false,
+};
 
-export function typeBlockReducer (state=initialState, action) {
+export function typeBlockReducer(state = initialState, action) {
     switch (action.type) {
         case CLICK_PLUS:
-            return {...state, ...action.payload}
+            return { ...state, ...action.payload };
         case CHOOSE_LINK:
-            return {...state, ...action.payload}
+            return { ...state, ...action.payload };
         default:
-            return state
+            return state;
     }
 }

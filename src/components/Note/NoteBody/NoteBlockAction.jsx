@@ -1,13 +1,13 @@
 import { ReactComponent as PlusSvg } from '../../../static/svg/plus.svg';
 import { ReactComponent as DotsSvg } from '../../../static/svg/dots.svg';
 const styleDots = {
-    width: "14px",
-    height:" 14px",
-    fill: "rgba(55, 53, 47, 0.4)",
+    width: '14px',
+    height: ' 14px',
+    fill: 'rgba(55, 53, 47, 0.4)',
     flexShrink: 0,
-    backfaceVisibility: "hidden",
-    transform: "rotateZ(90deg)"
-}
+    backfaceVisibility: 'hidden',
+    transform: 'rotateZ(90deg)',
+};
 
 const stylePlusSvg = {
     width: 16,
@@ -17,15 +17,23 @@ const stylePlusSvg = {
     backface_visibility: 'hidden',
 };
 
-function NoteBlockAction ({handleClick}) {
-    return <div className="block__action--btns">
-        <button type="button" className="add_btn" onClick={() => {handleClick(true)}}>
-           <PlusSvg style={stylePlusSvg}/>
-        </button>
-        <button type="button" className="dots_btn">
-            <DotsSvg style={styleDots}/>
-        </button>
-    </div>
+function NoteBlockAction({ handleClick }) {
+    return (
+        <div className="block__action--btns">
+            <button
+                type="button"
+                className="add_btn"
+                onClick={() => {
+                    handleClick(true);
+                }}
+            >
+                <PlusSvg style={stylePlusSvg} />
+            </button>
+            <button type="button" className="dots_btn">
+                <DotsSvg style={styleDots} />
+            </button>
+        </div>
+    );
 }
 
-export default NoteBlockAction
+export default NoteBlockAction;

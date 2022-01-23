@@ -50,7 +50,7 @@ class NoteDataService {
         await set(ref(db, 'notes/' + newNoteKey), {
             ...note,
         });
-        return newNoteKey
+        return newNoteKey;
     }
 
     async updateTitle(data, id) {

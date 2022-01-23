@@ -2,7 +2,7 @@ import AddPageBtn from '../../components/SideBar/AddPageBtn';
 import { handleAddNote } from '../../store/actions/NotionListActions';
 import { useDispatch, useSelector } from 'react-redux';
 import * as userSelectors from '../../store/selectors/user_selectors';
-import {DEFAULT_NAME_LINK} from "../../constants/typeBlocks";
+import { DEFAULT_NAME_LINK } from '../../constants/typeBlocks';
 
 function AddPageBtnContainer() {
     const user = useSelector(userSelectors.user);
