@@ -19,7 +19,7 @@ class NoteDataService {
     }
 
     async getUserNotes(uid) {
-        const notesRef = query(ref(db, `notes`), ...[orderByChild('author'), equalTo(uid)]);
+        const notesRef = query(ref(db, `notes`), orderByChild('author'), equalTo(uid));
         const value = await get(notesRef);
 
         if (value.val()) {
