@@ -10,7 +10,7 @@ const logoutButton = {
     'font-weight': 500,
 };
 
-function Logout() {
+function LogoutContainer() {
     const dispatch = useDispatch();
 
     const handleClick = (event) => {
@@ -35,4 +35,4 @@ function Logout() {
     );
 }
 
-export default Logout;
+export default LogoutContainer;
