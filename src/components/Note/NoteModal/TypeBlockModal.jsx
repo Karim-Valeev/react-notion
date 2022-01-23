@@ -5,7 +5,7 @@ import videoBlock from '../../../static/images/videoBlock.png'
 import OutsideClickHandler from 'react-outside-click-handler'
 
 
-function TypeBlockModal ({active, handleClick}) {
+function TypeBlockModal ({active, handleClick, handleActiveTypeLink}) {
     const classNameActive = active ? "popup__type popup__type--active" : "popup__type"
     const classNameActivePopup = active ? 'popups__inner popups_active' : "popups__inner"
     return <div className={classNameActivePopup}>
@@ -17,39 +17,24 @@ function TypeBlockModal ({active, handleClick}) {
                     </header>
                     <main className="type__blocks">
                         <a href="#" className="type__item">
-                <span className="type__item-icon">
-                    <img src={textBlock} alt="icon" className="type__img"/>
-                </span>
-                            <span className="type__item-name">
-                    Text
-                </span>
+                            <span className="type__item-icon"><img src={textBlock} alt="icon" className="type__img"/></span>
+                            <span className="type__item-name">Text</span>
+                        </a>
+
+                        <a href="#" className="type__item" onClick={(e) => {e.preventDefault()
+                            handleActiveTypeLink(true)}}>
+                            <span className="type__item-icon"><img src={pageBlock} alt="icon" className="type__img"/></span>
+                            <span className="type__item-name">Page</span>
                         </a>
 
                         <a href="#" className="type__item">
-                <span className="type__item-icon">
-                    <img src={pageBlock} alt="icon" className="type__img"/>
-                </span>
-                            <span className="type__item-name">
-                    Page
-                </span>
+                            <span className="type__item-icon"><img src={imageBlock} alt="icon" className="type__img"/></span>
+                            <span className="type__item-name">Image</span>
                         </a>
 
                         <a href="#" className="type__item">
-                <span className="type__item-icon">
-                    <img src={imageBlock} alt="icon" className="type__img"/>
-                </span>
-                            <span className="type__item-name">
-                    Image
-                </span>
-                        </a>
-
-                        <a href="#" className="type__item">
-                <span className="type__item-icon">
-                    <img src={videoBlock} alt="icon" className="type__img"/>
-                </span>
-                            <span className="type__item-name">
-                    Video
-                </span>
+                            <span className="type__item-icon"><img src={videoBlock} alt="icon" className="type__img"/></span>
+                            <span className="type__item-name">Video</span>
                         </a>
                     </main>
                 </div>

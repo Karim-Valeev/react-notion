@@ -9,7 +9,8 @@ import NoteTopBar from '../components/Note/NoteTopBar';
 import NoteEmptyTopBar from '../components/Note/NoteEmptyTopBar';
 import Loader from '../components/Loaders/Loader';
 import NoteFrame from '../components/Note/NoteBody/NoteFrame';
-import NoteModal from "../containers/Note/NoteModal/NoteModal";
+import NoteModal from "../components/Note/NoteModal/NoteModal";
+import {handleGetBlocks} from "../store/actions/NoteBlocksActions";
 
 function Notion(props) {
     const note = useSelector(noteSelectors.note);
@@ -21,9 +22,10 @@ function Notion(props) {
         auth.signOut();
     };
 
-    useEffect(() => {
+    useEffect(async() => {
         if (props.match.params.id !== undefined) {
-            dispatch(handleNote(props.match.params.id));
+            await dispatch(handleNote(props.match.params.id));
+            await dispatch(handleGetBlocks())
         }
     }, [props.match.params.id, dispatch, handleNote]);
 

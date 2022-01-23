@@ -4,6 +4,7 @@ import { notionListReducer } from './notions_list';
 import { burgerReducer } from './burger';
 import { noteReducer } from './note';
 import {typeBlockReducer} from "./typeBlock";
+import {noteBlocksReducer} from './noteBlocks'
 
 // Главный редьюсер, который хранит в себе состояния. Обьединяет в себе остальные редьюсеры.
 // Можно обращаться к нему, а не к конкретным редьюсерам.
@@ -13,5 +14,6 @@ export const rootReducer = combineReducers({
     notionList: notionListReducer,
     burger: burgerReducer,
     note: noteReducer,
-    typeBlock: typeBlockReducer
+    typeBlock: typeBlockReducer,
+    noteBlocks: noteBlocksReducer
 });

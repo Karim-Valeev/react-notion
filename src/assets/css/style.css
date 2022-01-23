@@ -1102,3 +1102,44 @@ body {
     white-space: pre-wrap;
     word-break: break-word;
 }
+
+.input_link--style {
+    border-radius: 2px;
+    padding: 6px 5px;
+    background: rgba(55,53, 47, 0.15);
+    border: darkgrey 1px solid;
+    width: 100%;
+    outline: none;
+}
+
+.input_link--style:focus{
+    outline: none;
+}
+
+.btn_link{
+    outline: none !important;
+    background: none !important;
+}
+
+.btn_link:focus{
+    outline: none !important;
+}
+
+.modal_background {
+    background: #dfdfdf7a;
+}
+
+.btn-link{
+    padding: 6px 15px;
+    background: #52aeff;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-link:focus{
+    outline: none;
+}

@@ -14,7 +14,8 @@ export function handleNotionList(user) {
 
 export function handleAddNote(note) {
     return async function (dispatch) {
-        const noteList = await NoteDataService.create(note);
+        await NoteDataService.create(note);
+        const noteList = await NoteDataService.getNotes(note.author);
         dispatch({
             type: ADD_NOTE,
             payload: { noteList, load: false },

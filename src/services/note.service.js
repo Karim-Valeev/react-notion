@@ -76,7 +76,7 @@ class NoteDataService {
         await set(ref(db, 'notes/' + newNoteKey), {
             ...note,
         });
-        return this.getNotes(note.author);
+        return newNoteKey
     }
 
     async updateTitle(data, id) {

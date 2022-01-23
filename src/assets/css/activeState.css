@@ -23,5 +23,9 @@
 }
 
 .popups_active {
+    display: flex !important;
+}
+
+.show {
     display: block !important;
 }

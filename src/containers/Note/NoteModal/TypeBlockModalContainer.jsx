@@ -1,7 +1,7 @@
 import TypeBlockModal from "../../../components/Note/NoteModal/TypeBlockModal";
 import {useDispatch, useSelector} from "react-redux";
 import * as typeBlockSelectors from "../../../store/selectors/typeBlock_selectors";
-import {handleActiveTypeBlock} from "../../../store/actions/TypeBlockActions";
+import {handleActiveModalLink, handleActiveTypeBlock} from "../../../store/actions/TypeBlockActions";
 
 
 function TypeBlockModalContainer () {
@@ -10,7 +10,11 @@ function TypeBlockModalContainer () {
     const handleClick = (status) => {
       dispatch(handleActiveTypeBlock(status))
     }
-    return <TypeBlockModal active={active} handleClick={handleClick}/>
+
+    const handleActiveTypeLink = (status) => {
+        dispatch(handleActiveModalLink(status))
+    }
+    return <TypeBlockModal active={active} handleClick={handleClick} handleActiveTypeLink={handleActiveTypeLink}/>
 }
 
 export default TypeBlockModalContainer
