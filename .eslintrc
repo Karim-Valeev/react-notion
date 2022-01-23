@@ -1,37 +1,17 @@
 {
-  "parser": "@babel/eslint-parser",
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
   "parserOptions": {
+    "ecmaVersion": 2020,
     "requireConfigFile": false,
     "sourceType": "module",
-    "allowImportExportEverywhere": true,
-    "codeFrame": false
+    "allowImportExportEverywhere": true
   },
-  "extends": [
-    "airbnb",
-    "prettier"
-  ],
-  "env": {
-    "browser": true,
-    "jest": true
-  },
+  "extends": "eslint:recommended",
   "rules": {
-    "max-len": [
-      "warn",
-      {
-        "code": 120
-      }
-    ],
-    "prefer-promise-reject-errors": [
-      "off"
-    ],
-    "react/jsx-filename-extension": [
-      "off"
-    ],
-    "react/prop-types": [
-      "warn"
-    ],
-    "no-return-assign": [
-      "off"
-    ]
+    "no-console": "error"
   }
 }
