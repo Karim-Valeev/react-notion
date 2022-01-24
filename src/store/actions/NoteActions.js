@@ -23,7 +23,7 @@ export function handleUpdateTitle(data) {
         const uid = getState().user.uid;
         const note = getState().note.note;
         const updateNote = await NoteDataService.updateTitle(data, note.id);
-        const updateNotes = await NoteDataService.getNotes(uid);
+        const updateNotes = await NoteDataService.getUserNotes(uid);
         const noteUrl = arrUrl(updateNotes, updateNote);
         dispatch({
             type: UPDATE_TITLE,

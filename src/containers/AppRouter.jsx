@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 
 function AppRouter() {
     const [user, loading] = useAuthState(auth);
+
     const dispatch = useDispatch();
     if (loading) {
         return <Loader />; // Проверка того, что есть юзер и его токен от firebase

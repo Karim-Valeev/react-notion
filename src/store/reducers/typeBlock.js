@@ -8,17 +8,17 @@ const initialState = {
         activeUpload: true,
         activeLink: false
     }
-}
+};
 
-export function typeBlockReducer (state=initialState, action) {
+export function typeBlockReducer(state = initialState, action) {
     switch (action.type) {
         case CLICK_PLUS:
-            return {...state, ...action.payload}
+            return { ...state, ...action.payload };
         case CHOOSE_LINK:
             return {...state, ...action.payload}
         case CHOOSE_IMAGE:
             return {...state, ...action.payload}
         default:
-            return state
+            return state;
     }
 }

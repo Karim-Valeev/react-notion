@@ -1,5 +1,5 @@
 import NoteTitleContainer from '../../../containers/Note/NoteBody/NoteTitleContainer';
-import NoteBlocksContainer from "../../../containers/Note/NoteBody/NoteBlocksContainer";
+import NoteBlocksContainer from '../../../containers/Note/NoteBody/NoteBlocksContainer';
 
 function NoteFrame() {
     return (
@@ -7,7 +7,7 @@ function NoteFrame() {
             <div className="notion__scroll">
                 <NoteTitleContainer />
                 <div className="notion-page--content">
-                    <NoteBlocksContainer/>
+                    <NoteBlocksContainer />
                 </div>
             </div>
         </main>

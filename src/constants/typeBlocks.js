@@ -6,4 +6,4 @@ export const types = {
     VIDEO: 'video'
 }
 
-export const DEFAULT_NAME_LINK = 'Untitled'
+export const DEFAULT_NAME_LINK = 'Untitled';

@@ -855,8 +855,7 @@ body {
     }
 }
 
-
-.popups__inner{
+.popups__inner {
     position: absolute;
     top: 0;
     left: 0;
@@ -1094,8 +1093,7 @@ body {
     margin: auto;
 }
 
-
-.notion__text--block--inner{
+.notion__text--block--inner {
     width: 100%;
     height: auto;
     max-width: 100%;
@@ -1106,13 +1104,13 @@ body {
 .input_link--style {
     border-radius: 2px;
     padding: 6px 5px;
-    background: rgba(55,53, 47, 0.15);
+    background: rgba(55, 53, 47, 0.15);
     border: darkgrey 1px solid;
     width: 100%;
     outline: none;
 }
 
-.input_link--style:focus{
+.input_link--style:focus {
     outline: none;
 }
 
@@ -1127,7 +1125,7 @@ body {
     border-bottom: 1px solid #6c757d;
 }
 
-.btn_link:focus{
+.btn_link:focus {
     outline: none !important;
 }
 
@@ -1135,7 +1133,7 @@ body {
     background: #dfdfdf7a;
 }
 
-.btn-link{
+.btn-link {
     padding: 6px 15px;
     background: #52aeff;
     border-radius: 6px;
@@ -1146,7 +1144,7 @@ body {
     outline: none;
 }
 
-.btn-link:focus{
+.btn-link:focus {
     outline: none;
 }
 

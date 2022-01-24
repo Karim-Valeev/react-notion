@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import LogoutContainer from '../../containers/Sidebar/LogoutContainer';
 function Profile({ user }) {
     return (
         <button className="profile" type="button">
@@ -10,6 +11,7 @@ function Profile({ user }) {
             <span className="profile__name-block">
                 <span className="profile__name">{user.displayName}</span>
             </span>
+            <LogoutContainer />
         </button>
     );
 }

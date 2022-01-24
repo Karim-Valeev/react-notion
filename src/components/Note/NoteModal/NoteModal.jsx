@@ -10,4 +10,4 @@ function NoteModal () {
     </div>
 }
 
-export default NoteModal
+export default NoteModal;
