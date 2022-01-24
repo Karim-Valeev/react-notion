@@ -1,14 +1,20 @@
 import NoteBlockAction from '../../../components/Note/NoteBody/NoteBlockAction';
 import { useDispatch } from 'react-redux';
-import { handleActiveTypeBlock } from '../../../store/actions/TypeBlockActions';
+import { handleActiveDotsModal, handleActiveTypeBlock } from '../../../store/actions/TypeBlockActions';
+import { handleActiveBlock } from '../../../store/actions/NoteBlocksActions';
 
-function NoteBlockActionContainer() {
+function NoteBlockActionContainer({ block }) {
     const dispatch = useDispatch();
 
     const handleClick = (status) => {
         dispatch(handleActiveTypeBlock(status));
     };
-    return <NoteBlockAction handleClick={handleClick} />;
+
+    const handleClickDots = (status) => {
+        dispatch(handleActiveDotsModal(status));
+        dispatch(handleActiveBlock(block));
+    };
+    return <NoteBlockAction handleClick={handleClick} handleClickDots={handleClickDots} />;
 }
 
 export default NoteBlockActionContainer;
