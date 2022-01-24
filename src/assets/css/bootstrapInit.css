@@ -2179,6 +2179,7 @@ textarea.form-control.is-invalid {
     border-bottom-right-radius: calc(0.3rem - 1px);
     border-bottom-left-radius: calc(0.3rem - 1px);
 }
+
 .modal-footer > * {
     margin: 0.25rem;
 }
