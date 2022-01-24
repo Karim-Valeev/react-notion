@@ -1,30 +1,38 @@
-import TypeBlockModal from "../../../components/Note/NoteModal/TypeBlockModal";
-import {useDispatch, useSelector} from "react-redux";
-import * as typeBlockSelectors from "../../../store/selectors/typeBlock_selectors";
+import TypeBlockModal from '../../../components/Note/NoteModal/TypeBlockModal';
+import { useDispatch, useSelector } from 'react-redux';
+import * as typeBlockSelectors from '../../../store/selectors/typeBlock_selectors';
 import {
     handleActiveModalImage,
     handleActiveModalLink,
-    handleActiveTypeBlock
-} from "../../../store/actions/TypeBlockActions";
+    handleActiveTypeBlock,
+} from '../../../store/actions/TypeBlockActions';
 import * as noteSelectors from '../../../store/selectors/note_selectors';
 
-function TypeBlockModalContainer () {
-    const active = useSelector(typeBlockSelectors.active)
-    const note = useSelector(noteSelectors.note)
-    const dispatch = useDispatch()
+function TypeBlockModalContainer() {
+    const active = useSelector(typeBlockSelectors.active);
+    const note = useSelector(noteSelectors.note);
+    const dispatch = useDispatch();
     const handleClick = (status) => {
-      dispatch(handleActiveTypeBlock(status))
-    }
+        dispatch(handleActiveTypeBlock(status));
+    };
 
     const handleActiveTypeLink = (status) => {
-        dispatch(handleActiveModalLink(status))
-    }
+        dispatch(handleActiveModalLink(status));
+    };
 
     const handleActiveImage = (status) => {
-        dispatch(handleActiveModalImage(status))
-    }
+        dispatch(handleActiveModalImage(status));
+    };
 
-    return <TypeBlockModal active={active} handleClick={handleClick} note={note} handleActiveImage={handleActiveImage} handleActiveTypeLink={handleActiveTypeLink}/>
+    return (
+        <TypeBlockModal
+            active={active}
+            handleClick={handleClick}
+            note={note}
+            handleActiveImage={handleActiveImage}
+            handleActiveTypeLink={handleActiveTypeLink}
+        />
+    );
 }
 
-export default TypeBlockModalContainer
+export default TypeBlockModalContainer;

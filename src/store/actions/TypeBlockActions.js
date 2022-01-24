@@ -1,5 +1,4 @@
-import {CHOOSE_IMAGE, CHOOSE_LINK, CLICK_PLUS} from "../types/typeBlockTypes";
-
+import { CHOOSE_IMAGE, CHOOSE_LINK, CLICK_PLUS } from '../types/typeBlockTypes';
 
 export function handleActiveTypeBlock(status) {
     return function (dispatch) {
@@ -19,11 +18,11 @@ export function handleActiveModalLink(status) {
     };
 }
 
-export function handleActiveModalImage (status) {
+export function handleActiveModalImage(status) {
     return function (dispatch) {
         dispatch({
             type: CHOOSE_IMAGE,
-            payload: {active: false, activeImageModal: status}
-        })
-    }
+            payload: { active: false, activeImageModal: status },
+        });
+    };
 }

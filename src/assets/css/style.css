@@ -1114,7 +1114,7 @@ body {
     outline: none;
 }
 
-.btn_link{
+.btn_link {
     cursor: pointer;
     outline: none !important;
     background: none !important;
@@ -1148,20 +1148,44 @@ body {
     outline: none;
 }
 
-.example-2{padding: 10px 15px;}
-.example-2 .btn-tertiary{color: white ;padding:0;line-height:30px;width:60%;text-align:center;margin:auto;display:block; background-color: dodgerblue}
-.example-2 .input-file{width:.1px;height:.1px;opacity:0;overflow:hidden;position:absolute;z-index:-1}
-.example-2 .input-file + .js-labelFile{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 10px;cursor:pointer}
+.example-2 {
+    padding: 10px 15px;
+}
+.example-2 .btn-tertiary {
+    color: white;
+    padding: 0;
+    line-height: 30px;
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    display: block;
+    background-color: dodgerblue;
+}
+.example-2 .input-file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.example-2 .input-file + .js-labelFile {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 10px;
+    cursor: pointer;
+}
 
-.modal_start{
+.modal_start {
     justify-content: flex-start;
 }
 
-.m_10{
+.m_10 {
     margin-right: 8px;
 }
 
-.modal_centered{
+.modal_centered {
     justify-content: center;
     align-items: center;
 }
@@ -1187,35 +1211,35 @@ body {
         width: 80%;
     }
 
-    .example-2 .btn-tertiary{
+    .example-2 .btn-tertiary {
         width: 80%;
     }
 }
 
-.uploadPhoto{
+.uploadPhoto {
     width: 50%;
     height: auto;
 }
 
 @media (max-width: 568px) {
-    .uploadPhoto{
+    .uploadPhoto {
         width: 70%;
     }
 }
 
-.upload__img{
+.upload__img {
     width: 100%;
     max-width: 100%;
     height: auto;
     object-fit: contain;
 }
 
-.modal__body{
+.modal__body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.w_100{
+.w_100 {
     width: 100%;
 }

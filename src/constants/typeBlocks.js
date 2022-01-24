@@ -3,7 +3,7 @@ export const types = {
     TEXT: 'text',
     IMAGE_LINK: 'imageLink',
     IMAGE_FILE: 'imageFile',
-    VIDEO: 'video'
-}
+    VIDEO: 'video',
+};
 
 export const DEFAULT_NAME_LINK = 'Untitled';

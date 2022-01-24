@@ -1,4 +1,4 @@
-import {CHOOSE_IMAGE, CHOOSE_LINK, CLICK_PLUS} from "../types/typeBlockTypes";
+import { CHOOSE_IMAGE, CHOOSE_LINK, CLICK_PLUS } from '../types/typeBlockTypes';
 
 const initialState = {
     active: false,
@@ -6,8 +6,8 @@ const initialState = {
     activeImageModal: {
         active: false,
         activeUpload: true,
-        activeLink: false
-    }
+        activeLink: false,
+    },
 };
 
 export function typeBlockReducer(state = initialState, action) {
@@ -15,9 +15,9 @@ export function typeBlockReducer(state = initialState, action) {
         case CLICK_PLUS:
             return { ...state, ...action.payload };
         case CHOOSE_LINK:
-            return {...state, ...action.payload}
+            return { ...state, ...action.payload };
         case CHOOSE_IMAGE:
-            return {...state, ...action.payload}
+            return { ...state, ...action.payload };
         default:
             return state;
     }
