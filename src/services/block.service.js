@@ -44,7 +44,7 @@ class BlockDataService {
         const block = {
             noteId: data.noteId,
             author: data.author,
-            linkId: "",
+            linkId: '',
             type: types.TEXT,
             value: data.text,
             created_at: new Date().toISOString(),

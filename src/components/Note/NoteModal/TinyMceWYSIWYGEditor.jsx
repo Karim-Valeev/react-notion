@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-import {API_KEY} from "../../../constants/tinyMceWYSIWYGEditorConstants";
+import { API_KEY } from '../../../constants/tinyMceWYSIWYGEditorConstants';
 
-function TinyMceWYSIWYGEditor({handleEditorChange}) {
-    const editorRef = useRef(null);  // Т.к. интеграция со сторонними DOM-библиотеками.
+function TinyMceWYSIWYGEditor({ handleEditorChange }) {
+    const editorRef = useRef(null); // Т.к. интеграция со сторонними DOM-библиотеками.
     return (
         <>
             <Editor
@@ -26,7 +26,9 @@ function TinyMceWYSIWYGEditor({handleEditorChange}) {
                     //   'removeformat | help',
                     //   content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                 }}
-                onEditorChange={()=>{handleEditorChange(editorRef.current.getContent())}}
+                onEditorChange={() => {
+                    handleEditorChange(editorRef.current.getContent());
+                }}
             />
         </>
     );

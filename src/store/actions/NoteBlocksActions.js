@@ -1,7 +1,7 @@
 import { GET_BLOCKS } from '../types/noteBlocksTypes';
 import BlockDataService from '../../services/block.service';
 import NoteDataService from '../../services/note.service';
-import {handleActiveModalLink, handleActiveModalText} from './TypeBlockActions';
+import { handleActiveModalLink, handleActiveModalText } from './TypeBlockActions';
 import { handleNotionList } from './NotionListActions';
 
 export function handleGetBlocks() {
@@ -43,7 +43,7 @@ export function handleAddTextBlock(payload) {
         const uid = getState().user?.uid;
         const note = getState().note?.note;
 
-        await BlockDataService.createText({ noteId: note.id, author: uid, text: payload});
+        await BlockDataService.createText({ noteId: note.id, author: uid, text: payload });
         const blocks = await BlockDataService.getBlocks(note.id);
         dispatch({
             type: GET_BLOCKS,

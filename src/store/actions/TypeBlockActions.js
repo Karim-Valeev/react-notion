@@ -20,7 +20,7 @@ export function handleActiveModalLink(status) {
 
 export function handleActiveModalText(status) {
     return function (dispatch) {
-        console.log("In handleActiveModalText")
+        console.log('In handleActiveModalText');
         dispatch({
             type: CHOOSE_TEXT,
             payload: { active: false, activeTextModal: status },

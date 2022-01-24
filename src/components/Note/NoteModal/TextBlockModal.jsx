@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { useForm } from 'react-hook-form';
 import TinyMceWYSIWYGEditor from './TinyMceWYSIWYGEditor';
@@ -9,16 +9,16 @@ const defaultValues = {
 
 function TextBlockModal({ activeTextModal, handleClick, handleText }) {
     const classModal = activeTextModal ? 'modal show modal_background' : 'modal modal_background';
-    const [text, setText] = useState("");
+    const [text, setText] = useState('');
 
     const handleEditorChange = (text) => {
         setText(text);
-    }
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         handleText(text);
-    }
+    };
 
     return (
         <div className={classModal} id="exampleModalToggle1" aria-labelledby="exampleModalToggleLabel2">
