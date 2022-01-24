@@ -1,4 +1,16 @@
-import { child, equalTo, get, getDatabase, orderByChild, push, query, ref, set, update } from 'firebase/database';
+import {
+    child,
+    equalTo,
+    get,
+    getDatabase,
+    orderByChild,
+    push,
+    query,
+    ref,
+    remove,
+    set,
+    update,
+} from 'firebase/database';
 import { firebaseApp } from '../firebase/firebaseApp';
 import { types } from '../constants/typeBlocks';
 
@@ -10,7 +22,7 @@ class BlockDataService {
     }
 
     async getBlocks(noteId) {
-        const blocksRef = query(ref(db, 'blocks'), ...[orderByChild('noteId'), equalTo(noteId)]);
+        const blocksRef = query(ref(db, 'blocks'), orderByChild('noteId'), equalTo(noteId));
         const value = await get(blocksRef);
         if (value.val()) {
             this.blocks = Object.entries(value.val()).map(([key, value]) => {
@@ -56,6 +68,20 @@ class BlockDataService {
         return newTextBlockKey;
     }
 
+    async deleteBlock(block) {
+        await remove(ref(db, `/blocks/${block.id}`));
+        return this.getBlocks(block.noteId);
+    }
+
+    async deleteNoteBlocks(noteId) {
+        const noteBlocks = await this.getBlocks(noteId);
+        const updates = {};
+        for (let block of noteBlocks) {
+            updates[`/blocks/${block.id}`] = null;
+        }
+        await update(ref(db), updates);
+        return noteId;
+    }
     async createImage(data) {
         const block = {
             noteId: data.noteId,

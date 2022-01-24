@@ -13,7 +13,6 @@ function LinkBlockModalContainer() {
     };
 
     const handleLink = (data) => {
-        console.log(data);
         dispatch(handleAddLinkBlock(data));
     };
 

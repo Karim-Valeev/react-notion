@@ -1,4 +1,4 @@
-import { CURRENT_BLOCK, GET_BLOCKS } from '../types/noteBlocksTypes';
+import { CURRENT_BLOCK, DELETE_BLOCK, GET_BLOCKS } from '../types/noteBlocksTypes';
 import BlockDataService from '../../services/block.service';
 import NoteDataService from '../../services/note.service';
 import DataStorageImages from '../../firebase/storage';
@@ -57,6 +57,16 @@ export function handleAddTextBlock(payload) {
         });
 
         dispatch(handleActiveModalText(false));
+    };
+}
+
+export function handleDeleteBlock(block) {
+    return async function (dispatch) {
+        const blocks = await BlockDataService.deleteBlock(block);
+        dispatch({
+            type: DELETE_BLOCK,
+            payload: { blocks },
+        });
     };
 }
 
