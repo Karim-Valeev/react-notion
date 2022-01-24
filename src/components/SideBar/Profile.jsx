@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import LogoutContainer from '../../containers/Sidebar/LogoutContainer';
+
 function Profile({ user }) {
     return (
         <button className="profile" type="button">

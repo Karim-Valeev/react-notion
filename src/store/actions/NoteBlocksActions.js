@@ -37,3 +37,20 @@ export function handleAddLinkBlock(payload) {
         dispatch(handleNotionList({ uid }));
     };
 }
+
+export function handleAddTextBlock(payload) {
+    return async function (dispatch, getState) {
+        const uid = getState().user?.uid;
+        const note = getState().note?.note;
+
+        await BlockDataService.createText({ noteId: note.id, author: uid, text: payload.name, linkId: keyNote });
+        const blocks = await BlockDataService.getBlocks(note.id);
+
+        dispatch({
+            type: GET_BLOCKS,
+            payload: { blocks },
+        });
+
+        dispatch(handleActiveModalLink(false));
+    };
+}
