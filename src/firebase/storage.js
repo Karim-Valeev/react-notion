@@ -1,9 +1,24 @@
-import { getStorage } from 'firebase/storage';
+import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { firebaseApp } from './firebaseApp';
 
 export const storage = getStorage(firebaseApp);
 
-// Или готовые хуки: https://github.com/csfrequency/react-firebase-hooks/tree/70cf3fc12cdc1bc7842526868eea09b329e13c77/storage
+class DataStorageImages {
+    upload(payload) {
+        const storageRef = ref(storage, `/images/${payload.key}`);
+        const uploadTask = uploadBytesResumable(storageRef, payload.value);
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot.state);
+        });
+    }
+
+    getDownloadUrl(payload) {
+        const storageRef = ref(storage, `/images/${payload.id}`);
+        return getDownloadURL(storageRef);
+    }
+}
+
+export default new DataStorageImages();
 
 // UPLOAD EXAMPLE:
 // import {useState} from 'react';

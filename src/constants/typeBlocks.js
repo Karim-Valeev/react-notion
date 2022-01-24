@@ -1,7 +1,8 @@
 export const types = {
     LINK: 'link',
     TEXT: 'text',
-    IMAGE: 'image',
+    IMAGE_LINK: 'imageLink',
+    IMAGE_FILE: 'imageFile',
     VIDEO: 'video',
 };
 

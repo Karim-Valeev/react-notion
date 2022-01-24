@@ -2,9 +2,9 @@ import TypeBlockModal from '../../../components/Note/NoteModal/TypeBlockModal';
 import { useDispatch, useSelector } from 'react-redux';
 import * as typeBlockSelectors from '../../../store/selectors/typeBlock_selectors';
 import {
+    handleActiveModalImage,
     handleActiveModalLink,
-    handleActiveModalText,
-    handleActiveTypeBlock,
+   handleActiveModalText, handleActiveTypeBlock,
 } from '../../../store/actions/TypeBlockActions';
 import * as noteSelectors from '../../../store/selectors/note_selectors';
 
@@ -20,6 +20,11 @@ function TypeBlockModalContainer() {
         dispatch(handleActiveModalLink(status));
     };
 
+    const handleActiveImage = (status) => {
+        dispatch(handleActiveModalImage(status));
+    };
+
+
     const handleActiveTypeText = (status) => {
         dispatch(handleActiveModalText(status));
     };
@@ -29,6 +34,7 @@ function TypeBlockModalContainer() {
             active={active}
             handleClick={handleClick}
             note={note}
+            handleActiveImage={handleActiveImage}
             handleActiveTypeLink={handleActiveTypeLink}
             handleActiveTypeText={handleActiveTypeText}
         />

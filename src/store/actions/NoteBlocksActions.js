@@ -1,7 +1,8 @@
-import { GET_BLOCKS } from '../types/noteBlocksTypes';
+import { CURRENT_BLOCK, GET_BLOCKS } from '../types/noteBlocksTypes';
 import BlockDataService from '../../services/block.service';
 import NoteDataService from '../../services/note.service';
-import { handleActiveModalLink, handleActiveModalText } from './TypeBlockActions';
+import DataStorageImages from '../../firebase/storage';
+import { handleActiveModalImage, handleActiveModalLink, handleActiveModalText } from './TypeBlockActions';
 import { handleNotionList } from './NotionListActions';
 
 export function handleGetBlocks() {
@@ -51,5 +52,43 @@ export function handleAddTextBlock(payload) {
         });
 
         dispatch(handleActiveModalText(false));
+    };
+}
+
+export function handleAddImageBlock(payload) {
+    return async function (dispatch, getState) {
+        const uid = getState().user?.uid;
+        const note = getState().note?.note;
+
+        const newBlock = await BlockDataService.createImage({
+            noteId: note.id,
+            author: uid,
+            type: payload.type,
+            value: payload.value,
+        });
+        if (payload.type === 'file') {
+            await DataStorageImages.upload({ key: newBlock, value: payload.value });
+        }
+        const blocks = await BlockDataService.getBlocks(note.id);
+
+        dispatch({
+            type: GET_BLOCKS,
+            payload: { blocks },
+        });
+
+        dispatch(handleActiveModalImage({ active: false, activeUpload: true, activeLink: false }));
+    };
+}
+
+export function handleDownloadUrl(block) {
+    return DataStorageImages.getDownloadUrl(block);
+}
+
+export function handleActiveBlock(block) {
+    return function (dispatch) {
+        dispatch({
+            type: CURRENT_BLOCK,
+            payload: { block },
+        });
     };
 }
