@@ -16,7 +16,6 @@ function LogoutContainer() {
     const handleClick = (event) => {
         signOut(auth)
             .then(() => {
-                // todo вынуть юзера из redux store
                 dispatch(setUser(null));
                 history.push('/');
             })

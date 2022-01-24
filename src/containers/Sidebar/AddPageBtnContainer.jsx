@@ -7,6 +7,7 @@ import { DEFAULT_NAME_LINK } from '../../constants/typeBlocks';
 function AddPageBtnContainer() {
     const user = useSelector(userSelectors.user);
     const dispatch = useDispatch();
+
     const handleClick = () => {
         const data = {
             author: user.uid,
