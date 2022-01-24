@@ -21,7 +21,6 @@ function TypeBlockModalContainer() {
     };
 
     const handleActiveTypeText = (status) => {
-        console.log('INside handleActiveTypeText');
         dispatch(handleActiveModalText(status));
     };
 

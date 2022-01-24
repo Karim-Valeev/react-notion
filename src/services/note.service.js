@@ -64,6 +64,8 @@ class NoteDataService {
         const deleteNotes = flattenNote(note);
         for (let item of deleteNotes) {
             await remove(ref(db, `/notes/${item.id}`));
+            // todo удаление блоков
+        //    сделать куери для удаления блоков по noteId
         }
         return this.getUserNotes(deleteNotes[0].author);
     }
