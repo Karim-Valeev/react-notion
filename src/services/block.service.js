@@ -1,4 +1,16 @@
-import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, remove, set, update} from 'firebase/database';
+import {
+    child,
+    equalTo,
+    get,
+    getDatabase,
+    orderByChild,
+    push,
+    query,
+    ref,
+    remove,
+    set,
+    update,
+} from 'firebase/database';
 import { firebaseApp } from '../firebase/firebaseApp';
 import { types } from '../constants/typeBlocks';
 

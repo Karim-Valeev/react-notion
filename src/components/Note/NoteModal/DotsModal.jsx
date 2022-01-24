@@ -17,10 +17,7 @@ function DotsModal({ active, handleClick, handleDelete, handleEdit }) {
                             <h4>Basic Actions</h4>
                         </header>
                         <main className="type__blocks">
-                            <button
-                                className="type__item"
-                                onClick={handleEdit}
-                            >
+                            <button className="type__item" onClick={handleEdit}>
                                 <span className="type__item-name">Edit</span>
                             </button>
 
