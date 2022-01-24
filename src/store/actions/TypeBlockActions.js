@@ -9,6 +9,8 @@ export function handleActiveTypeBlock(status) {
     };
 }
 
+
+
 export function handleActiveModalLink(status) {
     return function (dispatch) {
         dispatch({
@@ -20,7 +22,6 @@ export function handleActiveModalLink(status) {
 
 export function handleActiveModalText(status) {
     return function (dispatch) {
-        console.log('In handleActiveModalText');
         dispatch({
             type: CHOOSE_TEXT,
             payload: { active: false, activeTextModal: status },

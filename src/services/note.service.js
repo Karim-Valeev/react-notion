@@ -2,6 +2,7 @@ import { firebaseApp } from '../firebase/firebaseApp';
 import { db } from '../firebase/db';
 import { child, equalTo, get, orderByChild, push, query, ref, remove, set, update } from 'firebase/database';
 import { flattenNote, nest } from '../utils/changeState';
+import BlockDataService from '/block.service';
 
 class NoteDataService {
     //todo get id counters https://firebase.google.com/docs/firestore/solutions/counters#web
@@ -62,10 +63,9 @@ class NoteDataService {
 
     async delete(note) {
         const deleteNotes = flattenNote(note);
-        for (let item of deleteNotes) {
-            await remove(ref(db, `/notes/${item.id}`));
-            // todo удаление блоков
-            //    сделать куери для удаления блоков по noteId
+        for (let note of deleteNotes) {
+            await remove(ref(db, `/notes/${note.id}`));
+            await BlockDataService.deleteNoteBlocks(note.id)
         }
         return this.getUserNotes(deleteNotes[0].author);
     }
