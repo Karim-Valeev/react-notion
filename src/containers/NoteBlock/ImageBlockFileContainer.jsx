@@ -6,9 +6,10 @@ import LoaderImage from '../../components/Loaders/LoaderImage';
 function ImageBlockFileContainer({ block }) {
     const [fileUrl, setFileUrl] = useState('');
     useEffect(async () => {
+        await setFileUrl('');
         const getFileUrl = await handleDownloadUrl(block);
         await setFileUrl(getFileUrl);
-    }, [block]);
+    }, [block.value]);
     return fileUrl === '' ? <LoaderImage /> : <ImageBlockFile url={fileUrl} />;
 }
 

@@ -1,4 +1,4 @@
-import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
+import { getDownloadURL, getStorage, ref, uploadBytesResumable, deleteObject } from 'firebase/storage';
 import { firebaseApp } from './firebaseApp';
 
 export const storage = getStorage(firebaseApp);
@@ -15,6 +15,17 @@ class DataStorageImages {
     getDownloadUrl(payload) {
         const storageRef = ref(storage, `/images/${payload.id}`);
         return getDownloadURL(storageRef);
+    }
+
+    update(payload) {
+        const storageRef = ref(storage, `/images/${payload.key}`);
+        deleteObject(storageRef)
+            .then(() => {
+                this.upload(payload);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 }
 

@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
 import OutsideClickHandler from 'react-outside-click-handler';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 const defaultValues = {
     photo: '',
     linkPhoto: '',
 };
 
-function ImageBlockModal({ activeImageModal, handleClick, handleImage }) {
+function ImageBlockModal({ activeImageModal, data, handleClick, handleImage }) {
     const classModal = activeImageModal.active
         ? 'modal show modal_background modal_centered'
         : 'modal modal_background modal_centered';
@@ -14,6 +14,16 @@ function ImageBlockModal({ activeImageModal, handleClick, handleImage }) {
     const classLink = activeImageModal.activeLink ? 'btn_link btn-link--active' : 'btn_link';
     const { register, handleSubmit, setValue } = useForm({ defaultValues });
     const [url, setUrl] = useState('');
+
+    useEffect(() => {
+        setValue('photo', data.photo);
+        setValue('linkPhoto', data.linkPhoto);
+        if (data.linkPhoto !== '') {
+            setUrl(data.linkPhoto);
+        } else {
+            setUrl(data.photo);
+        }
+    }, [data]);
 
     const handleUploadPhoto = (e) => {
         const photos = e.target.files;
