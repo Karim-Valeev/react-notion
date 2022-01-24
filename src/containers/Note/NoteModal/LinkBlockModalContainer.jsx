@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as typeBlockSelectors from '../../../store/selectors/typeBlock_selectors';
 import { handleActiveModalLink } from '../../../store/actions/TypeBlockActions';
 import { handleAddLinkBlock } from '../../../store/actions/NoteBlocksActions';
+
 function LinkBlockModalContainer() {
     const activeLinkModal = useSelector(typeBlockSelectors.activeLinkModal);
     const dispatch = useDispatch();

@@ -13,10 +13,10 @@ function NoteActionTopBar() {
     return (
         <div className="notion__action--buttons">
             <button className="notion__button" type="button">
-                Редактировать
+                Edit
             </button>
             <button className="notion__button" type="button">
-                Просмотр
+                View
             </button>
             <button className="notion__button" type="button">
                 <DeleteSvg style={styleDelete} />

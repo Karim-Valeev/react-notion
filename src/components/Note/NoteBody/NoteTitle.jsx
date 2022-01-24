@@ -28,6 +28,7 @@ function NoteTitle({ title, handleTitle }) {
     useEffect(() => {
         setValue('title', title);
         setRows(() => {
+            // double bitwise NOT, faster substitute for Math.floor()
             return ~~(document.querySelector('#title').scrollHeight / LINE_HEIGHT);
         });
     }, [setValue, title]);

@@ -7,8 +7,8 @@ import AppRouter from './containers/AppRouter';
 function App() {
     return (
         <div>
+            {/* Этот 👇 компонент требует документация */}
             <BrowserRouter>
-                {/* Этот компонент требует документация */}
                 <AppRouter />
             </BrowserRouter>
         </div>
