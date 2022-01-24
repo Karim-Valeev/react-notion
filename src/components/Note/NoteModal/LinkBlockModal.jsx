@@ -33,12 +33,18 @@ function LinkBlockModal({ activeLinkModal, handleClick, handleLink }) {
                             />
                         </div>
                         <div className="modal-footer-2-btns">
-                                <button type="button" className="btn btn-link" onClick={() => {handleClick(false)}}>
-                                    Cancel
-                                </button>
-                                <button type="submit" className="btn btn-link">
-                                    Save
-                                </button>
+                            <button
+                                type="button"
+                                className="btn btn-link"
+                                onClick={() => {
+                                    handleClick(false);
+                                }}
+                            >
+                                Cancel
+                            </button>
+                            <button type="submit" className="btn btn-link">
+                                Save
+                            </button>
                         </div>
                     </form>
                 </OutsideClickHandler>
