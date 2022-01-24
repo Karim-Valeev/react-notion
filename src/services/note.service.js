@@ -2,10 +2,9 @@ import { firebaseApp } from '../firebase/firebaseApp';
 import { db } from '../firebase/db';
 import { child, equalTo, get, orderByChild, push, query, ref, remove, set, update } from 'firebase/database';
 import { flattenNote, nest } from '../utils/changeState';
-import BlockDataService from '/block.service';
+import BlockDataService from './block.service';
 
 class NoteDataService {
-    //todo get id counters https://firebase.google.com/docs/firestore/solutions/counters#web
     constructor() {
         this.noteList = [];
     }

@@ -74,7 +74,7 @@ class BlockDataService {
     }
 
     async deleteNoteBlocks(noteId) {
-        const noteBlocks = this.getBlocks(noteId);
+        const noteBlocks = await this.getBlocks(noteId);
         const updates = {};
         for (let block of noteBlocks) {
             updates[`/blocks/${block.id}`] = null;

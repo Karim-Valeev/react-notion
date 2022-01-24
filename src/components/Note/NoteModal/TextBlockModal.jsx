@@ -23,36 +23,30 @@ function TextBlockModal({ activeTextModal, handleClick, handleText }) {
     return (
         <div className={classModal} id="exampleModalToggle1" aria-labelledby="exampleModalToggleLabel2">
             <div className="modal-dialog modal-dialog-centered">
-                <OutsideClickHandler
-                    onOutsideClick={() => {
-                        handleClick(false);
-                    }}
-                >
-                    <form className="modal-content" onSubmit={handleSubmit}>
-                        <div className="modal-header">
-                            <div className="btn_link">
-                                <b>Text</b>
-                            </div>
+                <form className="modal-content" onSubmit={handleSubmit}>
+                    <div className="modal-header">
+                        <div className="btn_link">
+                            <b>Text</b>
                         </div>
-                        <div className="modal-body">
-                            <TinyMceWYSIWYGEditor handleEditorChange={handleEditorChange} />
-                        </div>
-                        <div className="modal-footer-2-btns">
-                            <button
-                                type="button"
-                                className="btn btn-link"
-                                onClick={() => {
-                                    handleClick(false);
-                                }}
-                            >
-                                Cancel
-                            </button>
-                            <button type="submit" className="btn btn-link">
-                                Save
-                            </button>
-                        </div>
-                    </form>
-                </OutsideClickHandler>
+                    </div>
+                    <div className="modal-body">
+                        <TinyMceWYSIWYGEditor handleEditorChange={handleEditorChange}/>
+                    </div>
+                    <div className="modal-footer-2-btns">
+                        <button
+                            type="button"
+                            className="btn btn-link"
+                            onClick={() => {
+                                handleClick(false);
+                            }}
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" className="btn btn-link">
+                            Save
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     );

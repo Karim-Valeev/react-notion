@@ -57,10 +57,10 @@ export function handleAddTextBlock(payload) {
 
 export function handleDeleteBlock(block) {
     return async function (dispatch) {
-        const noteBlocks = await BlockDataService.deleteBlock(block);
+        const blocks = await BlockDataService.deleteBlock(block);
         dispatch({
             type: DELETE_BLOCK,
-            payload: { noteBlocks },
+            payload: { blocks },
         });
     };
 }

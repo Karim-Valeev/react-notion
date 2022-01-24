@@ -14,7 +14,6 @@ function TextBlockModalContainer() {
     };
 
     const handleText = (data) => {
-        console.log(data);
         dispatch(handleAddTextBlock(data));
     };
 

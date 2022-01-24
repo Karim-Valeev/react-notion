@@ -30,11 +30,11 @@ export function handleUpdateTitle(data) {
             payload: { noteUrl, note: updateNote, load: false },
         });
 
+        await BlockDataService.updateLinkBlock({ linkId: note.id, value: updateNote.title });
+
         dispatch({
             type: GET_NOTION_LIST,
             payload: { noteList: updateNotes, load: false },
         });
-
-        await BlockDataService.updateLinkBlock({ linkId: note.id, value: updateNote.title });
     };
 }

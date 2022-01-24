@@ -25,6 +25,7 @@ function NoteTitle({ title, handleTitle }) {
             return currentRows;
         });
     };
+
     useEffect(() => {
         setValue('title', title);
         setRows(() => {
@@ -42,7 +43,7 @@ function NoteTitle({ title, handleTitle }) {
                 id="title"
                 className="notion__title"
                 placeholder="Untitled"
-                onBlur={handleSubmit(handleTitle)}
+                onBlur={() => {handleSubmit(handleTitle)}}
                 onInput={handleChange}
             />
         </div>
