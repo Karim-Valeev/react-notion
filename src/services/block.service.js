@@ -55,7 +55,6 @@ class BlockDataService {
         });
         return newTextBlockKey;
     }
-
 }
 
 export default new BlockDataService();

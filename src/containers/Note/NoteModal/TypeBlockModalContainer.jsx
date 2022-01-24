@@ -4,7 +4,7 @@ import * as typeBlockSelectors from '../../../store/selectors/typeBlock_selector
 import {
     handleActiveModalLink,
     handleActiveModalText,
-    handleActiveTypeBlock
+    handleActiveTypeBlock,
 } from '../../../store/actions/TypeBlockActions';
 import * as noteSelectors from '../../../store/selectors/note_selectors';
 
@@ -21,7 +21,7 @@ function TypeBlockModalContainer() {
     };
 
     const handleActiveTypeText = (status) => {
-        console.log("INside handleActiveTypeText")
+        console.log('INside handleActiveTypeText');
         dispatch(handleActiveModalText(status));
     };
 

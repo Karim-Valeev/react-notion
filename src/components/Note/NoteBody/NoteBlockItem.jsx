@@ -1,7 +1,7 @@
 import NoteBlockActionContainer from '../../../containers/Note/NoteBody/NoteBlockActionContainer';
 import LinkBlock from '../NoteBlock/LinkBlock';
 import TextBlock from '../NoteBlock/TextBlock';
-import {GET_BLOCKS} from "../../../store/types/noteBlocksTypes";
+import { GET_BLOCKS } from '../../../store/types/noteBlocksTypes';
 
 function NoteBlockItem({ noteBlocks }) {
     const renderNoteBlockSwitch = (block) => {
@@ -11,7 +11,7 @@ function NoteBlockItem({ noteBlocks }) {
             case 'text':
                 return <TextBlock block={block} />;
         }
-    }
+    };
 
     return (
         <>

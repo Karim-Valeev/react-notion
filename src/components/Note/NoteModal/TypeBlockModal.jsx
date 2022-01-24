@@ -25,12 +25,10 @@ function TypeBlockModal({ active, note, handleClick, handleActiveTypeLink, handl
                             <a
                                 href="#"
                                 className="type__item"
-                                onClick={
-                                    (e)=>{
-                                        e.preventDefault();
-                                        handleActiveTypeText(true);
-                                    }
-                                }
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleActiveTypeText(true);
+                                }}
                             >
                                 <span className="type__item-icon">
                                     <img src={textBlock} alt="icon" className="type__img" />
