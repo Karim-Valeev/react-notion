@@ -1,8 +1,23 @@
 import NoteBlockActionContainer from '../../../containers/Note/NoteBody/NoteBlockActionContainer';
 import LinkBlock from '../NoteBlock/LinkBlock';
 import TextBlock from '../NoteBlock/TextBlock';
+import ImageBlock from '../NoteBlock/ImageBlock';
+import ImageBlockFileContainer from '../../../containers/NoteBlock/ImageBlockFileContainer';
 
 function NoteBlockItem({ noteBlocks }) {
+    const renderNoteBlockSwitch = (block) => {
+        switch (block.type) {
+            case 'link':
+                return <LinkBlock block={block} />;
+            case 'text':
+                return <TextBlock block={block} />;
+            case 'imageLink':
+                return <ImageBlock block={block} />;
+            case 'imageFile':
+                return <ImageBlockFileContainer block={block} />;
+        }
+    };
+
     return (
         <>
             {noteBlocks.length === 0 ? (
@@ -17,8 +32,8 @@ function NoteBlockItem({ noteBlocks }) {
             ) : (
                 noteBlocks.map((block) => (
                     <div className="notion__block" key={block.id}>
-                        <NoteBlockActionContainer />
-                        {block.type === 'link' ? <LinkBlock block={block} /> : <TextBlock block={block} />}
+                        <NoteBlockActionContainer block={block} />
+                        {renderNoteBlockSwitch(block)}
                     </div>
                 ))
             )}

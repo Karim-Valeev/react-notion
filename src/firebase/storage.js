@@ -1,4 +1,4 @@
-import { getStorage, ref, uploadBytesResumable } from 'firebase/storage';
+import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { firebaseApp } from './firebaseApp';
 
 export const storage = getStorage(firebaseApp);
@@ -10,6 +10,11 @@ class DataStorageImages {
         uploadTask.on('state_changed', (snapshot) => {
             console.log(snapshot.state);
         });
+    }
+
+    getDownloadUrl(payload) {
+        const storageRef = ref(storage, `/images/${payload.id}`);
+        return getDownloadURL(storageRef);
     }
 }
 
