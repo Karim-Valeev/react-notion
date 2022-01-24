@@ -9,7 +9,6 @@ function NoteTopBar() {
                 <div className="notion__container">
                     <NoteBurgerContainer />
                     <NoteUrlContainer />
-
                     <div className="empty" />
                     <NoteActionTopBarContainer />
                 </div>

@@ -33,11 +33,27 @@ class BlockDataService {
             value: data.link,
             created_at: new Date().toISOString(),
         };
-        const newNoteKey = push(child(ref(db), 'blocks')).key;
-        await set(ref(db, 'blocks/' + newNoteKey), {
+        const newLinkBlockKey = push(child(ref(db), 'blocks')).key;
+        await set(ref(db, 'blocks/' + newLinkBlockKey), {
             ...block,
         });
-        return newNoteKey;
+        return newLinkBlockKey;
+    }
+
+    async createText(data) {
+        const block = {
+            noteId: data.noteId,
+            author: data.author,
+            linkId: '',
+            type: types.TEXT,
+            value: data.text,
+            created_at: new Date().toISOString(),
+        };
+        const newTextBlockKey = push(child(ref(db), 'blocks')).key;
+        await set(ref(db, 'blocks/' + newTextBlockKey), {
+            ...block,
+        });
+        return newTextBlockKey;
     }
 }
 

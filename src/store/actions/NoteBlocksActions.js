@@ -2,7 +2,7 @@ import { CURRENT_BLOCK, GET_BLOCKS } from '../types/noteBlocksTypes';
 import BlockDataService from '../../services/block.service';
 import NoteDataService from '../../services/note.service';
 import DataStorageImages from '../../firebase/storage';
-import { handleActiveModalImage, handleActiveModalLink } from './TypeBlockActions';
+import { handleActiveModalImage, handleActiveModalLink, handleActiveModalText } from './TypeBlockActions';
 import { handleNotionList } from './NotionListActions';
 
 export function handleGetBlocks() {
@@ -36,6 +36,22 @@ export function handleAddLinkBlock(payload) {
 
         dispatch(handleActiveModalLink(false));
         dispatch(handleNotionList({ uid }));
+    };
+}
+
+export function handleAddTextBlock(payload) {
+    return async function (dispatch, getState) {
+        const uid = getState().user?.uid;
+        const note = getState().note?.note;
+
+        await BlockDataService.createText({ noteId: note.id, author: uid, text: payload });
+        const blocks = await BlockDataService.getBlocks(note.id);
+        dispatch({
+            type: GET_BLOCKS,
+            payload: { blocks },
+        });
+
+        dispatch(handleActiveModalText(false));
     };
 }
 
