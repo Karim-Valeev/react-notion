@@ -9,8 +9,6 @@ export function handleActiveTypeBlock(status) {
     };
 }
 
-
-
 export function handleActiveModalLink(status) {
     return function (dispatch) {
         dispatch({

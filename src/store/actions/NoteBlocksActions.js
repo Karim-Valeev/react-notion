@@ -1,9 +1,9 @@
-import {DELETE_BLOCK, GET_BLOCKS} from '../types/noteBlocksTypes';
+import { DELETE_BLOCK, GET_BLOCKS } from '../types/noteBlocksTypes';
 import BlockDataService from '../../services/block.service';
 import NoteDataService from '../../services/note.service';
 import { handleActiveModalLink, handleActiveModalText } from './TypeBlockActions';
 import { handleNotionList } from './NotionListActions';
-import {DELETE_NOTE} from "../types/notionListTypes";
+import { DELETE_NOTE } from '../types/notionListTypes';
 
 export function handleGetBlocks() {
     return async function (dispatch, getState) {
@@ -56,11 +56,11 @@ export function handleAddTextBlock(payload) {
 }
 
 export function handleDeleteBlock(block) {
-    return async function (dispatch){
-        const noteList = await NoteDataService.delete(note);
+    return async function (dispatch) {
+        const noteBlocks = await BlockDataService.deleteBlock(block);
         dispatch({
             type: DELETE_BLOCK,
-            payload: { noteList, load: false },
+            payload: { noteBlocks},
         });
     };
 }

@@ -1,4 +1,16 @@
-import {child, equalTo, get, getDatabase, orderByChild, push, query, ref, set, remove, update} from 'firebase/database';
+import {
+    child,
+    equalTo,
+    get,
+    getDatabase,
+    orderByChild,
+    push,
+    query,
+    ref,
+    set,
+    remove,
+    update,
+} from 'firebase/database';
 import { firebaseApp } from '../firebase/firebaseApp';
 import { types } from '../constants/typeBlocks';
 
@@ -58,19 +70,18 @@ class BlockDataService {
 
     async deleteBlock(block) {
         await remove(ref(db, `/blocks/${block.id}`));
-        return this.getBlocks(block.noteId)
+        return this.getBlocks(block.noteId);
     }
 
-    async deleteNoteBlocks(noteId){
-        const noteBlocks = this.getBlocks(noteId)
+    async deleteNoteBlocks(noteId) {
+        const noteBlocks = this.getBlocks(noteId);
         const updates = {};
-        for(let block of noteBlocks){
+        for (let block of noteBlocks) {
             updates[`/blocks/${block.id}`] = null;
         }
         await update(ref(db), updates);
         return noteId;
     }
-
 }
 
 export default new BlockDataService();
