@@ -60,7 +60,7 @@ export function handleDeleteBlock(block) {
         const noteBlocks = await BlockDataService.deleteBlock(block);
         dispatch({
             type: DELETE_BLOCK,
-            payload: { noteBlocks},
+            payload: { noteBlocks },
         });
     };
 }
