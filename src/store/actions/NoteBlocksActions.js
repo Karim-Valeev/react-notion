@@ -2,7 +2,12 @@ import { CURRENT_BLOCK, DELETE_BLOCK, GET_BLOCKS } from '../types/noteBlocksType
 import BlockDataService from '../../services/block.service';
 import NoteDataService from '../../services/note.service';
 import DataStorageImages from '../../firebase/storage';
-import { handleActiveModalImage, handleActiveModalLink, handleActiveModalText } from './TypeBlockActions';
+import {
+    handleActiveDotsModal,
+    handleActiveModalImage,
+    handleActiveModalLink,
+    handleActiveModalText,
+} from './TypeBlockActions';
 import { handleNotionList } from './NotionListActions';
 
 export function handleGetBlocks() {
@@ -90,15 +95,71 @@ export function handleAddImageBlock(payload) {
     };
 }
 
+export function handleUpdateImageBlock(payload) {
+    return async function (dispatch, getState) {
+        const uid = getState().user?.uid;
+        const note = getState().note?.note;
+        const block = getState().noteBlocks?.block;
+        await BlockDataService.updateImageBlock({
+            blockId: block.id,
+            noteId: note.id,
+            author: uid,
+            type: payload.type,
+            value: payload.value,
+            created_at: block.created_at,
+        });
+        if (payload.type === 'file') {
+            await DataStorageImages.update({ key: block.id, value: payload.value });
+        }
+        const blocks = await BlockDataService.getBlocks(note.id);
+
+        dispatch({
+            type: GET_BLOCKS,
+            payload: { blocks },
+        });
+
+        dispatch(handleActiveModalImage({ active: false, activeUpload: true, activeLink: false }));
+    };
+}
+
 export function handleDownloadUrl(block) {
     return DataStorageImages.getDownloadUrl(block);
 }
 
 export function handleActiveBlock(block) {
+    console.log(block);
     return function (dispatch) {
         dispatch({
             type: CURRENT_BLOCK,
             payload: { block },
         });
+    };
+}
+
+export function handleBlockUpdate(block) {
+    return async function (dispatch) {
+        console.log(block);
+        switch (block.type) {
+            case 'imageLink':
+                dispatch(handleActiveDotsModal(false));
+                dispatch(
+                    handleActiveModalImage({
+                        active: true,
+                        activeUpload: false,
+                        activeLink: true,
+                    })
+                );
+                break;
+            case 'imageFile':
+                dispatch(handleActiveDotsModal(false));
+                dispatch(
+                    handleActiveModalImage({
+                        active: true,
+                        activeUpload: true,
+                        activeLink: false,
+                    })
+                );
+                break;
+        }
     };
 }

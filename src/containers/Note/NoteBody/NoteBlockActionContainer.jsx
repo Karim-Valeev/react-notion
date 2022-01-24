@@ -7,12 +7,13 @@ function NoteBlockActionContainer({ block }) {
     const dispatch = useDispatch();
 
     const handleClick = (status) => {
+        dispatch(handleActiveBlock(null));
         dispatch(handleActiveTypeBlock(status));
     };
 
     const handleClickDots = (status) => {
-        dispatch(handleActiveDotsModal(status));
         dispatch(handleActiveBlock(block));
+        dispatch(handleActiveDotsModal(status));
     };
     return <NoteBlockAction handleClick={handleClick} handleClickDots={handleClickDots} />;
 }

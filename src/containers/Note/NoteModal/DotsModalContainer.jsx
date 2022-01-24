@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as typeBlockSelectors from '../../../store/selectors/typeBlock_selectors';
 import * as noteBlocksSelector from '../../../store/selectors/noteBlocks_selectors';
 import { handleActiveDotsModal } from '../../../store/actions/TypeBlockActions';
-import { handleActiveBlock, handleDeleteBlock } from '../../../store/actions/NoteBlocksActions';
+import {handleActiveBlock, handleBlockUpdate, handleDeleteBlock} from '../../../store/actions/NoteBlocksActions';
 
 function DotsModalContainer() {
     const dotsActive = useSelector(typeBlockSelectors.activeDotsModal);
@@ -20,7 +20,12 @@ function DotsModalContainer() {
         dispatch(handleActiveBlock(null));
     };
 
-    return <DotsModal active={dotsActive} handleClick={handleClick} handleDelete={handleDelete} />;
+    const handleEdit = () => {
+        console.log(block);
+        dispatch(handleBlockUpdate(block));
+    };
+
+    return <DotsModal active={dotsActive} handleClick={handleClick} handleDelete={handleDelete} handleEdit={handleEdit} />;
 }
 
 export default DotsModalContainer;
