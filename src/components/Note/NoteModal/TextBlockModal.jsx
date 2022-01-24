@@ -30,7 +30,7 @@ function TextBlockModal({ activeTextModal, handleClick, handleText }) {
                         </div>
                     </div>
                     <div className="modal-body">
-                        <TinyMceWYSIWYGEditor handleEditorChange={handleEditorChange}/>
+                        <TinyMceWYSIWYGEditor handleEditorChange={handleEditorChange} />
                     </div>
                     <div className="modal-footer-2-btns">
                         <button

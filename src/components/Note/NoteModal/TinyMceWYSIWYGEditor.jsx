@@ -14,7 +14,8 @@ function TinyMceWYSIWYGEditor({ handleEditorChange }) {
                     placeholder: 'Enter text here',
                     branding: false,
                     min_height: 200,
-                    toolbar: 'undo redo | formatselect | ' +
+                    toolbar:
+                        'undo redo | formatselect | ' +
                         'bold italic | alignleft aligncenter ' +
                         'alignright alignjustify',
                 }}
