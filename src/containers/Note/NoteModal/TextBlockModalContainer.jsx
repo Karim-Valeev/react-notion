@@ -1,10 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import * as typeBlockSelectors from '../../../store/selectors/typeBlock_selectors';
 import { handleActiveModalText } from '../../../store/actions/TypeBlockActions';
-import {
-    handleAddTextBlock,
-    handleUpdateTextBlock,
-} from '../../../store/actions/NoteBlocksActions';
+import { handleAddTextBlock, handleUpdateTextBlock } from '../../../store/actions/NoteBlocksActions';
 import TextBlockModal from '../../../components/Note/NoteModal/TextBlockModal';
 import * as noteBlocksSelector from '../../../store/selectors/noteBlocks_selectors';
 

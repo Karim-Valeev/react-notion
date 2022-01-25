@@ -1,6 +1,6 @@
 import GoogleSignIn from './pages/GoogleSignIn';
 import Notion from './pages/Notion';
-import { GOOGLE_REGISTRATION, NOTE, NOTION} from './constants/route';
+import { GOOGLE_REGISTRATION, NOTE, NOTION } from './constants/route';
 
 export const publicRoutes = [
     {

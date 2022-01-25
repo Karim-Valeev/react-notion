@@ -29,5 +29,4 @@ function GoogleSignIn() {
     );
 }
 
-
 export default GoogleSignIn;
