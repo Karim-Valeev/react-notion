@@ -17,14 +17,14 @@ const stylePlusSvg = {
     backface_visibility: 'hidden',
 };
 
-function NoteBlockAction({ handleClick, handleClickDots }) {
+function NoteBlockAction({ handleClickPlus, handleClickDots }) {
     return (
         <div className="block__action--btns">
             <button
                 type="button"
                 className="add_btn"
                 onClick={() => {
-                    handleClick(true);
+                    handleClickPlus(true);
                 }}
             >
                 <PlusSvg style={stylePlusSvg} />

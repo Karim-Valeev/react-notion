@@ -6,7 +6,7 @@ import { handleActiveBlock } from '../../../store/actions/NoteBlocksActions';
 function NoteBlockActionContainer({ block }) {
     const dispatch = useDispatch();
 
-    const handleClick = (status) => {
+    const handleClickPlus = (status) => {
         dispatch(handleActiveBlock(null));
         dispatch(handleActiveTypeBlock(status));
     };
@@ -15,7 +15,7 @@ function NoteBlockActionContainer({ block }) {
         dispatch(handleActiveBlock(block));
         dispatch(handleActiveDotsModal(status));
     };
-    return <NoteBlockAction handleClick={handleClick} handleClickDots={handleClickDots} />;
+    return <NoteBlockAction handleClickPlus={handleClickPlus} handleClickDots={handleClickDots} />;
 }
 
 export default NoteBlockActionContainer;

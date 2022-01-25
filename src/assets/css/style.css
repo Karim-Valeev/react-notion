@@ -263,6 +263,24 @@ body {
     text-decoration: none;
     z-index: 300;
 }
+
+.profile-logout-button{
+    border: none;
+    user-select: none;
+    transition: background 20ms ease-in 0s;
+    cursor: pointer;
+    margin-left: 16px;
+    padding: 2px 14px;
+    background: none;
+    color: #37352f;
+    font-weight: 500;
+}
+
+.profile-logout-button:hover {
+    text-decoration: none;
+    background: rgba(55, 53, 47, 0.08);
+}
+
 .profile:focus {
     outline: 0;
 }
