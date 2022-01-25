@@ -4,6 +4,7 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { useDispatch, useSelector } from 'react-redux';
 import * as burgerSelectors from '../../store/selectors/burger_selectors';
 import { handleBurger } from '../../store/actions/BurgerActions';
+import LogoutContainer from '../../containers/Sidebar/LogoutContainer';
 import * as modeSelectors from '../../store/selectors/mode_selectors';
 
 function SideBar() {
@@ -20,6 +21,7 @@ function SideBar() {
         >
             <div className={activeClass}>
                 <ProfileContainer />
+                <LogoutContainer />
                 <NoteList />
             </div>
         </OutsideClickHandler>

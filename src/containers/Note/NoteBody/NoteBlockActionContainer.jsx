@@ -9,7 +9,7 @@ function NoteBlockActionContainer({ block }) {
     const isEmptyBlock = useSelector(noteBlocksSelector.isEmptyBlock);
     const mode = useSelector(modeSelectors.activeEdit);
 
-    const handleClick = (status) => {
+    const handleClickPlus = (status) => {
         dispatch(handleActiveBlock(null));
         dispatch(handleActiveTypeBlock(status));
     };
@@ -20,7 +20,7 @@ function NoteBlockActionContainer({ block }) {
             dispatch(handleActiveDotsModal(status));
         }
     };
-    return mode ? <NoteBlockAction handleClick={handleClick} handleClickDots={handleClickDots} /> : '';
+    return mode ? <NoteBlockAction handleClickPlus={handleClickPlus} handleClickDots={handleClickDots} /> : '';
 }
 
 export default NoteBlockActionContainer;

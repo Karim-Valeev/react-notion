@@ -13,6 +13,7 @@ import {
 } from 'firebase/database';
 import { firebaseApp } from '../firebase/firebaseApp';
 import { types } from '../constants/typeBlocks';
+import NoteDataService from './note.service';
 
 const db = getDatabase(firebaseApp);
 
@@ -68,9 +69,21 @@ class BlockDataService {
         return newTextBlockKey;
     }
 
+    async updateText(payload) {
+        const updates = {};
+        updates[`/blocks/${payload.blockId}/value`] = payload.value;
+        await update(ref(db), updates);
+    }
+
     async deleteBlock(block) {
+        if (block.type === 'link') {
+            const note = await NoteDataService.getNote(block.linkId);
+            if (note !== null) {
+                await NoteDataService.delete([note]);
+            }
+        }
         await remove(ref(db, `/blocks/${block.id}`));
-        return this.getBlocks(block.noteId);
+        return await this.getBlocks(block.noteId);
     }
 
     async deleteNoteBlocks(noteId) {
@@ -82,6 +95,7 @@ class BlockDataService {
         await update(ref(db), updates);
         return noteId;
     }
+
     async createImage(data) {
         const block = {
             noteId: data.noteId,
@@ -99,7 +113,7 @@ class BlockDataService {
     }
 
     async updateLinkBlock(payload) {
-        const blocksRef = query(ref(db, 'blocks'), ...[orderByChild('linkId'), equalTo(payload.linkId)]);
+        const blocksRef = query(ref(db, 'blocks'), orderByChild('linkId'), equalTo(payload.linkId));
         const value = await get(blocksRef);
         if (value.val() !== null) {
             const updates = {};

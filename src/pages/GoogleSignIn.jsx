@@ -7,7 +7,7 @@ const provider = new GoogleAuthProvider();
 
 // По сути это и авторизация, и аутентификация
 function GoogleSignIn() {
-    let history = useHistory();
+    const history = useHistory();
 
     const handleSubmit = (event) => {
         signInWithPopup(auth, provider)

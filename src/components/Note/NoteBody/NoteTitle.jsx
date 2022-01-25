@@ -43,9 +43,7 @@ function NoteTitle({ title, handleTitle }) {
                 id="title"
                 className="notion__title"
                 placeholder="Untitled"
-                onBlur={() => {
-                    handleSubmit(handleTitle);
-                }}
+                onBlur={handleSubmit(handleTitle)}
                 onInput={handleChange}
             />
         </div>
