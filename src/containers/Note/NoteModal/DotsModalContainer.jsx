@@ -5,8 +5,7 @@ import * as noteBlocksSelector from '../../../store/selectors/noteBlocks_selecto
 import { handleActiveDotsModal } from '../../../store/actions/TypeBlockActions';
 import { handleActiveBlock, handleBlockUpdate, handleDeleteBlock } from '../../../store/actions/NoteBlocksActions';
 import { handleNotionList } from '../../../store/actions/NotionListActions';
-import * as userSelectors from "../../../store/selectors/user_selectors";
-
+import * as userSelectors from '../../../store/selectors/user_selectors';
 
 function DotsModalContainer() {
     const dotsActive = useSelector(typeBlockSelectors.activeDotsModal);
