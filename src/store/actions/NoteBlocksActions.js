@@ -160,9 +160,12 @@ export function handleActiveBlock(block) {
 
 export function handleBlockUpdate(block) {
     return async function (dispatch) {
+        dispatch(handleActiveDotsModal(false));
         switch (block.type) {
+            case 'text':
+                dispatch(handleActiveModalText(true));
+                break;
             case 'imageLink':
-                dispatch(handleActiveDotsModal(false));
                 dispatch(
                     handleActiveModalImage({
                         active: true,
@@ -172,7 +175,6 @@ export function handleBlockUpdate(block) {
                 );
                 break;
             case 'imageFile':
-                dispatch(handleActiveDotsModal(false));
                 dispatch(
                     handleActiveModalImage({
                         active: true,
@@ -182,10 +184,25 @@ export function handleBlockUpdate(block) {
                 );
                 break;
             case 'video':
-                dispatch(handleActiveDotsModal(false));
                 dispatch(handleActiveModalVideo(true));
                 break;
         }
+    };
+}
+
+export function handleUpdateTextBlock(payload) {
+    return async function (dispatch, getState) {
+        const note = getState().note?.note;
+        const block = getState().noteBlocks?.block;
+        await BlockDataService.updateText({ blockId: block.id, value: payload });
+        const blocks = await BlockDataService.getBlocks(note.id);
+
+        await dispatch({
+            type: GET_BLOCKS,
+            payload: { blocks },
+        });
+
+        dispatch(handleActiveModalText(false));
     };
 }
 

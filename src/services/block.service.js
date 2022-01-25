@@ -69,6 +69,12 @@ class BlockDataService {
         return newTextBlockKey;
     }
 
+    async updateText(payload){
+        const updates = {};
+        updates[`/blocks/${payload.blockId}/value`] = payload.value;
+        await update(ref(db), updates);
+    }
+
     async deleteBlock(block) {
         if (block.type === 'link') {
             const note = await NoteDataService.getNote(block.linkId);
@@ -89,6 +95,7 @@ class BlockDataService {
         await update(ref(db), updates);
         return noteId;
     }
+
     async createImage(data) {
         const block = {
             noteId: data.noteId,
@@ -106,7 +113,7 @@ class BlockDataService {
     }
 
     async updateLinkBlock(payload) {
-        const blocksRef = query(ref(db, 'blocks'), ...[orderByChild('linkId'), equalTo(payload.linkId)]);
+        const blocksRef = query(ref(db, 'blocks'), orderByChild('linkId'), equalTo(payload.linkId));
         const value = await get(blocksRef);
         if (value.val() !== null) {
             const updates = {};

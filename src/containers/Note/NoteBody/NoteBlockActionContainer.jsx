@@ -20,7 +20,7 @@ function NoteBlockActionContainer({ block }) {
             dispatch(handleActiveDotsModal(status));
         }
     };
-    return mode ? <NoteBlockAction handleClick={handleClickPlus} handleClickDots={handleClickDots} /> : '';
+    return mode ? <NoteBlockAction handleClickPlus={handleClickPlus} handleClickDots={handleClickDots} /> : '';
 }
 
 export default NoteBlockActionContainer;

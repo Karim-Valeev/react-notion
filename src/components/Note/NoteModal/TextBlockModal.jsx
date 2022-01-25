@@ -1,11 +1,5 @@
-import React, { useRef, useState } from 'react';
-import OutsideClickHandler from 'react-outside-click-handler';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import TinyMceWYSIWYGEditor from './TinyMceWYSIWYGEditor';
-
-const defaultValues = {
-    text: '',
-};
 
 function TextBlockModal({ activeTextModal, handleClick, handleText }) {
     const classModal = activeTextModal ? 'modal show modal_background' : 'modal modal_background';
