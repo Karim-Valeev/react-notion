@@ -120,6 +120,28 @@ class BlockDataService {
         updates[`/blocks/${payload.blockId}`] = block;
         await update(ref(db), updates);
     }
+
+    async createVideo(data) {
+        const block = {
+            noteId: data.noteId,
+            author: data.author,
+            type: types.VIDEO,
+            value: data.value,
+            created_at: new Date().toISOString(),
+        };
+
+        const newNoteKey = push(child(ref(db), 'blocks')).key;
+        await set(ref(db, 'blocks/' + newNoteKey), {
+            ...block,
+        });
+        return newNoteKey;
+    }
+
+    async updateVideo(payload) {
+        const updates = {};
+        updates[`/blocks/${payload.blockId}/value`] = payload.value;
+        await update(ref(db), updates);
+    }
 }
 
 export default new BlockDataService();

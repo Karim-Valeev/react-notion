@@ -9,7 +9,7 @@ function ImageBlockFileContainer({ block }) {
         await setFileUrl('');
         const getFileUrl = await handleDownloadUrl(block);
         await setFileUrl(getFileUrl);
-    }, [block.value]);
+    }, [block]);
     return fileUrl === '' ? <LoaderImage /> : <ImageBlockFile url={fileUrl} />;
 }
 

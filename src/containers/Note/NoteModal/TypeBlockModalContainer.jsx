@@ -5,6 +5,7 @@ import {
     handleActiveModalImage,
     handleActiveModalLink,
     handleActiveModalText,
+    handleActiveModalVideo,
     handleActiveTypeBlock,
 } from '../../../store/actions/TypeBlockActions';
 import * as noteSelectors from '../../../store/selectors/note_selectors';
@@ -29,6 +30,10 @@ function TypeBlockModalContainer() {
         dispatch(handleActiveModalText(status));
     };
 
+    const handleActiveTypeVideo = (status) => {
+        dispatch(handleActiveModalVideo(status));
+    };
+
     return (
         <TypeBlockModal
             active={active}
@@ -37,6 +42,7 @@ function TypeBlockModalContainer() {
             handleActiveImage={handleActiveImage}
             handleActiveTypeLink={handleActiveTypeLink}
             handleActiveTypeText={handleActiveTypeText}
+            handleActiveTypeVideo={handleActiveTypeVideo}
         />
     );
 }

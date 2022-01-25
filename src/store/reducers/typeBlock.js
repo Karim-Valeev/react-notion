@@ -1,4 +1,4 @@
-import { CHOOSE_DOTS, CHOOSE_IMAGE, CHOOSE_LINK, CLICK_PLUS, CHOOSE_TEXT } from '../types/typeBlockTypes';
+import { CHOOSE_DOTS, CHOOSE_IMAGE, CHOOSE_LINK, CLICK_PLUS, CHOOSE_TEXT, CHOOSE_VIDEO } from '../types/typeBlockTypes';
 
 const initialState = {
     active: false,
@@ -9,6 +9,7 @@ const initialState = {
         activeLink: false,
     },
     activeDotsModal: false,
+    activeVideoModal: false,
 };
 
 export function typeBlockReducer(state = initialState, action) {
@@ -22,6 +23,8 @@ export function typeBlockReducer(state = initialState, action) {
         case CHOOSE_IMAGE:
             return { ...state, ...action.payload };
         case CHOOSE_DOTS:
+            return { ...state, ...action.payload };
+        case CHOOSE_VIDEO:
             return { ...state, ...action.payload };
         default:
             return state;

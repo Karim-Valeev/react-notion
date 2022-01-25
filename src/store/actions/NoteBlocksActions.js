@@ -7,6 +7,7 @@ import {
     handleActiveModalImage,
     handleActiveModalLink,
     handleActiveModalText,
+    handleActiveModalVideo,
 } from './TypeBlockActions';
 import { handleNotionList } from './NotionListActions';
 
@@ -109,16 +110,38 @@ export function handleUpdateImageBlock(payload) {
             created_at: block.created_at,
         });
         if (payload.type === 'file') {
-            await DataStorageImages.update({ key: block.id, value: payload.value });
+            await DataStorageImages.upload({ key: block.id, value: payload.value });
         }
         const blocks = await BlockDataService.getBlocks(note.id);
 
-        dispatch({
+        await dispatch({
             type: GET_BLOCKS,
             payload: { blocks },
         });
 
         dispatch(handleActiveModalImage({ active: false, activeUpload: true, activeLink: false }));
+    };
+}
+
+export function handleAddVideo(payload) {
+    return async function (dispatch, getState) {
+        const uid = getState().user?.uid;
+        const note = getState().note?.note;
+
+        await BlockDataService.createVideo({
+            noteId: note.id,
+            author: uid,
+            value: payload,
+        });
+
+        const blocks = await BlockDataService.getBlocks(note.id);
+
+        await dispatch({
+            type: GET_BLOCKS,
+            payload: { blocks },
+        });
+
+        dispatch(handleActiveModalVideo(false));
     };
 }
 
@@ -160,6 +183,26 @@ export function handleBlockUpdate(block) {
                     })
                 );
                 break;
+            case 'video':
+                dispatch(handleActiveDotsModal(false));
+                dispatch(handleActiveModalVideo(true));
+                break;
         }
+    };
+}
+
+export function handleUpdateVideoBlock(payload) {
+    return async function (dispatch, getState) {
+        const note = getState().note?.note;
+        const block = getState().noteBlocks?.block;
+        await BlockDataService.updateVideo({ blockId: block.id, value: payload });
+        const blocks = await BlockDataService.getBlocks(note.id);
+
+        await dispatch({
+            type: GET_BLOCKS,
+            payload: { blocks },
+        });
+
+        dispatch(handleActiveModalVideo(false));
     };
 }
