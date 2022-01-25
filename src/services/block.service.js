@@ -69,7 +69,7 @@ class BlockDataService {
         return newTextBlockKey;
     }
 
-    async updateText(payload){
+    async updateText(payload) {
         const updates = {};
         updates[`/blocks/${payload.blockId}/value`] = payload.value;
         await update(ref(db), updates);

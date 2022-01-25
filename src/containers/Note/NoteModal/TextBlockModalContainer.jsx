@@ -5,11 +5,12 @@ import { handleActiveModalLink, handleActiveModalText } from '../../../store/act
 import {
     handleAddLinkBlock,
     handleAddTextBlock,
-    handleAddVideo, handleUpdateTextBlock,
-    handleUpdateVideoBlock
+    handleAddVideo,
+    handleUpdateTextBlock,
+    handleUpdateVideoBlock,
 } from '../../../store/actions/NoteBlocksActions';
 import TextBlockModal from '../../../components/Note/NoteModal/TextBlockModal';
-import * as noteBlocksSelector from "../../../store/selectors/noteBlocks_selectors";
+import * as noteBlocksSelector from '../../../store/selectors/noteBlocks_selectors';
 
 function TextBlockModalContainer() {
     const activeTextModal = useSelector(typeBlockSelectors.activeTextModal);
@@ -21,7 +22,7 @@ function TextBlockModalContainer() {
     };
 
     const handleText = (data) => {
-        console.log("In handleText", data);
+        console.log('In handleText', data);
         if (block === null) {
             dispatch(handleAddTextBlock(data));
         } else {
