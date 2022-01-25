@@ -127,7 +127,6 @@ export function handleDownloadUrl(block) {
 }
 
 export function handleActiveBlock(block) {
-    console.log(block);
     return function (dispatch) {
         dispatch({
             type: CURRENT_BLOCK,
@@ -138,7 +137,6 @@ export function handleActiveBlock(block) {
 
 export function handleBlockUpdate(block) {
     return async function (dispatch) {
-        console.log(block);
         switch (block.type) {
             case 'imageLink':
                 dispatch(handleActiveDotsModal(false));

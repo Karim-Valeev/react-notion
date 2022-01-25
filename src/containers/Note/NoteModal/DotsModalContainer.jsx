@@ -4,6 +4,7 @@ import * as typeBlockSelectors from '../../../store/selectors/typeBlock_selector
 import * as noteBlocksSelector from '../../../store/selectors/noteBlocks_selectors';
 import { handleActiveDotsModal } from '../../../store/actions/TypeBlockActions';
 import { handleActiveBlock, handleBlockUpdate, handleDeleteBlock } from '../../../store/actions/NoteBlocksActions';
+import {handleNotionList} from "../../../store/actions/NotionListActions";
 
 function DotsModalContainer() {
     const dotsActive = useSelector(typeBlockSelectors.activeDotsModal);
@@ -16,6 +17,11 @@ function DotsModalContainer() {
 
     const handleDelete = () => {
         dispatch(handleDeleteBlock(block));
+        console.log("Before link condition")
+        if (block.type === "link") {
+            console.log("Before handleNotionList")
+            dispatch(handleNotionList({"uid":block.author}));
+        }
         dispatch(handleActiveDotsModal(false));
         dispatch(handleActiveBlock(null));
     };
