@@ -106,9 +106,7 @@ function NotionListItemRecursion({ data, note, handleAddNote, handleDelete }) {
                             >
                                 <PlusSvg style={stylePlusSvg} />
                             </button>
-                        ) : (
-                            ''
-                        )}
+                        ) : null}
                     </span>
                 </span>
             </Link>
