@@ -3,6 +3,7 @@ import LinkBlock from '../NoteBlock/LinkBlock';
 import TextBlock from '../NoteBlock/TextBlock';
 import ImageBlock from '../NoteBlock/ImageBlock';
 import ImageBlockFileContainer from '../../../containers/NoteBlock/ImageBlockFileContainer';
+import VideoBlock from '../NoteBlock/VideoBlock';
 
 function NoteBlockItem({ noteBlocks }) {
     const renderNoteBlockSwitch = (block) => {
@@ -15,6 +16,8 @@ function NoteBlockItem({ noteBlocks }) {
                 return <ImageBlock block={block} />;
             case 'imageFile':
                 return <ImageBlockFileContainer block={block} />;
+            case 'video':
+                return <VideoBlock block={block} />;
         }
     };
 

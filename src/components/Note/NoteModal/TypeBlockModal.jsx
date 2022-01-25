@@ -5,7 +5,15 @@ import videoBlock from '../../../static/images/videoBlock.png';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { MAX_LEVEL } from '../../../constants/notionListConstants';
 
-function TypeBlockModal({ active, note, handleClick, handleActiveTypeLink, handleActiveImage, handleActiveTypeText }) {
+function TypeBlockModal({
+    active,
+    note,
+    handleClick,
+    handleActiveTypeLink,
+    handleActiveImage,
+    handleActiveTypeText,
+    handleActiveTypeVideo,
+}) {
     const classNameActive = active ? 'popup__type popup__type--active' : 'popup__type';
     const classNameActivePopup = active ? 'popups__inner popups_active' : 'popups__inner';
     return (
@@ -71,7 +79,14 @@ function TypeBlockModal({ active, note, handleClick, handleActiveTypeLink, handl
                                 <span className="type__item-name">Image</span>
                             </a>
 
-                            <a href="#" className="type__item">
+                            <a
+                                href="#"
+                                className="type__item"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleActiveTypeVideo(true);
+                                }}
+                            >
                                 <span className="type__item-icon">
                                     <img src={videoBlock} alt="icon" className="type__img" />
                                 </span>

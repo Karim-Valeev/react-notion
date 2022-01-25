@@ -1259,3 +1259,7 @@ body {
 .bg__image {
     background: #f0f0f0;
 }
+
+.w_video {
+    width: 80%;
+}

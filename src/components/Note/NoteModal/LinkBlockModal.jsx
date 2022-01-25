@@ -7,13 +7,14 @@ const defaultValues = {
 
 function LinkBlockModal({ activeLinkModal, handleClick, handleLink }) {
     const classModal = activeLinkModal ? 'modal show modal_background' : 'modal modal_background';
-    const { register, handleSubmit } = useForm({ defaultValues });
+    const { register, handleSubmit, setValue } = useForm({ defaultValues });
 
     return (
         <div className={classModal} id="exampleModalToggle1" aria-labelledby="exampleModalToggleLabel2">
             <div className="modal-dialog modal-dialog-centered">
                 <OutsideClickHandler
                     onOutsideClick={() => {
+                        setValue('name', '');
                         handleClick(false);
                     }}
                 >
@@ -37,6 +38,7 @@ function LinkBlockModal({ activeLinkModal, handleClick, handleLink }) {
                                 type="button"
                                 className="btn btn-link"
                                 onClick={() => {
+                                    setValue('name', '');
                                     handleClick(false);
                                 }}
                             >
