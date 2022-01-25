@@ -23,7 +23,7 @@ function TextBlockModalContainer() {
         }
     };
 
-    return <TextBlockModal activeTextModal={activeTextModal} handleClick={handleClick} handleText={handleText} />;
+    return <TextBlockModal activeTextModal={activeTextModal} block={block} handleClick={handleClick} handleText={handleText} />;
 }
 
 export default TextBlockModalContainer;

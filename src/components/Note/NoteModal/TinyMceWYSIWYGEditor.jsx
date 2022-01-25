@@ -2,14 +2,14 @@ import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { API_KEY } from '../../../constants/tinyMceWYSIWYGEditorConstants';
 
-function TinyMceWYSIWYGEditor({ handleEditorChange }) {
+function TinyMceWYSIWYGEditor({text, handleEditorChange }) {
     const editorRef = useRef(null); // Т.к. интеграция со сторонними DOM-библиотеками.
     return (
         <>
             <Editor
                 apiKey={API_KEY}
                 onInit={(evt, editor) => (editorRef.current = editor)}
-                initialValue=""
+                initialValue={text}
                 init={{
                     placeholder: 'Enter text here',
                     branding: false,

@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import TinyMceWYSIWYGEditor from './TinyMceWYSIWYGEditor';
 
-function TextBlockModal({ activeTextModal, handleClick, handleText }) {
+function TextBlockModal({ activeTextModal,block, handleClick, handleText }) {
     const classModal = activeTextModal ? 'modal show modal_background' : 'modal modal_background';
     const [text, setText] = useState('');
 
+    useEffect(() => {
+        if (block !== null) {
+            setText(block.value)
+        } else {
+            setText("")
+        }
+    }, [block])
     const handleEditorChange = (text) => {
         setText(text);
     };
@@ -13,6 +20,7 @@ function TextBlockModal({ activeTextModal, handleClick, handleText }) {
         event.preventDefault();
         handleText(text);
     };
+
 
     return (
         <div className={classModal} id="exampleModalToggle1" aria-labelledby="exampleModalToggleLabel2">
@@ -24,7 +32,7 @@ function TextBlockModal({ activeTextModal, handleClick, handleText }) {
                         </div>
                     </div>
                     <div className="modal-body">
-                        <TinyMceWYSIWYGEditor handleEditorChange={handleEditorChange} />
+                        <TinyMceWYSIWYGEditor handleEditorChange={handleEditorChange} text={text} />
                     </div>
                     <div className="modal-footer-2-btns">
                         <button
