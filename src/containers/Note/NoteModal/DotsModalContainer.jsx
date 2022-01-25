@@ -26,12 +26,7 @@ function DotsModalContainer() {
     };
 
     return (
-        <DotsModal
-            active={dotsActive}
-            handleClick={handleClick}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-        />
+        <DotsModal active={dotsActive} handleClick={handleClick} handleDelete={handleDelete} handleEdit={handleEdit} />
     );
 }
 

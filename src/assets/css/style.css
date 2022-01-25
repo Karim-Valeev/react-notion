@@ -264,7 +264,7 @@ body {
     z-index: 300;
 }
 
-.profile-logout-button{
+.profile-logout-button {
     border: none;
     user-select: none;
     transition: background 20ms ease-in 0s;
