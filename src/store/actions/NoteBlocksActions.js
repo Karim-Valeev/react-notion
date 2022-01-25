@@ -14,7 +14,10 @@ import { handleNotionList } from './NotionListActions';
 export function handleGetBlocks() {
     return async function (dispatch, getState) {
         const note = getState().note?.note;
-        const blocks = await BlockDataService.getBlocks(note.id);
+        let blocks = []
+        if (Object.keys(note).length !== 0) {
+            blocks = await BlockDataService.getBlocks(note.id);
+        }
         dispatch({
             type: GET_BLOCKS,
             payload: { blocks },
