@@ -3,6 +3,7 @@ import LinkBlockModalContainer from '../../../containers/Note/NoteModal/LinkBloc
 import TextBlockModalContainer from '../../../containers/Note/NoteModal/TextBlockModalContainer';
 import ImageBlockModalContainer from '../../../containers/Note/NoteModal/ImageBlockModalContainer';
 import DotsModalContainer from '../../../containers/Note/NoteModal/DotsModalContainer';
+import VideoModalContainer from '../../../containers/Note/NoteModal/VideoModalContainer';
 
 function NoteModal() {
     return (
@@ -12,6 +13,7 @@ function NoteModal() {
             <ImageBlockModalContainer />
             <DotsModalContainer />
             <TextBlockModalContainer />
+            <VideoModalContainer />
         </div>
     );
 }

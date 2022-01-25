@@ -9,18 +9,42 @@ const styleDelete = {
     backface_visibility: 'hidden',
 };
 
-function NoteActionTopBar() {
+function NoteActionTopBar({ mode, handleDelete, handleModeEdit, handleModeView }) {
+    const classEdit = mode.activeEdit ? 'notion__button notion__button--active' : 'notion__button';
+    const classView = mode.activeView ? 'notion__button notion__button--active' : 'notion__button';
     return (
         <div className="notion__action--buttons">
-            <button className="notion__button" type="button">
+            <button
+                className={classEdit}
+                type="button"
+                onClick={() => {
+                    handleModeEdit();
+                }}
+            >
                 Edit
             </button>
-            <button className="notion__button" type="button">
+            <button
+                className={classView}
+                type="button"
+                onClick={() => {
+                    handleModeView();
+                }}
+            >
                 View
             </button>
-            <button className="notion__button" type="button">
-                <DeleteSvg style={styleDelete} />
-            </button>
+            {mode.activeEdit ? (
+                <button
+                    className="notion__button"
+                    type="button"
+                    onClick={() => {
+                        handleDelete();
+                    }}
+                >
+                    <DeleteSvg style={styleDelete} />
+                </button>
+            ) : (
+                ''
+            )}
         </div>
     );
 }

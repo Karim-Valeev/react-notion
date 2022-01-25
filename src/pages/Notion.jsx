@@ -11,23 +11,24 @@ import Loader from '../components/Loaders/Loader';
 import NoteFrame from '../components/Note/NoteBody/NoteFrame';
 import NoteModal from '../components/Note/NoteModal/NoteModal';
 import { handleGetBlocks } from '../store/actions/NoteBlocksActions';
+import { handleActiveMode } from '../store/actions/ModeActions';
 
 function Notion(props) {
     const note = useSelector(noteSelectors.note);
     const load = useSelector(noteSelectors.load);
     const dispatch = useDispatch();
 
-    // на будущее
-    const logout = () => {
-        auth.signOut();
-    };
-
     useEffect(async () => {
+        if (props.location.search === '?mode=edit') {
+            dispatch(handleActiveMode({ activeEdit: true, activeView: false }));
+        } else if (props.location.search === '?mode=view') {
+            dispatch(handleActiveMode({ activeEdit: false, activeView: true }));
+        }
         if (props.match.params.id !== undefined) {
             await dispatch(handleNote(props.match.params.id));
             await dispatch(handleGetBlocks());
         }
-    }, [props.match.params.id, dispatch, handleNote]);
+    }, [props.match.params.id]);
 
     return (
         <main id="notion-app">

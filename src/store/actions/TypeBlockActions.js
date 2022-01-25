@@ -1,4 +1,4 @@
-import { CHOOSE_DOTS, CHOOSE_IMAGE, CHOOSE_LINK, CLICK_PLUS, CHOOSE_TEXT } from '../types/typeBlockTypes';
+import { CHOOSE_DOTS, CHOOSE_IMAGE, CHOOSE_LINK, CLICK_PLUS, CHOOSE_TEXT, CHOOSE_VIDEO } from '../types/typeBlockTypes';
 
 export function handleActiveTypeBlock(status) {
     return function (dispatch) {
@@ -41,6 +41,15 @@ export function handleActiveModalText(status) {
         dispatch({
             type: CHOOSE_TEXT,
             payload: { active: false, activeTextModal: status },
+        });
+    };
+}
+
+export function handleActiveModalVideo(status) {
+    return function (dispatch) {
+        dispatch({
+            type: CHOOSE_VIDEO,
+            payload: { active: false, activeVideoModal: status },
         });
     };
 }

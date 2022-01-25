@@ -221,6 +221,10 @@ body {
 .notion__button:hover {
     background: rgba(55, 53, 47, 0.08);
 }
+
+.notion__button--active {
+    background: rgba(55, 53, 47, 0.08);
+}
 @media (max-width: 420px) {
     .notion__button {
         padding-right: 0;
@@ -1276,4 +1280,26 @@ body {
 
 .bg__image {
     background: #f0f0f0;
+}
+
+.w_video {
+    width: 80%;
+}
+
+.btn_dots {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #6c757d;
+    border-top: 1px solid #6c757d;
+    cursor: pointer;
+    outline: none;
+    text-align: left;
+}
+
+.btn_dots:last-child {
+    border-top: none;
+}
+
+.btn_dots:focus {
+    outline: none;
 }
