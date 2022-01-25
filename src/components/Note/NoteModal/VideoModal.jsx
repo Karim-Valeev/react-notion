@@ -1,6 +1,6 @@
 import OutsideClickHandler from 'react-outside-click-handler';
 import { useForm } from 'react-hook-form';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const defaultValues = {
     linkVideo: '',
@@ -47,7 +47,7 @@ function VideoModal({ activeVideoModal, data, handleClick, handleVideo }) {
                                         src={url}
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media;"
-                                    ></iframe>
+                                    />
                                 </div>
                             ) : (
                                 ''
@@ -63,7 +63,17 @@ function VideoModal({ activeVideoModal, data, handleClick, handleVideo }) {
                             />
                         </div>
 
-                        <div className="modal-footer">
+                        <div className="modal-footer-2-btns">
+                            <button
+                                type="button"
+                                className="btn btn-link"
+                                onClick={() => {
+                                    setValue('linkVideo', '');
+                                    handleClick(false);
+                                }}
+                            >
+                                Cancel
+                            </button>
                             <button type="submit" className="btn btn-link">
                                 Upload
                             </button>

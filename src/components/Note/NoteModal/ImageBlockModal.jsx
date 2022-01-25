@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import OutsideClickHandler from 'react-outside-click-handler';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 const defaultValues = {
     photo: '',
     linkPhoto: '',
@@ -125,7 +125,20 @@ function ImageBlockModal({ activeImageModal, data, handleClick, handleImage }) {
                             )}
                         </div>
 
-                        <div className="modal-footer">
+                        <div className="modal-footer-2-btns">
+                            <button
+                                type="button"
+                                className="btn btn-link"
+                                onClick={() => {
+                                    handleClick({
+                                        active: false,
+                                        activeUpload: activeImageModal.activeUpload,
+                                        activeLink: activeImageModal.activeLink,
+                                    });
+                                }}
+                            >
+                                Cancel
+                            </button>
                             <button type="submit" className="btn btn-link">
                                 Upload
                             </button>
