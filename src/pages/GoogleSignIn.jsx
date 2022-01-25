@@ -11,7 +11,7 @@ function GoogleSignIn() {
 
     const handleSubmit = (event) => {
         signInWithPopup(auth, provider)
-            .then((result) => {
+            .then(() => {
                 history.push('/');
             })
             .catch((error) => {
@@ -22,11 +22,12 @@ function GoogleSignIn() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="button-9">
                 Register with Google account
             </button>
         </form>
     );
 }
+
 
 export default GoogleSignIn;

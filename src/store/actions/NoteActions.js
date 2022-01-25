@@ -4,7 +4,6 @@ import { arrUrl } from '../../utils/changeState';
 import { GET_NOTE, UPDATE_TITLE } from '../types/noteTypes';
 import { GET_NOTION_LIST } from '../types/notionListTypes';
 
-// Правая чатсь страницы
 export function handleNote(id) {
     return async function (dispatch, getState) {
         // Предподготовка данных для редьюсера

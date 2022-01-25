@@ -5,7 +5,6 @@ export function userReducer(state = false, action) {
         case SET_USER:
             return action.payload || null;
         default:
-            // todo возможно изменить на NULL
             return state;
     }
 }

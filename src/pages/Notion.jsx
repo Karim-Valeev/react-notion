@@ -1,6 +1,5 @@
 import NoteLayout from '../components/Layout/NoteLayout';
 import SideBar from '../components/Layout/SideBar';
-import { auth } from '../firebase/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as noteSelectors from '../store/selectors/note_selectors';

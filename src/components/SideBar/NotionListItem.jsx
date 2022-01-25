@@ -1,5 +1,6 @@
 import NotionListItemRecursion from '../../components/SideBar/NotionListItemRecursion';
 import PropTypes from 'prop-types';
+
 function NotionListItem({ notionList, note, handleAddNote, handleDelete }) {
     return (
         <>

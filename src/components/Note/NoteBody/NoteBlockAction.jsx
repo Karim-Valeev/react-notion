@@ -1,5 +1,6 @@
 import { ReactComponent as PlusSvg } from '../../../static/svg/plus.svg';
 import { ReactComponent as DotsSvg } from '../../../static/svg/dots.svg';
+
 const styleDots = {
     width: '14px',
     height: ' 14px',

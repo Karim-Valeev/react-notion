@@ -7,9 +7,6 @@ import { typeBlockReducer } from './typeBlock';
 import { noteBlocksReducer } from './noteBlocks';
 import { modeReducers } from './mode';
 
-// Главный редьюсер, который хранит в себе состояния. Обьединяет в себе остальные редьюсеры.
-// Можно обращаться к нему, а не к конкретным редьюсерам.
-// По документации лучше называть так :)
 export const rootReducer = combineReducers({
     user: userReducer,
     notionList: notionListReducer,
