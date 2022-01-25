@@ -70,11 +70,11 @@ class BlockDataService {
     }
 
     async deleteBlock(block) {
-        if (block.type === "link") {
-            console.log("TYPE LINK")
+        if (block.type === 'link') {
+            console.log('TYPE LINK');
             const note = await NoteDataService.getNote(block.linkId);
-            if(note!==null){
-                await NoteDataService.delete([note])
+            if (note !== null) {
+                await NoteDataService.delete([note]);
             }
         }
         await remove(ref(db, `/blocks/${block.id}`));

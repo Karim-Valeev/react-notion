@@ -37,7 +37,7 @@ class NoteDataService {
     }
 
     async getNote(id) {
-        console.log("Inside getNote")
+        console.log('Inside getNote');
         const noteRef = ref(db, `/notes/${id}`);
         const value = await get(noteRef);
         if (value.val()) {
@@ -62,11 +62,11 @@ class NoteDataService {
     }
 
     async delete(note) {
-        console.log("Inside delete note")
-        console.log("Before flattenNote")
-        console.log(note)
+        console.log('Inside delete note');
+        console.log('Before flattenNote');
+        console.log(note);
         const deleteNotes = flattenNote(note);
-        console.log("After flattenNote")
+        console.log('After flattenNote');
         for (let note of deleteNotes) {
             await remove(ref(db, `/notes/${note.id}`));
             await BlockDataService.deleteNoteBlocks(note.id);
