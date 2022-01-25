@@ -4,6 +4,7 @@ import { handleActiveDotsModal, handleActiveTypeBlock } from '../../../store/act
 import { handleActiveBlock } from '../../../store/actions/NoteBlocksActions';
 import * as noteBlocksSelector from '../../../store/selectors/noteBlocks_selectors';
 import * as modeSelectors from '../../../store/selectors/mode_selectors';
+
 function NoteBlockActionContainer({ block }) {
     const dispatch = useDispatch();
     const isEmptyBlock = useSelector(noteBlocksSelector.isEmptyBlock);
@@ -20,7 +21,7 @@ function NoteBlockActionContainer({ block }) {
             dispatch(handleActiveDotsModal(status));
         }
     };
-    return mode ? <NoteBlockAction handleClickPlus={handleClickPlus} handleClickDots={handleClickDots} /> : '';
+    return mode ? <NoteBlockAction handleClickPlus={handleClickPlus} handleClickDots={handleClickDots} /> : null;
 }
 
 export default NoteBlockActionContainer;

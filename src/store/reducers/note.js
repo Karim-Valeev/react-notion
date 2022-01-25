@@ -9,7 +9,6 @@ const initialState = {
 export function noteReducer(state = initialState, action) {
     switch (action.type) {
         case GET_NOTE:
-            return action.payload;
         case UPDATE_TITLE:
             return action.payload;
         default:

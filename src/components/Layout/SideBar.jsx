@@ -25,9 +25,7 @@ function SideBar() {
                 <NoteList />
             </div>
         </OutsideClickHandler>
-    ) : (
-        ''
-    );
+    ) : null;
 }
 
 export default SideBar;

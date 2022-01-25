@@ -42,9 +42,7 @@ function NoteActionTopBar({ mode, handleDelete, handleModeEdit, handleModeView }
                 >
                     <DeleteSvg style={styleDelete} />
                 </button>
-            ) : (
-                ''
-            )}
+            ) : null}
         </div>
     );
 }

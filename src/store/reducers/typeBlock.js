@@ -15,15 +15,10 @@ const initialState = {
 export function typeBlockReducer(state = initialState, action) {
     switch (action.type) {
         case CLICK_PLUS:
-            return { ...state, ...action.payload };
         case CHOOSE_LINK:
-            return { ...state, ...action.payload };
         case CHOOSE_TEXT:
-            return { ...state, ...action.payload };
         case CHOOSE_IMAGE:
-            return { ...state, ...action.payload };
         case CHOOSE_DOTS:
-            return { ...state, ...action.payload };
         case CHOOSE_VIDEO:
             return { ...state, ...action.payload };
         default:

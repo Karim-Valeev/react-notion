@@ -8,6 +8,7 @@ logs
 **/*.backup.*
 **/*.back.*
 
+test.jsx
 node_modules
 bower_components
 
@@ -52,3 +53,5 @@ yarn-error.log*
 
 # firebase
 .firebase
+
+

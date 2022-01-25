@@ -8,9 +8,7 @@ const initialState = {
 export function noteBlocksReducer(state = initialState, action) {
     switch (action.type) {
         case GET_BLOCKS:
-            return { ...state, ...action.payload };
         case CURRENT_BLOCK:
-            return { ...state, ...action.payload };
         case DELETE_BLOCK:
             return { ...state, ...action.payload };
         default:

@@ -12,7 +12,7 @@ function NoteBurgerContainer() {
     function handleClick(status) {
         dispatch(handleBurger(status));
     }
-    return mode ? <NoteBurger active={active} handleClick={handleClick} /> : '';
+    return mode ? <NoteBurger active={active} handleClick={handleClick} /> : null;
 }
 
 export default NoteBurgerContainer;

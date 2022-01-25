@@ -5,7 +5,7 @@ import * as userSelectors from '../../store/selectors/user_selectors';
 function ProfileContainer() {
     const user = useSelector(userSelectors.user);
     if (user === false) {
-        return <></>;
+        return null;
     }
     return <Profile user={user} />;
 }

@@ -4,7 +4,6 @@ import { ADD_NOTE, DELETE_NOTE, GET_NOTION_LIST } from '../types/notionListTypes
 import { DEFAULT_NAME_LINK } from '../../constants/typeBlocks';
 import { handleGetBlocks } from './NoteBlocksActions';
 
-// Левая чатсь страницы
 export function handleNotionList(user) {
     return async function (dispatch) {
         const noteList = await NoteDataService.getUserNotes(user.uid);
