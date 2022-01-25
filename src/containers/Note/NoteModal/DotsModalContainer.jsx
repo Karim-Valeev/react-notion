@@ -5,29 +5,29 @@ import * as noteBlocksSelector from '../../../store/selectors/noteBlocks_selecto
 import { handleActiveDotsModal } from '../../../store/actions/TypeBlockActions';
 import { handleActiveBlock, handleBlockUpdate, handleDeleteBlock } from '../../../store/actions/NoteBlocksActions';
 import { handleNotionList } from '../../../store/actions/NotionListActions';
+import * as userSelectors from "../../../store/selectors/user_selectors";
+
 
 function DotsModalContainer() {
     const dotsActive = useSelector(typeBlockSelectors.activeDotsModal);
     const block = useSelector(noteBlocksSelector.noteBlock);
+    const user = useSelector(userSelectors.user);
     const dispatch = useDispatch();
 
     const handleClick = (status) => {
         dispatch(handleActiveDotsModal(status));
     };
 
-    const handleDelete = () => {
-        dispatch(handleDeleteBlock(block));
-        console.log('Before link condition');
+    const handleDelete = async () => {
+        await dispatch(handleDeleteBlock(block));
         if (block.type === 'link') {
-            console.log('Before handleNotionList');
-            dispatch(handleNotionList({ uid: block.author }));
+            dispatch(handleNotionList(user));
         }
         dispatch(handleActiveDotsModal(false));
         dispatch(handleActiveBlock(null));
     };
 
     const handleEdit = () => {
-        console.log(block);
         dispatch(handleBlockUpdate(block));
     };
 
