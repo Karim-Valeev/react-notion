@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import TinyMceWYSIWYGEditor from './TinyMceWYSIWYGEditor';
 
-function TextBlockModal({ activeTextModal,block, handleClick, handleText }) {
+function TextBlockModal({ activeTextModal, block, handleClick, handleText }) {
     const classModal = activeTextModal ? 'modal show modal_background' : 'modal modal_background';
     const [text, setText] = useState('');
 
     useEffect(() => {
         if (block !== null) {
-            setText(block.value)
+            setText(block.value);
         } else {
-            setText("")
+            setText('');
         }
-    }, [block])
+    }, [block]);
     const handleEditorChange = (text) => {
         setText(text);
     };
@@ -20,7 +20,6 @@ function TextBlockModal({ activeTextModal,block, handleClick, handleText }) {
         event.preventDefault();
         handleText(text);
     };
-
 
     return (
         <div className={classModal} id="exampleModalToggle1" aria-labelledby="exampleModalToggleLabel2">

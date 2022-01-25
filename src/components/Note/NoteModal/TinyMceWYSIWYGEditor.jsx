@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { API_KEY } from '../../../constants/tinyMceWYSIWYGEditorConstants';
 
-function TinyMceWYSIWYGEditor({text, handleEditorChange }) {
+function TinyMceWYSIWYGEditor({ text, handleEditorChange }) {
     const editorRef = useRef(null); // Т.к. интеграция со сторонними DOM-библиотеками.
     return (
         <>
